@@ -24,7 +24,7 @@ jobs:
           git config --global user.name "Mutiara-WRT"
           git config --global user.email "mutiara-wrt@users.noreply.github.com"
           git add update.txt
-          git commit -m "Auto Commit $(TZ=Asia/Jakarta date +'%Y-%m-%d %H:%M:%S')"
+          git commit -m "Auto Commit 🇵🇸 $(TZ=Asia/Jakarta date +'%Y-%m-%d %H:%M:%S')"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
