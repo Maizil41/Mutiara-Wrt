@@ -17,17 +17,21 @@ jobs:
 
       - name: Get current time
         id: current_time
-        run: echo "CURRENT_TIME=$(TZ=Asia/Jakarta date +'%Y-%m-%d %H:%M:%S')" >> $GITHUB_ENV
+        run: echo "CURRENT_TIME=$(TZ=Asia/Jakarta date +'%Y-%m-%d %H:%M:%S')" > time.txt
+
+      - name: Set current time as environment variable
+        id: set_env
+        run: echo "CURRENT_TIME=$(cat time.txt)" >> $GITHUB_ENV
 
       - name: Update update.txt
-        run: echo "Last Update : $(date +'%Y-%m-%d %H:%M:%S')" > update.txt
+        run: echo "Last Update : ${{ env.CURRENT_TIME }}" > update.txt
 
       - name: Commit and Push changes
         run: |
           git config --global user.name "Mutiara-WRT"
           git config --global user.email "mutiara-wrt@users.noreply.github.com"
           git add update.txt
-          git commit -m "Auto Commit 🎉 $(date +'%Y-%m-%d %H:%M:%S')"
+          git commit -m "Auto Commit 🎉 ${{ env.CURRENT_TIME }}"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -40,6 +44,6 @@ jobs:
           format: markdown
           message: |
             📢 **Update Notification** 📢
-            Last Update: $(date +'%Y-%m-%d %H:%M:%S')
+            Last Update: ${{ env.CURRENT_TIME }}
             Repository: ${{ github.repository }}
-            Commit Message: Auto Commit $(date +'%Y-%m-%d %H:%M:%S')
+            Commit Message: Auto Commit ${{ env.CURRENT_TIME }}
