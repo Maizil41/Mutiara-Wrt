@@ -41,6 +41,6 @@ jobs:
           format: markdown
           message: |
             📢 **Update Notification** 📢
-            Last Update: ${{ env.CURRENT_TIME }}
-            Repository: ${{ github.repository }}
-            Commit Message: Auto Commit ${{ env.CURRENT_TIME }}
+            Last Update: `${{ env.CURRENT_TIME }}`
+            Repository: `${{ github.repository }}`
+            Message: Auto Commit `${{ env.CURRENT_TIME }}`
