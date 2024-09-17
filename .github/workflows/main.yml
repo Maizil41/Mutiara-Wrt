@@ -1,0 +1,30 @@
+name: Auto Commit
+
+on:
+  schedule:
+    - cron: "0 */4 * * *" 
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Update update.txt
+        run: |
+          echo "Last Update : $(TZ=Asia/Jakarta date +'%Y-%m-%d %H:%M:%S')" > update.txt
+
+      - name: Commit and Push changes
+        run: |
+          git config --global user.name "Mutiara-WRT"
+          git config --global user.email "mutiara-wrt@users.noreply.github.com"
+          git add update.txt
+          git commit -m "Auto Commit $(TZ=Asia/Jakarta date +'%Y-%m-%d %H:%M:%S')"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
