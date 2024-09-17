@@ -17,11 +17,7 @@ jobs:
 
       - name: Get current time
         id: current_time
-        run: echo "CURRENT_TIME=$(TZ=Asia/Jakarta date +'%Y-%m-%d %H:%M:%S')" > time.txt
-
-      - name: Set current time as environment variable
-        id: set_env
-        run: echo "CURRENT_TIME=$(cat time.txt)" >> $GITHUB_ENV
+        run: echo "CURRENT_TIME=$(TZ=Asia/Jakarta date +'%Y-%m-%d %H:%M:%S')" >> $GITHUB_ENV
 
       - name: Update update.txt
         run: echo "Last Update : ${{ env.CURRENT_TIME }}" > update.txt
