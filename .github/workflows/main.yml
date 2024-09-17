@@ -20,7 +20,8 @@ jobs:
         run: echo "CURRENT_TIME=$(TZ=Asia/Jakarta date +'%Y-%m-%d %H:%M:%S')" >> $GITHUB_ENV
 
       - name: Update update.txt
-        run: echo "Last Update : ${{ env.CURRENT_TIME }}" > update.txt
+        run: |
+          echo "Last Update : ${{ env.CURRENT_TIME }}" > update.txt
 
       - name: Commit and Push changes
         run: |
