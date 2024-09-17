@@ -15,16 +15,19 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: Get current time
+        id: current_time
+        run: echo "CURRENT_TIME=$(TZ=Asia/Jakarta date +'%Y-%m-%d %H:%M:%S')" >> $GITHUB_ENV
+
       - name: Update update.txt
-        run: |
-          echo "Last Update : $(TZ=Asia/Jakarta date +'%Y-%m-%d %H:%M:%S')" > update.txt
+        run: echo "Last Update : $CURRENT_TIME" > update.txt
 
       - name: Commit and Push changes
         run: |
           git config --global user.name "Mutiara-WRT"
           git config --global user.email "mutiara-wrt@users.noreply.github.com"
           git add update.txt
-          git commit -m "Auto Commit 🎉 $(TZ=Asia/Jakarta date +'%Y-%m-%d %H:%M:%S')"
+          git commit -m "Auto Commit 🎉 $CURRENT_TIME"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -37,6 +40,6 @@ jobs:
           format: markdown
           message: |
             📢 **Update Notification** 📢
-            Last Update: $(TZ=Asia/Jakarta date +'%Y-%m-%d %H:%M:%S')
+            Last Update: $CURRENT_TIME
             Repository: ${{ github.repository }}
-            Commit Message: Auto Commit $(TZ=Asia/Jakarta date +'%Y-%m-%d %H:%M:%S')
+            Commit Message: Auto Commit $CURRENT_TIME
