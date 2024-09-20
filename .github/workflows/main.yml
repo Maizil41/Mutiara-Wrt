@@ -2,7 +2,7 @@ name: Auto Commit
 
 on:
   schedule:
-    - cron: "0 */4 * * *" # Menjalankan setiap 4 jam
+    - cron: "0 */4 * * *"
   workflow_dispatch:
 
 jobs:
@@ -25,8 +25,8 @@ jobs:
 
       - name: Commit and Push changes
         run: |
-          git config --global user.name "Mutiara-WRT"
-          git config --global user.email "mutiara-wrt@users.noreply.github.com"
+          git config --global user.name "Maizil41"
+          git config --global user.email "maizilpc7@users.noreply.github.com"
           git add update.txt
           git commit -m "Auto Commit 🎉 ${{ env.CURRENT_TIME }}"
           git push
