@@ -42,10 +42,9 @@ jobs:
           mkdir sdk && tar -xf sdk.tar.xz -C sdk --strip-components=1
 
           echo -e "\033[34m📦 Cloning $PKG_NAME package \033[0m"
-          git clone -q https://github.com/${{ github.repository }} sdk/package/${PKG_NAME}
-          find sdk/package/${PKG_NAME} -mindepth 1 ! -path 'sdk/package/${PKG_NAME}/${PKG_NAME}*' -exec rm -rf {} +
-          mv sdk/package/${PKG_NAME}/${PKG_NAME}/* sdk/package/${PKG_NAME}
-          rm -rf sdk/package/${PKG_NAME}/${PKG_NAME}
+          git clone -q https://github.com/${{ github.repository }} sdk/package/tmp
+          mv sdk/package/tmp/${PKG_NAME} sdk/package/
+          rm -rf sdk/package/tmp
             
       - name: 📡 Set up SDK feeds
         run: |
@@ -89,9 +88,3 @@ jobs:
             ### Changelog ${{ env.PKG_VERSION }}:
 
             **📦 New build of ${{ env.PKG_NAME }}**
-
-            **🐞 Bug fixes and improvements**
-            
-            **📸 Screenshot of application**
-
-            **📝 Full Changelog**
