@@ -1,0 +1,22 @@
+#!/bin/sh
+
+if [ -d "/www/RadiusMonitor" ]; then
+    mv /www/RadiusMonitor /www/RadiusMonitorx
+fi
+
+if [ -d "/usr/share/RadiusMonitor" ]; then
+    mv /usr/share/RadiusMonitor /usr/share/RadiusMonitorx
+fi
+
+sleep 1
+
+git clone https://github.com/maizil41/RadiusMonitor.git /usr/share/RadiusMonitor
+
+sleep 1
+
+ln -s /usr/share/RadiusMonitor /www/RadiusMonitor
+
+sleep 1
+
+cd /www/RadiusMonitor && mysql -u root -pradius < radmon.sql
+

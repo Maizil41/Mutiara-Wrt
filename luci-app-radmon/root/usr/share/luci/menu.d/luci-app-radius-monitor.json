@@ -1,0 +1,14 @@
+{
+	"admin/services/radmon": {
+		"title": "RadMon",
+		"order": 3,
+		"action": {
+			"type": "template",
+			"path": "radmon"
+		},
+		"depends": {
+			"acl": [ "luci-app-radius-monitor" ]
+		}
+
+	}
+}

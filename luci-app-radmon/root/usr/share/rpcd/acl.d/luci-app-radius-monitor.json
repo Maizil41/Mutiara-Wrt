@@ -1,0 +1,11 @@
+{
+	"luci-app-radius-monitor": {
+		"description": "Grant UCI access for luci-app-radius-monitor",
+		"read": {
+			"uci": [ "radius-monitor" ]
+		},
+		"write": {
+			"uci": [ "radius-monitor" ]
+		}
+	}
+}
