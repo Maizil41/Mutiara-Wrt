@@ -27,7 +27,7 @@ jobs:
           
           echo -e "\033[34m🔧 Configuring environment \033[0m"
           PKG_NAME=luci-app-radius-monitor
-          PKG_VERSION=$(grep -oP 'PKG_VERSION:=\K.*' Makefile)
+          PKG_VERSION=$(grep 'PKG_VERSION:=' $PKG_NAME/Makefile | awk -F '=' '{print $2}' | tr -d ' ')
           export TERM=xterm
           echo "PKG_VERSION=$PKG_VERSION" >> $GITHUB_ENV
           echo "PKG_NAME=$PKG_NAME" >> $GITHUB_ENV
