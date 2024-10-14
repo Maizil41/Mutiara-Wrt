@@ -42,9 +42,8 @@ jobs:
           mkdir sdk && tar -xf sdk.tar.xz -C sdk --strip-components=1
 
           echo -e "\033[34m📦 Cloning $PKG_NAME package \033[0m"
-          git clone -q https://github.com/${{ github.repository }} sdk/package/${{ github.repository }}
-          mv sdk/package/${{ github.repository }}/${PKG_NAME} sdk/package/
-          rm -rf sdk/package/${{ github.repository }}
+          git clone -q https://github.com/${{ github.repository }} sdk/package/
+          find sdk/package/ -mindepth 1 ! -path 'sdk/package/luci-app-radius-monitor*' -exec rm -rf {} +
             
       - name: 📡 Set up SDK feeds
         run: |
