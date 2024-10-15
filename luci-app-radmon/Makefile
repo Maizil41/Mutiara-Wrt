@@ -5,7 +5,7 @@
 include $(TOPDIR)/rules.mk
 
 LUCI_TITLE:=LuCI for Radius Monitor.
-LUCI_DEPENDS:=+luci
+LUCI_DEPENDS:=+luci +php7-cli +php7-mod-mysqli +php7-mod-pdo-mysql +php7-mod-gd +php7-mod-xml +php7-mod-filter +php7-mod-curl
 LUCI_DESCRIPTION:=Application for monitoring RADIUS server.
 LUCI_MAINTAINER:=Maizil <maizilpc7@gmail.com>
 
