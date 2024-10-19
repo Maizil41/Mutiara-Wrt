@@ -47,8 +47,8 @@ jobs:
         
     - name: Extract Rootfs
       run:
-        mkdir -p /home/runner/work/Mutiara-Wrt/Mutiara-Wrt/tmp
-        mv openwrt-imagebuilder-23.05.5-armsr-armv8.Linux-x86_64/bin/targets/armsr/armv8/openwrt-23.05.5-armsr-armv8-generic-rootfs.tar.gz /home/runner/work/Mutiara-Wrt/Mutiara-Wrt/tmp/
-        cd /home/runner/work/Mutiara-Wrt/Mutiara-Wrt/tmp
-        tar -xzvf openwrt*.tar.gz
+        cd /home/runner/work/Mutiara-Wrt/Mutiara-Wrt/
+        mkdir -p tmp/
+        mv openwrt-imagebuilder-23.05.5-armsr-armv8.Linux-x86_64/bin/targets/armsr/armv8/openwrt-23.05.5-armsr-armv8-generic-rootfs.tar.gz tmp/
+        cd tmp/
         ls -la
