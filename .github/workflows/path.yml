@@ -91,10 +91,15 @@ jobs:
         run: |
           mv openwrt-23.05.5-armsr-armv8-generic-rootfs.tar.gz amlogic-s9xxx-openwrt/openwrt-armvirt/
 
-      - name: Build Firmware
+      - name: Build Firmware HG680P
         run: |
           cd amlogic-s9xxx-openwrt
           sudo ./remake -b s905x -k 5.15 -s 1024
+
+      - name: Build Firmware B860H
+        run: |
+          cd amlogic-s9xxx-openwrt
+          sudo ./remake -b s905x-b860h -k 5.15 -s 1024
 
       - name: Find Firmware
         run: |
