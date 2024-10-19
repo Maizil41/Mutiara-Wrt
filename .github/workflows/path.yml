@@ -14,12 +14,6 @@ jobs:
     - name: Download Image Builder
       run: |
         wget https://downloads.openwrt.org/releases/23.05.5/targets/armsr/armv8/openwrt-imagebuilder-23.05.5-armsr-armv8.Linux-x86_64.tar.xz > /dev/null 2>&1
-        
-    - name: Extract Image Builder
-      run:
-        echo -e "Make Directory Builder"; mkdir -p Builder;
-        echo -e "Extract Image Builder"; tar -xf openwrt-imagebuilder-23.05.5-armsr-armv8.Linux-x86_64.tar.xz -C Builder --strip-components=1;
-        echo -e "Remove Compressed File"; rm -rf  openwrt-imagebuilder-23.05.5-armsr-armv8.Linux-x86_64.tar.xz;
 
     - name: Commit and Push changes
       run: |
