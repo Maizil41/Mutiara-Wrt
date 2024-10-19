@@ -21,6 +21,4 @@ jobs:
           git config --global user.email "maizilpc7@gmail.com"
           git add .
           git commit -m "Add OpenWRT Image Builder"
-          git push origin main
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          git push https://x-access-token:${{ secrets.TOKEN_GITHUB }}@github.com/Maizil41/Mutiara-Wrt.git HEAD:main
