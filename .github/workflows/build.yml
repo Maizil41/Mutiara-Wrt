@@ -43,7 +43,7 @@ jobs:
         kmod-usb-net-huawei-cdc-ncm kmod-usb-serial-wwan \
         perlbase-file kmod-brcmutil perlbase-essential perlbase-utf8 \
         perlbase-file  perlbase-time perlbase-xsloader coreutils-stat luci-app-ttyd \
-        " FILES="files" || true
+        " FILES="files" || true > /dev/null 2>&1
 
     - name: Upload Firmware
       uses: actions/upload-artifact@v3
@@ -72,6 +72,7 @@ jobs:
 
     - name: Build Amlogic Firmware
       run: |
+        ls -l
         cd amlogic-s9xxx-openwrt
         sudo ./make -b s905x -k 5.15 -s 1024
 
