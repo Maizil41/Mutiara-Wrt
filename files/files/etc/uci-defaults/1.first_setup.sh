@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# (echo "mutiara"; sleep 1; echo "mutiara") | passwd > /dev/null
+(echo "mutiara"; sleep 1; echo "mutiara") | passwd > /dev/null
 
 echo "Setup NTP Server and Time Zone to Asia/Jakarta"
 uci set system.@system[0].hostname='mutiara-wrt'
