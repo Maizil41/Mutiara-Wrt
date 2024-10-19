@@ -64,7 +64,7 @@ jobs:
 
       - name: Compress Rootfs
         run:
-          echo -e "Compress Rootfs"; tar -czvf openwrt-23.05.5-armsr-armv8-generic-rootfs.tar.gz -C /rootfs .;
+          echo -e "Compress Rootfs"; tar -czvf openwrt-23.05.5-armsr-armv8-generic-rootfs.tar.gz -C rootfs/ .;
           echo -e "Remove Rootfs Folder"; rm -rf rootfs
           
       - name: Commit and Push changes
