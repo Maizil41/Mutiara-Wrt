@@ -5,11 +5,11 @@ on:
 
 jobs:
   make_rootfs:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
 
     steps:
     - name: Checkout Repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Download Image Builder
       run: |
@@ -17,9 +17,9 @@ jobs:
         
     - name: Extract Image Builder
       run:
-        mkdir -p Builder
-        tar -xf openwrt-imagebuilder-23.05.5-armsr-armv8.Linux-x86_64.tar.gz -C Builder --strip-components=1
-        rm -rf  openwrt-imagebuilder-23.05.5-armsr-armv8.Linux-x86_64.tar.gz
+        echo -e "Make Directory Builder"; mkdir -p Builder;
+        echo -e "Extract Image Builder"; tar -xf openwrt-imagebuilder-23.05.5-armsr-armv8.Linux-x86_64.tar.gz -C Builder --strip-components=1;
+        echo -e "Remove Compressed File"; rm -rf  openwrt-imagebuilder-23.05.5-armsr-armv8.Linux-x86_64.tar.gz;
 
     - name: Commit and Push changes
       run: |
