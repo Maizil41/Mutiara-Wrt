@@ -1,0 +1,18 @@
+name: Check Current Path
+on:
+  workflow_dispatch:
+
+jobs:
+  check_path:
+    runs-on: ubuntu-22.04
+    
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+      
+    - name: check_path
+      run: |
+        - echo "Current working directory is: $(pwd)"
+    
+        - echo "Files and directories in the current path:"
+        - ls -la
