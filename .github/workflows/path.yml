@@ -21,13 +21,14 @@ jobs:
       - name: Download Builder
         run: |
           wget https://downloads.openwrt.org/releases/23.05.5/targets/armsr/armv8/openwrt-imagebuilder-23.05.5-armsr-armv8.Linux-x86_64.tar.xz > /dev/null 2>&1
-          mkdir -p Builder > /dev/null 2>&1
-          tar -xf openwrt-imagebuilder-23.05.5-armsr-armv8.Linux-x86_64.tar.xz -C Builder --strip-components=1 > /dev/null 2>&1
+          mkdir -p tmp > /dev/null 2>&1
+          mkdir -p rootfs > /dev/null 2>&1
+          tar -xf openwrt-imagebuilder-23.05.5-armsr-armv8.Linux-x86_64.tar.xz -C tmp --strip-components=1 > /dev/null 2>&1
           rm -rf openwrt-imagebuilder-23.05.5-armsr-armv8.Linux-x86_64.tar.xz > /dev/null 2>&1
 
       - name: Make Rootfs
         run: |
-          cd Builder > /dev/null 2>&1
+          cd tmp > /dev/null 2>&1
           make image PROFILE="generic" PACKAGES=" \
           -dnsmasq -luci-theme-bootstrap \
           dnsmasq-full cgi-io libiwinfo libiwinfo-data libiwinfo-lua liblua liblucihttp liblucihttp-lua \
@@ -50,8 +51,10 @@ jobs:
 
       - name: Move Rootfs
         run:
-          echo -e "Move Rootfs"; mv Builder/bin/targets/armsr/armv8/openwrt-23.05.5-armsr-armv8-generic-rootfs.tar.gz /home/runner/work/Mutiara-Wrt/Mutiara-Wrt/;
-          echo -e "Remove Builder"; rm -rf Builder;
+          echo -e "Move Rootfs"; mv tmp/bin/targets/armsr/armv8/openwrt-23.05.5-armsr-armv8-generic-rootfs.tar.gz /home/runner/work/Mutiara-Wrt/Mutiara-Wrt/;
+          echo -e "Remove tmp"; rm -rf tmp;
+          echo -e "Extract Rootfs"; tar -xf openwrt-23.05.5-armsr-armv8-generic-rootfs.tar.gz -C Rootfs --strip-components=1;
+          echo -e "Remove Rootfs"; rm -rf openwrt-23.05.5-armsr-armv8-generic-rootfs.tar.gz;
           
       - name: Commit and Push changes
         run: |
