@@ -1,0 +1,251 @@
+{#
+	Material is a clean HTML5 theme for LuCI. It is based on luci-theme-bootstrap and MUI
+
+	luci-theme-material
+	Copyright 2015-2017 Lutty Yang <lutty@wcan.in>
+
+	Have a bug? Please create an issue here on GitHub!
+	https://github.com/LuttyYang/luci-theme-material/issues
+
+	luci-theme-bootstrap:
+	Copyright 2008 Steven Barth <steven@midlink.org>
+	Copyright 2008-2016 Jo-Philipp Wich <jow@openwrt.org>
+	Copyright 2012 David Menting <david@nut-bolt.nl>
+
+	MUI:
+	https://github.com/muicss/mui
+
+	Licensed to the public under the Apache License 2.0
+-#}
+
+{%
+	import { getuid, getspnam } from 'luci.core';
+
+	const boardinfo = ubus.call('system', 'board');
+	const hostname = striptags(boardinfo?.hostname ?? '?');
+
+	http.prepare_content('text/html; charset=UTF-8');
+-%}
+
+<!DOCTYPE html>
+<html lang="{{ dispatcher.lang }}">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#09c">
+<meta name="msapplication-tap-highlight" content="no">
+<meta name="msapplication-TileColor" content="#09c">
+<meta name="application-name" content="{{ hostname }} - LuCI">
+<meta name="apple-mobile-web-app-title" content="{{ hostname }} - LuCI">
+<link rel="stylesheet" href="{{ media }}/cascade.css?v=git-24.089.55517-835ac75">
+<link rel="shortcut icon" href="{{ media }}/favicon.ico">
+{% if (node?.css): %}
+<link rel="stylesheet" href="{{ resource }}/{{ node.css }}">
+{% endif %}
+<script src="{{ dispatcher.build_url('admin/translations', dispatcher.lang) }}"></script>
+<script src="{{ resource }}/cbi.js?v=git-24.089.55517-835ac75"></script>
+<title>{{ hostname }}{{ node?.title ? ` - ${striptags(node.title)}` : '' }} - LuCI</title>
+{% if (css): %}
+<style title="text/css">{{ css }}</style>
+{% endif %}
+</head>
+<body class="lang_{{ dispatcher.lang }} {{ ctx.authsession ? 'logged-in' : '' }} {{ length(ctx.path) ? `node-${join('-', ctx.path)}` : 'node-main-login' }}" data-page="{{ entityencode(join('-', ctx.path), true) }}">
+<header>
+	<div class="fill">
+		<div class="container">
+			<span class="showSide"></span>
+			<a id="logo" href="{{ ctx.authsession ? dispatcher.build_url('admin/status/overview') : '#' }}"><img src="{{ media }}/brand.png" alt="OpenWrt"></a>
+			<tr>
+			 <td><a href='/cgi-bin/luci/admin/services/openclash'><img src="{{ media }}/navbar/clash.png" width="35" height="35"></a></td>
+			 <td><a href='/cgi-bin/luci/admin/services/radmon'><img src="{{ media }}/navbar/hotspot.png" width="35" height="35"></a></td>
+			 <td><a href='/cgi-bin/luci/admin/system/tinyfm'><img src="{{ media }}/navbar/tinyfm.png" width="35" height="35"></a></td>
+			 <td><a href='/cgi-bin/luci/admin/status/realtime'><img src="{{ media }}/navbar/netmon.png" width="35" height="35"></a></td>
+             <td><a href='/cgi-bin/luci/admin/network/network'><img src="{{ media }}/navbar/interface.png" width="35" height="35"></a></td>
+            </tr>
+			<span class="status" id="indicators"></span>
+		</div>
+	</div>
+<style>
+#menu {
+    background: linear-gradient(90deg, rgba(0,103,134,1) 0%, rgba(0,153,199,1) 50%, rgba(91,192,222,1) 100%);
+    color: #fff;
+    height: 17px;
+    padding-left: 0px;
+    border-radius: 0;
+}
+#menu li,
+#menu ul {
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+}
+#menu ul {
+    width: 100%;
+}
+#menu li {
+    float: left;
+    display: inline;
+    position: relative;
+}
+#menu a {
+    display: block;
+    line-height: 15px;
+    padding: 0 5px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 12px;
+}
+#menu a.dropdown-arrow:after {
+    content: "\25BE";
+    margin-left: 5px;
+}
+#menu li a:hover {
+    color: #006786;
+    background: #fff;
+}
+#menu input {
+    display: none;
+    margin: 0;
+    padding: 0;
+    height: 20px;
+    width: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+#menu label {
+    display: none;
+    line-height: 20px;
+    text-align: center;
+    position: absolute;
+    left: 35px;
+}
+#menu label:before {
+    font-size: 1.6em;
+    content: "\2261";
+    margin-left: 20px;
+}
+#menu ul.sub-menus {
+    height: auto;
+    overflow: hidden;
+    width: 170px;
+    background: #fff;
+    position: absolute;
+    z-index: 99;
+    display: none;
+}
+#menu ul.sub-menus li {
+    display: block;
+    width: 100%;
+}
+#menu ul.sub-menus a {
+    color: #fff;
+    font-size: 12px;
+}
+#menu li:hover ul.sub-menus {
+    display: block;
+}
+#menu ul.sub-menus a:hover {
+    background: #fff;
+    color: #006786;
+}
+@media screen and (max-width: 200px) {
+    #menu {
+        position: relative;
+    }
+    #menu ul {
+        background: #111;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+        z-index: 3;
+        height: auto;
+        display: none;
+    }
+    #menu ul.sub-menus {
+        width: 100%;
+        position: static;
+    }
+    #menu ul.sub-menus a {
+        padding-left: 30px;
+    }
+    #menu li {
+        display: block;
+        float: none;
+        width: auto;
+    }
+    #menu input,
+    #menu label {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+    }
+    #menu input {
+        z-index: 4;
+    }
+    #menu input:checked + label {
+        color: #fff;
+    }
+    #menu input:checked + label:before {
+        content: "\00d7";
+    }
+    #menu input:checked ~ ul {
+        display: block;
+    }
+}
+</style>
+<script>
+function updatemenu(){1==document.getElementById("responsive-menu").checked?(document.getElementById("menu").style.borderBottomRightRadius="0",document.getElementById("menu").style.borderBottomLeftRadius="0"):document.getElementById("menu").style.borderRadius="0px"}
+</script>
+<nav id='menu'>
+  <input type='checkbox' id='responsive-menu' onclick='updatemenu()'><label></label>
+  <ul>
+	<li><a href='/cgi-bin/luci/admin/status/about'>About</a></li>
+    <li><a href='http://192.168.8.1/' target='_blank'>Modem</a></li>    
+    <li><a href='/cgi-bin/luci/admin/services/ttyd'>Terminal</a></li>
+	<li><a id="yacd" target='_blank'><p>Yacd</p></a></li>
+	<script type="text/javascript">document.getElementById("yacd").setAttribute("href", "http://" + window.location.hostname + ":9090/ui/yacd/?hostname=" + window.location.hostname + "&port=9090&secret=Mutiara",);</script>
+  </ul>
+</nav>
+</header>
+<div class="main">
+	<div style="" class="loading"><span><div class="loading-img"></div>{{ _('Collecting data...') }}</span></div>
+	<div class="main-left" id="mainmenu" style="display:none"></div>
+	<div class="main-right">
+		<div class="modemenu-buttons" style="display:none">
+			<ul id="modemenu"></ul>
+		</div>
+		<div class="darkMask"></div>
+		<div id="maincontent">
+			<div class="container">
+				{% if (getuid() == 0 && getspnam('root')?.pwdp === ''): %}
+					<div class="alert-message warning">
+						<h4>{{ _('No password set!') }}</h4>
+						<p>{{ _('There is no password set on this router. Please configure a root password to protect the web interface.') }}</p>
+						{% if (dispatcher.lookup("admin/system/admin")): %}
+						  <div class="right"><a class="btn" href="{{ dispatcher.build_url("admin/system/admin") }}">{{ _('Go to password configuration...') }}</a></div>
+						{% endif %}
+					</div>
+				{% endif %}
+
+				{% if (boardinfo?.rootfs_type == "initramfs"): %}
+					<div class="alert-message warning">
+						<h4>{{ _('System running in recovery (initramfs) mode.') }}</h4>
+						<p>{{ _('No changes to settings will be stored and are lost after rebooting. This mode should only be used to install a firmware upgrade') }}</p>
+						{% if (dispatcher.lookup("admin/system/flash")): %}
+						  <div class="right"><a class="btn" href="{{ dispatcher.build_url("admin/system/flash") }}">{{ _('Go to firmware upgrade...') }}</a></div>
+						{% endif %}
+					</div>
+				{% endif %}
+
+				<noscript>
+					<div class="alert-message warning">
+						<h4>{{ _('JavaScript required!') }}</h4>
+						<p>{{ _('You must enable JavaScript in your browser or LuCI will not work properly.') }}</p>
+					</div>
+				</noscript>
+
+				<div id="tabmenu" style="display:none"></div>

@@ -1,0 +1,134 @@
+{
+	"admin/status/overview": {
+		"title": "Overview",
+		"order": 1,
+		"action": {
+			"type": "template",
+			"path": "admin_status/index"
+		},
+		"depends": {
+			"acl": [ "luci-mod-status-index" ]
+		}
+	},
+
+	"admin/status/routes": {
+		"title": "Routing",
+		"order": 2,
+		"action": {
+			"type": "view",
+			"path": "status/routes"
+		},
+		"depends": {
+			"acl": [ "luci-mod-status-routes" ]
+		}
+	},
+
+	"admin/status/iptables": {
+		"title": "Firewall",
+		"order": 3,
+		"action": {
+			"type": "view",
+			"path": "status/iptables"
+		},
+		"depends": {
+			"acl": [ "luci-mod-status-firewall" ],
+			"fs": [
+				{ "/usr/sbin/nft": "absent", "/usr/sbin/iptables": "executable" },
+				{ "/usr/sbin/nft": "absent", "/usr/sbin/ip6tables": "executable" }
+			]
+		}
+	},
+
+	"admin/status/firewall": {
+		"title": "Firewall",
+		"order": 3,
+		"action": {
+			"type": "firstchild"
+		},
+		"depends": {
+			"acl": [ "luci-mod-status-firewall" ],
+			"fs": { "/usr/sbin/nft": "executable" }
+		}
+	},
+	
+	"admin/status/firewall/nftables": {
+	    "title": "Nftables",
+	    "order": 1,
+		"action": {
+			"type": "view",
+			"path": "status/nftables"
+		}
+	},
+
+	"admin/status/firewall/iptables": {
+	    "title": "Iptables",
+	    "order": 2,
+		"action": {
+			"type": "view",
+			"path": "status/iptables"
+		}
+	},
+
+	"admin/status/logs": {
+		"title": "System Log",
+		"order": 4,
+		"action": {
+			"type": "alias",
+			"path": "admin/status/logs/syslog"
+		},
+		"depends": {
+			"acl": [ "luci-mod-status-logs" ]
+		}
+	},
+
+	"admin/status/logs/syslog": {
+		"title": "System Log",
+		"order": 1,
+		"action": {
+			"type": "view",
+			"path": "status/syslog"
+		}
+	},
+
+	"admin/status/logs/dmesg": {
+		"title": "Kernel Log",
+		"order": 2,
+		"action": {
+			"type": "view",
+			"path": "status/dmesg"
+		}
+	},
+
+	"admin/status/processes": {
+		"title": "Processes",
+		"order": 6,
+		"action": {
+			"type": "view",
+			"path": "status/processes"
+		},
+		"depends": {
+			"acl": [ "luci-mod-status-processes" ]
+		}
+	},
+
+	"admin/status/realtime": {
+		"title": "Net Monitor",
+		"order": 7,
+		"action": {
+			"type": "template",
+			"path": "netmon"
+		},
+		"depends": {
+			"acl": [ "luci-mod-status-realtime" ]
+		}
+	},
+
+	"admin/status/realtime/connections": {
+		"title": "Connections",
+		"order": 4,
+		"action": {
+			"type": "view",
+			"path": "status/connections"
+		}
+	}
+}
