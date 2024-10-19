@@ -14,9 +14,9 @@ jobs:
 
       - name: Download Depedency
         run: |
-          sudo apt update -y > /dev/null 2>&1
-          sudo apt install net-tools make gawk git curl unzip bzip2 -y > /dev/null 2>&1
-          sudo apt install -y $(curl -fsSL https://is.gd/depend_ubuntu2204_openwrt) > /dev/null 2>&1
+          sudo -E apt-get update > /dev/null 2>&1
+          sudo -E apt install net-tools make gawk git curl unzip bzip2 > /dev/null 2>&1
+          sudo -E apt install -y $(curl -fsSL https://is.gd/depend_ubuntu2204_openwrt) > /dev/null 2>&1
         
       - name: Download Builder
         run: |
@@ -53,7 +53,7 @@ jobs:
         run:
           echo -e "Move Rootfs"; mv tmp/bin/targets/armsr/armv8/openwrt-23.05.5-armsr-armv8-generic-rootfs.tar.gz /home/runner/work/Mutiara-Wrt/Mutiara-Wrt/;
           echo -e "Remove tmp"; rm -rf tmp;
-          echo -e "Extract Rootfs"; tar -xf openwrt-23.05.5-armsr-armv8-generic-rootfs.tar.gz -C Rootfs --strip-components=1;
+          echo -e "Extract Rootfs"; tar -xf openwrt-23.05.5-armsr-armv8-generic-rootfs.tar.gz -C rootfs --strip-components=1;
           echo -e "Remove Rootfs"; rm -rf openwrt-23.05.5-armsr-armv8-generic-rootfs.tar.gz;
           
       - name: Commit and Push changes
