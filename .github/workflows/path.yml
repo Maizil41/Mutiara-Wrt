@@ -17,9 +17,9 @@ jobs:
         
     - name: Extract Image Builder
       run:
-        mkdir -p Builder > /dev/null 2>&1
-        tar -xf openwrt-imagebuilder-23.05.5-armsr-armv8.Linux-x86_64.tar.gz -C Builder --strip-components=1 > /dev/null 2>&1
-        rm -rf  openwrt-imagebuilder-23.05.5-armsr-armv8.Linux-x86_64.tar.gz > /dev/null 2>&1
+        mkdir -p Builder
+        tar -xf openwrt-imagebuilder-23.05.5-armsr-armv8.Linux-x86_64.tar.gz -C Builder --strip-components=1
+        rm -rf  openwrt-imagebuilder-23.05.5-armsr-armv8.Linux-x86_64.tar.gz
 
     - name: Commit and Push changes
       run: |
