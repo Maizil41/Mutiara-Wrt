@@ -4,7 +4,7 @@ on:
 
 jobs:
   Compile:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     permissions:
       contents: write
 
@@ -55,6 +55,17 @@ jobs:
           echo -e "Remove tmp"; rm -rf tmp;
           echo -e "Extract Rootfs"; tar -xf openwrt-23.05.5-armsr-armv8-generic-rootfs.tar.gz -C rootfs --strip-components=1;
           echo -e "Remove Rootfs"; rm -rf openwrt-23.05.5-armsr-armv8-generic-rootfs.tar.gz;
+
+      - name: Change Files
+        run:
+          echo -e "Copy Lib"; cp -rf files/lib/* rootfs/lib/;
+          echo -e "Change Permission Wifi"; chmod +x rootfs/lib/wifi/*;
+          echo -e "Change Permission Netifd"; chmod +x rootfs/lib/netifd/wireless/*;
+
+      - name: Compress Rootfs
+        run:
+          echo -e "Compress Rootfs"; tar -czvf openwrt-23.05.5-armsr-armv8-generic-rootfs.tar.gz -C /rootfs .;
+          echo -e "Remove Rootfs Folder"; rm -rf rootfs
           
       - name: Commit and Push changes
         run: |
