@@ -1,4 +1,4 @@
-name: Build OpenWrt
+name: Download Image Builder
 
 on:
   workflow_dispatch:
@@ -11,26 +11,22 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v2
 
-    - name: Install Dependencies
-      run: |
-        sudo apt update -y > /dev/null 2>&1
-        sudo apt install net-tools make gawk git curl unzip bzip2 -y > /dev/null 2>&1
-        sudo apt install -y $(curl -fsSL https://is.gd/depend_ubuntu2204_openwrt) > /dev/null 2>&1
-
     - name: Download Image Builder
       run: |
         wget https://downloads.openwrt.org/releases/23.05.5/targets/armsr/armv8/openwrt-imagebuilder-23.05.5-armsr-armv8.Linux-x86_64.tar.xz > /dev/null 2>&1
-        tar -J -x -f openwrt-imagebuilder-23.05.5-armsr-armv8.Linux-x86_64.tar.xz > /dev/null 2>&1
-
-    - name: Build Rootfs
-      run: |
-        cd openwrt-imagebuilder-23.05.5-armsr-armv8.Linux-x86_64 > /dev/null 2>&1
-        make image PROFILE="generic" PACKAGES=" \
-        -dnsmasq -luci-theme-bootstrap \
-        dnsmasq-full cgi-io libiwinfo libiwinfo-data libiwinfo-lua liblua liblucihttp liblucihttp-lua \
-        " FILES="files" > /dev/null 2>&1 || true
         
-    - name: Extract Rootfs
+    - name: Extract Image Builder
       run:
-        echo -e "Current Path"; pwd;
-        echo -e "List Files"; ls -la
+        mkdir -p Builder > /dev/null 2>&1
+        tar -xf openwrt-imagebuilder-23.05.5-armsr-armv8.Linux-x86_64.tar.gz -C Builder --strip-components=1 > /dev/null 2>&1
+        rm -rf  openwrt-imagebuilder-23.05.5-armsr-armv8.Linux-x86_64.tar.gz > /dev/null 2>&1
+
+    - name: Commit and Push changes
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git add .
+        git commit -m "initial commit"
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
