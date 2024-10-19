@@ -49,4 +49,4 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: openwrt-firmware
-        path: openwrt-imagebuilder-23.05.5-armsr-armv8.Linux-x86_64/bin/targets/
+        path: openwrt-imagebuilder-23.05.5-armsr-armv8.Linux-x86_64/bin/targets/armsr/armv8/openwrt-23.05.5-armsr-armv8-generic-rootfs.tar.gz
