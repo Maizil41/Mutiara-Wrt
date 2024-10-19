@@ -45,7 +45,7 @@ jobs:
         " FILES="files"
 
     - name: Upload Firmware
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: openwrt-firmware
         path: openwrt-imagebuilder-23.05.5-armsr-armv8.Linux-x86_64/bin/targets/ # Sesuaikan dengan path hasil build firmware
