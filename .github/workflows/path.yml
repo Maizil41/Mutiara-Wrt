@@ -8,19 +8,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v3
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+        
+      - name: Download Image Builder
+        run: |
+          wget https://downloads.openwrt.org/releases/23.05.5/targets/armsr/armv8/openwrt-imagebuilder-23.05.5-armsr-armv8.Linux-x86_64.tar.xz > /dev/null 2>&1
 
-    - name: Download Image Builder
-      run: |
-        wget https://downloads.openwrt.org/releases/23.05.5/targets/armsr/armv8/openwrt-imagebuilder-23.05.5-armsr-armv8.Linux-x86_64.tar.xz > /dev/null 2>&1
-
-    - name: Commit and Push changes
-      run: |
-        git config --global user.name "Maizil41"
-        git config --global user.email "maizilpc7@gmail.com"
-        git add .
-        git commit -m "initial commit"
-        git push
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Commit and Push changes
+        run: |
+          git config --global user.name "Maizil41"
+          git config --global user.email "maizilpc7@gmail.com"
+          git add .
+          git commit -m "Add OpenWRT Image Builder"
+          git push origin main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
