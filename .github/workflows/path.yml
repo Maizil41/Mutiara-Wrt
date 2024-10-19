@@ -18,7 +18,6 @@ jobs:
     - name: Extract Image Builder
       run:
         echo -e "Make Directory Builder"; mkdir -p Builder;
-        echo -e "list current directory"; ls -la;
         echo -e "Extract Image Builder"; tar -xf openwrt-imagebuilder-23.05.5-armsr-armv8.Linux-x86_64.tar.xz -C Builder --strip-components=1;
         echo -e "Remove Compressed File"; rm -rf  openwrt-imagebuilder-23.05.5-armsr-armv8.Linux-x86_64.tar.xz;
 
