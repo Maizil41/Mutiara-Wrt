@@ -1,0 +1,5 @@
+/etc/init.d/rpcd
+/etc/config/rpcd
+/sbin/rpcd
+/etc/uci-defaults/50-migrate-rpcd-ubus-sock.sh
+/usr/share/rpcd/acl.d/unauthenticated.json

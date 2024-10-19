@@ -1,0 +1,12 @@
+Package: luci
+Version: git-23.051.66410-a505bb1
+Depends: libc, luci-light, luci-app-opkg
+Source: feeds/luci/collections/luci
+SourceName: luci
+License: Apache-2.0
+Section: luci
+SourceDateEpoch: 1676917610
+Maintainer: OpenWrt LuCI community
+Architecture: all
+Installed-Size: 95
+Description:  Standard OpenWrt set including package management and attended sysupgrades support

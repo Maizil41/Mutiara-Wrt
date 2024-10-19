@@ -1,0 +1,2 @@
+/etc/modules.d/17-phylib-broadcom
+/lib/modules/5.15.167/bcm-phy-lib.ko

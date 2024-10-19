@@ -1,0 +1,11 @@
+Package: luci-lua-runtime
+Version: git-23.233.52805-dae2684
+Depends: libc, luci-base, lua, luci-lib-base, luci-lib-nixio, luci-lib-ip, luci-lib-jsonc, libubus-lua, liblucihttp-lua, ucode-mod-lua
+Source: feeds/luci/modules/luci-lua-runtime
+SourceName: luci-lua-runtime
+Section: luci
+SourceDateEpoch: 1692628805
+Maintainer: OpenWrt LuCI community
+Architecture: aarch64_generic
+Installed-Size: 30641
+Description:  LuCI Lua runtime libraries

@@ -1,0 +1,2 @@
+/lib/modules/5.15.167/xgmac_mdio.ko
+/etc/modules.d/30-fsl-xgmac-mdio

@@ -1,0 +1,11 @@
+Package: luci-lib-jsonc
+Version: git-23.298.74571-62eb535
+Depends: libc, liblua5.1.5, libjson-c5
+Source: feeds/luci/libs/luci-lib-jsonc
+SourceName: luci-lib-jsonc
+Section: luci
+SourceDateEpoch: 1698266571
+Maintainer: OpenWrt LuCI community
+Architecture: aarch64_generic
+Installed-Size: 4652
+Description:  Lua binding for JSON-C

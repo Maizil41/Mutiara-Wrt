@@ -1,0 +1,13 @@
+Package: kmod-phy-broadcom
+Version: 5.15.167-1
+Depends: kernel (=5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-libphy, kmod-phylib-broadcom
+Source: feeds/base/kernel/linux
+SourceName: kmod-phy-broadcom
+License: GPL-2.0-only
+LicenseFiles: COPYING
+Section: kernel
+SourceDateEpoch: 1726325473
+Architecture: aarch64_generic
+Installed-Size: 4417
+Description:  Currently supports the BCM5411, BCM5421, BCM5461, BCM5464, BCM5481,
+ BCM5482 and BCM57780 PHYs.

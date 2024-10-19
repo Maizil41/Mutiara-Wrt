@@ -1,0 +1,14 @@
+Package: libc
+Version: 1.2.4-4
+Depends: libgcc
+Source: feeds/base/libs/toolchain
+SourceName: libc
+License: GPL-3.0-with-GCC-exception
+Section: libs
+SourceDateEpoch: 1648814098
+Status: unknown hold not-installed
+Essential: yes
+Maintainer: Felix Fietkau <nbd@nbd.name>
+Architecture: aarch64_generic
+Installed-Size: 280656
+Description:  C library

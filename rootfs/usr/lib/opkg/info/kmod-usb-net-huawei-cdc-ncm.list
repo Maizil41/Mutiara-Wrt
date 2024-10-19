@@ -1,0 +1,2 @@
+/etc/modules.d/usb-net-huawei-cdc-ncm
+/lib/modules/5.15.167/huawei_cdc_ncm.ko

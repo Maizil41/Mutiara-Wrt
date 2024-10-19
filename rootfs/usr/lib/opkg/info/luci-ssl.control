@@ -1,0 +1,12 @@
+Package: luci-ssl
+Version: git-23.035.26083-7550ad6
+Depends: libc, luci-light, libustream-mbedtls20201210, px5g-mbedtls
+Source: feeds/luci/collections/luci-ssl
+SourceName: luci-ssl
+License: Apache-2.0
+Section: luci
+SourceDateEpoch: 1675494883
+Maintainer: OpenWrt LuCI community
+Architecture: all
+Installed-Size: 96
+Description:  LuCI with HTTPS support (mbedtls as SSL backend)

@@ -1,0 +1,14 @@
+Package: kmod-wdt-sp805
+Version: 5.15.167-1
+Depends: kernel (=5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f)
+Source: feeds/base/kernel/linux
+SourceName: kmod-wdt-sp805
+License: GPL-2.0-only
+LicenseFiles: COPYING
+Section: kernel
+SourceDateEpoch: 1726325473
+Architecture: aarch64_generic
+Installed-Size: 2693
+Description:  Support for the ARM SP805 wathchdog module.
+ This is present in the NXP Layerscape family,
+ HiSilicon HI3660 among others.

@@ -1,0 +1,5 @@
+/etc/config/
+/etc/config/network
+/etc/config/system
+/etc/dropbear/
+/etc/profile.d

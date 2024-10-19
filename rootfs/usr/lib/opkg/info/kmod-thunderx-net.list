@@ -1,0 +1,5 @@
+/lib/modules/5.15.167/thunder_bgx.ko
+/etc/modules.d/40-thunderx-net
+/lib/modules/5.15.167/nicvf.ko
+/lib/modules/5.15.167/nicpf.ko
+/lib/modules/5.15.167/thunder_xcv.ko

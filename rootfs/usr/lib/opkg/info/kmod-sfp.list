@@ -1,0 +1,3 @@
+/etc/modules.d/sfp
+/lib/modules/5.15.167/sfp.ko
+/lib/modules/5.15.167/mdio-i2c.ko

@@ -1,0 +1,4 @@
+/usr/sbin/odhcpd
+/etc/init.d/odhcpd
+/usr/sbin/odhcpd-update
+/etc/uci-defaults/15_odhcpd

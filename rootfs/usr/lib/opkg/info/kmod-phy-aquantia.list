@@ -1,0 +1,3 @@
+/etc/modules.d/18-phy-aquantia
+/etc/modules-boot.d/18-phy-aquantia
+/lib/modules/5.15.167/aquantia.ko

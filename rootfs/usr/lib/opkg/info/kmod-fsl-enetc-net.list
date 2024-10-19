@@ -1,0 +1,5 @@
+/lib/modules/5.15.167/fsl-enetc-mdio.ko
+/lib/modules/5.15.167/fsl-enetc.ko
+/lib/modules/5.15.167/fsl-enetc-vf.ko
+/lib/modules/5.15.167/fsl-enetc-ierb.ko
+/etc/modules.d/35-fsl-enetc-net

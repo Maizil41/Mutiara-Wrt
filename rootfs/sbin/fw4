@@ -1,0 +1,184 @@
+#!/bin/sh
+
+set -o pipefail
+
+MAIN=/usr/share/firewall4/main.uc
+LOCK=/var/run/fw4.lock
+STATE=/var/run/fw4.state
+VERBOSE=
+
+[ -e /dev/stdin ] && STDIN=/dev/stdin || STDIN=/proc/self/fd/0
+
+[ -t 2 ] && export TTY=1
+
+die() {
+	[ -n "$QUIET" ] || echo "$@" >&2
+	exit 1
+}
+
+start() {
+	{
+		flock -x 1000
+
+		case "$1" in
+			start)
+				[ -f $STATE ] && die "The fw4 firewall appears to be already loaded."
+			;;
+			reload)
+				[ ! -f $STATE ] && die "The fw4 firewall does not appear to be loaded."
+
+				# Delete state to force reloading ubus state
+				rm -f $STATE
+			;;
+		esac
+
+		ACTION=start \
+			utpl -S $MAIN | nft $VERBOSE -f $STDIN
+
+		ACTION=includes \
+			utpl -S $MAIN
+	} 1000>$LOCK
+}
+
+print() {
+	ACTION=print \
+		utpl -S $MAIN
+}
+
+stop() {
+	{
+		flock -x 1000
+
+		if nft list tables inet | grep -sq "table inet fw4"; then
+			nft delete table inet fw4
+			rm -f $STATE
+		else
+			return 1
+		fi
+	} 1000>$LOCK
+}
+
+flush() {
+	{
+		flock -x 1000
+
+		local dummy family table
+		nft list tables | while read dummy family table; do
+			nft delete table "$family" "$table"
+		done
+
+		rm -f $STATE
+	} 1000>$LOCK
+}
+
+reload_sets() {
+	ACTION=reload-sets \
+		flock -x $LOCK utpl -S $MAIN | nft $VERBOSE -f $STDIN
+}
+
+lookup() {
+	ACTION=$1 OBJECT=$2 DEVICE=$3 \
+		flock -x $LOCK utpl -S $MAIN
+}
+
+while [ -n "$1" ]; do
+	case "$1" in
+		-q)
+			export QUIET=1
+			shift
+		;;
+		-v)
+			export VERBOSE=-e
+			shift
+		;;
+		*)
+			break
+		;;
+	esac
+done
+
+case "$1" in
+	start|reload)
+		start "$1"
+	;;
+	stop)
+		stop || die "The fw4 firewall does not appear to be loaded, try fw4 flush to delete all rules."
+	;;
+	flush)
+		flush
+	;;
+	restart)
+		QUIET=1 print | nft ${VERBOSE} -c -f $STDIN || die "The rendered ruleset contains errors, not doing firewall restart."
+		stop || rm -f $STATE
+		start
+	;;
+	check)
+		if [ -n "$QUIET" ]; then
+			exec 1>/dev/null
+			exec 2>/dev/null
+		fi
+
+		print | nft ${VERBOSE} -c -f $STDIN && echo "Ruleset passes nftables check."
+	;;
+	print)
+		print
+	;;
+	reload-sets)
+		reload_sets
+	;;
+	network|device|zone)
+		lookup "$@"
+	;;
+	*)
+		cat <<EOT
+Usage:
+
+  $0 [-v] [-q] start|stop|flush|restart|reload
+
+    Start, stop, flush, restart or reload the firewall respectively.
+
+
+  $0 [-v] [-q] reload-sets
+
+    Reload the contents of all declared sets but do not touch the
+    ruleset.
+
+
+  $0 [-q] print
+
+    Print the rendered ruleset.
+
+
+  $0 [-q] check
+
+    Test the rendered ruleset using nftables' check mode without
+    applying it to the running system.
+
+
+  $0 [-q] network {net}
+
+    Print the name of the firewall zone covering the given network.
+
+    Exits with code 1 if the network is not found or if no zone is
+    covering it.
+
+
+  $0 [-q] device {dev}
+
+    Print the name of the firewall zone covering the given device.
+
+    Exits with code 1 if the device is not found or if no zone is
+    covering it.
+
+
+  $0 [-q] zone {zone} [dev]
+
+    Print all covered devices of the given zone, optionally restricted
+    to only the given device name.
+
+    Exits with code 1 if zone is not found or if a device is specified
+    and not covered by the given zone.
+
+EOT
+	;;
+esac

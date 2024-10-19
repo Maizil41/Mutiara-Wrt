@@ -1,0 +1,14 @@
+Package: kmod-ath9k-htc
+Version: 5.15.167+6.1.110-1-1
+Depends: kernel (=5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-ath9k-common, kmod-usb-core, ath9k-htc-firmware
+Source: feeds/base/kernel/mac80211
+SourceName: kmod-ath9k-htc
+License: GPL-2.0-only
+LicenseFiles: COPYING
+Section: kernel
+SourceDateEpoch: 1726358381
+Maintainer: Felix Fietkau <nbd@nbd.name>
+Architecture: aarch64_generic
+Installed-Size: 38149
+Description:  This module adds support for wireless adapters based on
+ Atheros USB AR9271 and AR7010 family of chipsets.

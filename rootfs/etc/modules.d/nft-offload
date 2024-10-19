@@ -1,0 +1,4 @@
+nf_flow_table_inet
+nf_flow_table_ipv4
+nf_flow_table_ipv6
+nft_flow_offload

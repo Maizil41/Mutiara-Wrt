@@ -1,0 +1,14 @@
+Package: hostapd-utils
+Version: 2023-09-08-e5ccbfc6-8
+Depends: libc
+Source: feeds/base/package/network/services/hostapd
+SourceName: hostapd-utils
+License: BSD-3-Clause
+Section: net
+SourceDateEpoch: 1724839223
+CPE-ID: cpe:/a:w1.fi:hostapd
+Maintainer: Felix Fietkau <nbd@nbd.name>
+Architecture: aarch64_generic
+Installed-Size: 20635
+Description:  This package contains a command line utility to control the
+ IEEE 802.1x/WPA/EAP/RADIUS Authenticator.

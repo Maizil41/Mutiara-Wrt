@@ -1,0 +1,12 @@
+Package: luci-light
+Version: git-23.024.33244-34dee82
+Depends: libc, luci-proto-ipv6, luci-app-firewall, luci-mod-admin-full, luci-proto-ppp, luci-theme-bootstrap, rpcd-mod-rrdns, uhttpd, uhttpd-mod-ubus
+Source: feeds/luci/collections/luci-light
+SourceName: luci-light
+License: Apache-2.0
+Section: luci
+SourceDateEpoch: 1674551644
+Maintainer: OpenWrt LuCI community
+Architecture: all
+Installed-Size: 96
+Description:  Light OpenWrt set including admin support and the default Bootstrap theme

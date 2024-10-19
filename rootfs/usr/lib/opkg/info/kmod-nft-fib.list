@@ -1,0 +1,5 @@
+/lib/modules/5.15.167/nft_fib_ipv4.ko
+/etc/modules.d/nft-fib
+/lib/modules/5.15.167/nft_fib_ipv6.ko
+/lib/modules/5.15.167/nft_fib.ko
+/lib/modules/5.15.167/nft_fib_inet.ko

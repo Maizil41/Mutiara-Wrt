@@ -1,0 +1,12 @@
+Package: luci-mod-system
+Version: git-24.067.01860-7a82b2f
+Depends: libc, luci-base
+Source: feeds/luci/modules/luci-mod-system
+SourceName: luci-mod-system
+License: Apache-2.0
+Section: luci
+SourceDateEpoch: 1709771460
+Maintainer: OpenWrt LuCI community
+Architecture: all
+Installed-Size: 17608
+Description:  LuCI Administration - Global System Settings

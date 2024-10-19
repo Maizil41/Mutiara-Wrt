@@ -1,0 +1,5 @@
+#!/bin/sh
+[ -n "${IPKG_INSTROOT}" ] || {
+	uci -q delete luci.themes.Material
+	uci commit luci
+}

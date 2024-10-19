@@ -1,0 +1,3 @@
+/etc/config/radius
+/etc/radius/clients
+/etc/radius/users

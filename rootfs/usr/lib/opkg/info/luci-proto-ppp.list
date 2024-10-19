@@ -1,0 +1,5 @@
+/www/luci-static/resources/protocol/pppoe.js
+/www/luci-static/resources/protocol/ppp.js
+/www/luci-static/resources/protocol/l2tp.js
+/www/luci-static/resources/protocol/pppoa.js
+/www/luci-static/resources/protocol/pptp.js

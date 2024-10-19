@@ -1,0 +1,2 @@
+/etc/modules.d/45-dwmac-imx
+/lib/modules/5.15.167/dwmac-imx.ko

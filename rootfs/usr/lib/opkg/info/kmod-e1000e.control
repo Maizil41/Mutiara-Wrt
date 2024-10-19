@@ -1,0 +1,12 @@
+Package: kmod-e1000e
+Version: 5.15.167-1
+Depends: kernel (=5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-ptp
+Source: feeds/base/kernel/linux
+SourceName: kmod-e1000e
+License: GPL-2.0-only
+LicenseFiles: COPYING
+Section: kernel
+SourceDateEpoch: 1726325473
+Architecture: aarch64_generic
+Installed-Size: 90366
+Description:  Kernel modules for Intel(R) PRO/1000 PCIe Ethernet adapters.

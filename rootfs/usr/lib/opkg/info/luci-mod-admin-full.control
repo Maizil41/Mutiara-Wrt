@@ -1,0 +1,12 @@
+Package: luci-mod-admin-full
+Version: git-19.253.48496-3f93650
+Depends: libc, luci-base, luci-mod-status, luci-mod-system, luci-mod-network
+Source: feeds/luci/modules/luci-mod-admin-full
+SourceName: luci-mod-admin-full
+License: Apache-2.0
+Section: luci
+SourceDateEpoch: 1568122096
+Maintainer: OpenWrt LuCI community
+Architecture: all
+Installed-Size: 95
+Description:  LuCI Administration - full-featured for full control

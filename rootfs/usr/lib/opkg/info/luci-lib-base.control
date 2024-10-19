@@ -1,0 +1,11 @@
+Package: luci-lib-base
+Version: git-22.308.54612-9118452
+Depends: libc, lua, luci-lib-nixio, luci-lib-ip, luci-lib-jsonc, liblucihttp-lua
+Source: feeds/luci/libs/luci-lib-base
+SourceName: luci-lib-base
+Section: luci
+SourceDateEpoch: 1667574612
+Maintainer: OpenWrt LuCI community
+Architecture: all
+Installed-Size: 9634
+Description:  basic libraries for luci

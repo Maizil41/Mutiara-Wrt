@@ -1,0 +1,12 @@
+Package: zoneinfo-asia
+Version: 2023c-2
+Depends: libc, zoneinfo-core
+Source: feeds/packages/utils/zoneinfo
+SourceName: zoneinfo-asia
+License: Public-Domain
+Section: utils
+SourceDateEpoch: 1720286899
+Maintainer: Vladimir Ulrich <admin@evl.su>
+Architecture: aarch64_generic
+Installed-Size: 30628
+Description:  Zone Information (Asia)

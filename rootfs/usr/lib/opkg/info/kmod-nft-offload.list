@@ -1,0 +1,5 @@
+/lib/modules/5.15.167/nf_flow_table_ipv4.ko
+/lib/modules/5.15.167/nf_flow_table_ipv6.ko
+/etc/modules.d/nft-offload
+/lib/modules/5.15.167/nft_flow_offload.ko
+/lib/modules/5.15.167/nf_flow_table_inet.ko

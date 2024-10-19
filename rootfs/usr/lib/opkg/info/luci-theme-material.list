@@ -1,0 +1,12 @@
+/usr/share/ucode/luci/template/themes/material/footer.ut
+/www/luci-static/material/icons/spinner.svg
+/usr/share/ucode/luci/template/themes/material/header.ut
+/www/luci-static/material/icons/arrow.svg
+/www/luci-static/material/cascade.css
+/www/luci-static/material/favicon.ico
+/www/luci-static/material/custom.css
+/www/luci-static/material/brand.png
+/www/luci-static/resources/menu-material.js
+/www/luci-static/material/icons/menu.svg
+/www/luci-static/material/icons/logout.svg
+/etc/uci-defaults/30_luci-theme-material

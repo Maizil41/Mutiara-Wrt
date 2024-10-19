@@ -1,0 +1,13 @@
+/etc/uci-defaults/50-dnsmasq-migrate-resolv-conf-auto.sh
+/etc/dnsmasq.conf
+/usr/share/dnsmasq/rfc6761.conf
+/usr/lib/dnsmasq/dhcp-script.sh
+/usr/share/acl.d/dnsmasq_acl.json
+/etc/config/dhcp
+/lib/upgrade/keep.d/dnsmasq-full
+/etc/hotplug.d/ntp/25-dnsmasqsec
+/etc/uci-defaults/50-dnsmasq-migrate-ipset.sh
+/etc/init.d/dnsmasq
+/usr/share/dnsmasq/dhcpbogushostname.conf
+/usr/sbin/dnsmasq
+/usr/share/dnsmasq/trust-anchors.conf

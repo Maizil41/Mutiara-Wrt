@@ -1,0 +1,13 @@
+Package: kmod-nf-conntrack-netlink
+Version: 5.15.167-1
+Depends: kernel (=5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-nfnetlink, kmod-nf-conntrack
+Source: feeds/base/kernel/linux
+SourceName: kmod-nf-conntrack-netlink
+License: GPL-2.0-only
+LicenseFiles: COPYING
+Section: kernel
+SourceDateEpoch: 1726325473
+Architecture: aarch64_generic
+Installed-Size: 17710
+Description:  Kernel modules support for a netlink-based connection tracking
+ userspace interface

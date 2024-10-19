@@ -1,0 +1,8 @@
+/www/luci-static/resources/protocol/ipip6.js
+/www/luci-static/resources/protocol/6rd.js
+/www/luci-static/resources/protocol/6to4.js
+/www/luci-static/resources/protocol/dhcpv6.js
+/www/luci-static/resources/protocol/6in4.js
+/www/luci-static/resources/protocol/dslite.js
+/www/luci-static/resources/protocol/464xlat.js
+/www/luci-static/resources/protocol/map.js

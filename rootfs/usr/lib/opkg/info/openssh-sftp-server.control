@@ -1,0 +1,14 @@
+Package: openssh-sftp-server
+Version: 9.8p1-1
+Depends: libc
+Source: feeds/packages/net/openssh
+SourceName: openssh-sftp-server
+License: BSD ISC
+LicenseFiles: LICENCE
+Section: net
+SourceDateEpoch: 1720125352
+CPE-ID: cpe:/a:openssh:openssh
+Maintainer: Peter Wagner <tripolar@gmx.at>
+Architecture: aarch64_generic
+Installed-Size: 62530
+Description:  OpenSSH SFTP server.

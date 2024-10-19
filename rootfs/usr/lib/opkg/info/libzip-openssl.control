@@ -1,0 +1,15 @@
+Package: libzip-openssl
+Version: 1.9.2-1
+Depends: libc, zlib, libopenssl3
+Provides: libzip
+Source: feeds/packages/libs/libzip
+SourceName: libzip-openssl
+License: BSD-3-Clause
+LicenseFiles: LICENSE
+Section: libs
+SourceDateEpoch: 1720286899
+CPE-ID: cpe:/a:libzip:libzip
+Maintainer: Michael Heimpold <mhei@heimpold.de>
+Architecture: aarch64_generic
+Installed-Size: 47643
+Description:  A C library for reading, creating, and modifying zip archives.

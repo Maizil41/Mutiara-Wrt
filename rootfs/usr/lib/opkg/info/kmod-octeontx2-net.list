@@ -1,0 +1,5 @@
+/lib/modules/5.15.167/rvu_af.ko
+/lib/modules/5.15.167/rvu_nicvf.ko
+/lib/modules/5.15.167/rvu_mbox.ko
+/lib/modules/5.15.167/rvu_nicpf.ko
+/etc/modules.d/40-octeontx2-net

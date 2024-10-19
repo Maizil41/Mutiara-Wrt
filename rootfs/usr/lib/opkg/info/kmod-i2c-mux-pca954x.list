@@ -1,0 +1,2 @@
+/lib/modules/5.15.167/i2c-mux-pca954x.ko
+/etc/modules.d/51-i2c-mux-pca954x

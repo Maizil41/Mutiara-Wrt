@@ -1,0 +1,14 @@
+Package: php8-mod-ctype
+Version: 8.2.24-1
+Depends: libc, php8
+Source: feeds/packages/lang/php8
+SourceName: php8-mod-ctype
+License: PHP-3.01
+LicenseFiles: LICENSE
+Section: lang
+SourceDateEpoch: 1728502033
+CPE-ID: cpe:/a:php:php
+Maintainer: Michael Heimpold <mhei@heimpold.de>
+Architecture: aarch64_generic
+Installed-Size: 2954
+Description:  Ctype shared module

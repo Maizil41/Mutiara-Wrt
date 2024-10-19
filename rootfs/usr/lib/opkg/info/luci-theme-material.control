@@ -1,0 +1,11 @@
+Package: luci-theme-material
+Version: git-24.089.55517-835ac75
+Depends: libc, luci-base
+Source: feeds/luci/themes/luci-theme-material
+SourceName: luci-theme-material
+Section: luci
+SourceDateEpoch: 1711725917
+Maintainer: OpenWrt LuCI community
+Architecture: all
+Installed-Size: 21444
+Description:  Material Theme

@@ -1,0 +1,14 @@
+Package: wireless-tools
+Version: 29-6
+Depends: libc
+Source: feeds/base/package/network/utils/wireless-tools
+SourceName: wireless-tools
+License: GPL-2.0
+Section: net
+SourceDateEpoch: 1666208423
+CPE-ID: cpe:/a:wireless_tools_project:wireless_tools
+Maintainer: Felix Fietkau <nbd@nbd.name>
+Architecture: aarch64_generic
+Installed-Size: 24552
+Description:  This package contains a collection of tools for configuring wireless
+ adapters implementing the "Linux Wireless Extensions".

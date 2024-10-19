@@ -1,0 +1,6 @@
+/etc/modules-boot.d/40-usb2
+/lib/modules/5.15.167/ehci-platform.ko
+/lib/modules/5.15.167/ehci-fsl.ko
+/etc/modules.d/40-usb2
+/lib/modules/5.15.167/fsl-mph-dr-of.ko
+/lib/modules/5.15.167/ehci-orion.ko

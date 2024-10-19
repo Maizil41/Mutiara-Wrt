@@ -1,0 +1,2 @@
+/etc/modules.d/04-crypto-crc32
+/etc/modules-boot.d/04-crypto-crc32

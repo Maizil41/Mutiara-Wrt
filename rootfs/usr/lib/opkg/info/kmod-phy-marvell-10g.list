@@ -1,0 +1,2 @@
+/etc/modules.d/18-phy-marvell-10g
+/lib/modules/5.15.167/marvell10g.ko

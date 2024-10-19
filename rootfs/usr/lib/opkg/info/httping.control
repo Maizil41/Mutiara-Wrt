@@ -1,0 +1,14 @@
+Package: httping
+Version: 2.5-1
+Depends: libc, libopenssl3
+Source: feeds/packages/net/httping
+SourceName: httping
+Section: net
+SourceDateEpoch: 1570903294
+Maintainer: Marcin Jurkowski <marcin1j@gmail.com>
+Architecture: aarch64_generic
+Installed-Size: 26778
+Description:  Give it an url, and it'll show you how long it takes to connect, send a
+ request and retrieve the reply (only the headers). Be aware that the
+ transmission across the network also takes time!
+ This package is built with SSL support.

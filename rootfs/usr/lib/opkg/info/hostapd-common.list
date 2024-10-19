@@ -1,0 +1,8 @@
+/etc/capabilities/wpad.json
+/usr/share/acl.d/wpad_acl.json
+/lib/netifd/hostapd.sh
+/etc/init.d/wpad
+/etc/rc.button/wps
+/lib/netifd/dhcp-get-server.sh
+/usr/share/hostap/wdev.uc
+/usr/share/hostap/common.uc

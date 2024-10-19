@@ -1,0 +1,2718 @@
+Package: kmod-dwmac-rockchip
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-stmmac-core, kmod-mdio-bus-mux
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: terminfo
+Version: 6.4-2
+Depends: libc
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: luci-theme-material
+Version: git-24.089.55517-835ac75
+Depends: libc, luci-base
+Status: install user installed
+Architecture: all
+Installed-Time: 1727094886
+
+Package: iwinfo
+Version: 2023-07-01-ca79f641-1
+Depends: libc, libiwinfo20230701
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: openssh-sftp-server
+Version: 9.8p1-1
+Depends: libc
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: libopenssl3
+ABIVersion: 3
+Version: 3.0.15-1
+Depends: libc
+Provides: libopenssl
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: liblucihttp0
+ABIVersion: 0
+Version: 2023-03-15-9b5b683f-1
+Depends: libc
+Provides: liblucihttp
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: cgi-io
+Version: 2022-08-10-901b0f04-21
+Depends: libc, libubox20230523, libubus20230605
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: luci-lib-base
+Version: git-22.308.54612-9118452
+Depends: libc, lua, luci-lib-nixio, luci-lib-ip, luci-lib-jsonc, liblucihttp-lua
+Status: install user installed
+Architecture: all
+Installed-Time: 1727094886
+
+Package: libc
+Version: 1.2.4-4
+Depends: libgcc
+Status: install hold,user installed
+Essential: yes
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: netdata
+Version: 1.33.1-4
+Depends: libc, zlib, libuuid1, libuv1, libmnl0, libjson-c5
+Status: install user installed
+Architecture: aarch64_generic
+Conffiles:
+ /etc/netdata/.install-type 54504822b33450493aafb3989efa580219f76de52ddf34a7adf1eeb86ea93dc9
+ /etc/netdata/.opt-out-from-anonymous-statistics e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+ /etc/netdata/edit-config 090bd3d3a2cd3561d27eea9ce9a55174d6646c0eb60e6f4ed44abbe1f3df7324
+ /etc/netdata/netdata.conf b2cef1091b576b94c25507b97ccd692a91b5664171498b28e43d0981ff6630b7
+Installed-Time: 1727094886
+
+Package: libbz2-1.0
+ABIVersion: -1.0
+Version: 1.0.8-1
+Depends: libc
+Provides: libbz2
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-atlantic
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-ptp, kmod-hwmon-core, kmod-macsec
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: mkf2fs
+Version: 1.16.0-1
+Depends: libc, libf2fs6
+Conflicts: mkf2fs-selinux
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: kmod-crypto-gf128
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f)
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: opkg
+Version: 2022-02-24-d038e5b6-2
+Depends: libc, uclient-fetch, libpthread, libubox20230523
+Status: install user installed
+Essential: yes
+Architecture: aarch64_generic
+Conffiles:
+ /etc/opkg.conf f38c19f696ea87c0b30eb5bfeb8657237f4625e1a749c58b99f01595edfb6446
+ /etc/opkg/customfeeds.conf 61d1f3aa62fe977614ed0c2f0ad3b2ee2f7b451bfb34812071d86d31a4d43d4a
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: libevdev
+Version: 1.13.0-1
+Depends: libc
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: libwebsockets-full
+Version: 4.3.2-2
+Depends: libc, zlib, libcap, libubox20230523, libopenssl3, libuv1
+Provides: libwebsockets, libwebsockets-openssl
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: perlbase-io
+Version: 5.28.1-9
+Depends: libc, perl, perlbase-base, perlbase-bytes, perlbase-config, perlbase-errno, perlbase-essential, perlbase-fcntl, perlbase-list, perlbase-posix, perlbase-scalar, perlbase-selectsaver, perlbase-socket, perlbase-symbol, perlbase-tie, perlbase-xsloader
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-usb-core
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-nls-base
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: luci-app-opkg
+Version: git-24.148.43905-2891ca4
+Depends: libc, opkg
+Status: install user installed
+Architecture: all
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: libpthread
+Version: 1.2.4-4
+Depends: libgcc1
+Status: install hold installed
+Essential: yes
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: ubus
+Version: 2023-06-05-f787c97b-1
+Depends: libc, libubus20230605, libblobmsg-json20230523, ubusd
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: iw
+Version: 5.19-1
+Depends: libc, libnl-tiny1
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: libiperf3
+Version: 3.17.1-2
+Depends: libc, libatomic1
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-crypto-manager
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-crypto-aead, kmod-crypto-hash
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: libuci20130104
+ABIVersion: 20130104
+Version: 2023-08-10-5781664d-1
+Depends: libc, libubox20230523
+Provides: libuci
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: rpcd
+Version: 2023-07-01-c07ab2f9-1
+Depends: libc, libubus20230605, libubox20230523, libuci20130104, libblobmsg-json20230523, libjson-c5
+Status: install user installed
+Architecture: aarch64_generic
+Conffiles:
+ /etc/config/rpcd 1a40da0ebe45b1afd131dfc4650592913e38445e7fe42f96d3b95ad5151ac0e6
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: busybox
+Version: 1.36.1-1
+Depends: libc
+Conflicts: busybox-selinux
+Status: install user installed
+Essential: yes
+Architecture: aarch64_generic
+Conffiles:
+ /etc/syslog.conf e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+Installed-Time: 1727094886
+
+Package: kmod-crypto-ctr
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-crypto-manager, kmod-crypto-seqiv
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-lib-zlib-deflate
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f)
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: libiwinfo20230701
+ABIVersion: 20230701
+Version: 2023-07-01-ca79f641-1
+Depends: libc, libnl-tiny1, libuci20130104, libubus20230605, libiwinfo-data
+Provides: libiwinfo
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: luci-lib-ip
+Version: git-23.311.79290-c2a887e
+Depends: libc, liblua5.1.5, libnl-tiny1
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-nft-fib
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-nft-core
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-nfnetlink
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f)
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: perlbase-bytes
+Version: 5.28.1-9
+Depends: libc, perl
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: libubus-lua
+Version: 2023-06-05-f787c97b-1
+Depends: libc, libubus20230605, liblua5.1.5
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: kmod-crypto-hash
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f)
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: nano
+Version: 8.2-1
+Depends: libc, libncurses6
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: kmod-nf-reject6
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f)
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-crypto-aead
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-crypto-null
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: perlbase-symbol
+Version: 5.28.1-9
+Depends: libc, perl, perlbase-essential
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: libiwinfo-lua
+Version: 2023-07-01-ca79f641-1
+Depends: libc, libiwinfo20230701, liblua5.1.5
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: kmod-usb-wdm
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-usb-core
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: bash
+Version: 5.2.15-1
+Depends: libc, libncurses6, libreadline8
+Status: install user installed
+Architecture: aarch64_generic
+Conffiles:
+ /etc/bash.bashrc 096d8e6a4da75033f12dc764cd45055e922cdba8292f3c22216f7d5c9ed6e454
+ /etc/profile.d/sys_bashrc.sh fc2d605e812275345dbc61b6c5ca7dabbe8f3fa8e21c0856675c8ecd8d28da0a
+Installed-Time: 1727094886
+
+Package: liblzma
+Version: 5.4.6-1
+Depends: libc, libpthread
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: luci-mod-system
+Version: git-24.067.01860-7a82b2f
+Depends: libc, luci-base
+Status: install user installed
+Architecture: all
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-nf-flow
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-nf-conntrack
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: libnl-tiny1
+ABIVersion: 1
+Version: 2023-07-27-bc92a280-1
+Depends: libc
+Provides: libnl-tiny
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-lib-crc-ccitt
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f)
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: ucode-mod-uloop
+Version: 2024-07-11-1a8a0bcf-3
+Depends: libc, ucode, libubox20230523
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: px5g-mbedtls
+Version: 10
+Depends: libc, libmbedtls12
+Provides: px5g
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: liblzo2
+ABIVersion: 2
+Version: 2.10-4
+Depends: libc
+Provides: liblzo
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-marvell-mdio
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-libphy, kmod-of-mdio, kmod-acpi-mdio
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: getrandom
+Version: 2022-08-13-4c7b720b-2
+Depends: libc
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: perlbase-socket
+Version: 5.28.1-9
+Depends: libc, perl, perlbase-essential, perlbase-xsloader
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-phy-marvell
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-libphy
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: ucode-mod-ubus
+Version: 2024-07-11-1a8a0bcf-3
+Depends: libc, ucode, libubus20230605, libblobmsg-json20230523
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-phy-aquantia
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-libphy, kmod-hwmon-core, kmod-lib-crc-ccitt
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: oniguruma5
+ABIVersion: 5
+Version: 6.9.7.1-1
+Depends: libc
+Provides: oniguruma
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: luci-theme-bootstrap
+Version: git-24.086.46634-1ffe078
+Depends: libc, luci-base
+Status: install ok installed
+Architecture: all
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: libusb-1.0-0
+ABIVersion: -0
+Version: 1.0.26-3
+Depends: libc, libpthread, librt, libatomic1
+Provides: libusb-1.0
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-pppoe
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-ppp, kmod-pppox
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: libuuid1
+ABIVersion: 1
+Version: 2.39-2
+Depends: libc, librt
+Provides: libuuid
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-usb-net-huawei-cdc-ncm
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-usb-net, kmod-usb-net-cdc-ncm, kmod-usb-wdm
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: kmod-pcs-xpcs
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f)
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: libcap
+Version: 2.69-1
+Depends: libc
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: luci-lua-runtime
+Version: git-23.233.52805-dae2684
+Depends: libc, luci-base, lua, luci-lib-base, luci-lib-nixio, luci-lib-ip, luci-lib-jsonc, libubus-lua, liblucihttp-lua, ucode-mod-lua
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-pppox
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-ppp
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-nf-reject
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f)
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: procd-ujail
+Version: 2023-06-25-2db83655-2
+Depends: libc, libubox20230523, libubus20230605, libuci20130104, libblobmsg-json20230523
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: base-files
+Version: 1562-r24106-10cc5fcd00
+Depends: libc, netifd, jsonfilter, usign, openwrt-keyring, fstools, fwtool
+Status: install user installed
+Architecture: aarch64_generic
+Conffiles:
+ /etc/ethers 56bda09b0aa3d1e88107bfa8a1c6e4449d5c1f47245dc1c4037ff9b5db163b7c
+ /etc/group 45e8cab268d4a2254d48ccb1f889630047e81758de54a614cad5449fdbebe19c
+ /etc/hosts c1a978d90673437b35fa9494e0a54294062c152bb653d490b718052ab88447fd
+ /etc/inittab e29f757c492e8a93714dfcfddffba4072290dac224b689839321c5844ef7dd6d
+ /etc/iproute2/rt_protos a0712b1771c8d5f3e0dcf9a6314880e71aa3498ea1ae873535bdfcf70d814061
+ /etc/iproute2/rt_tables f771e2b81741f70e3faf658dc504f0dc048672fc8caaadea15e46c35da3de8f8
+ /etc/passwd 6a451aa33393f47ade89b8bce4d9711818c2630394c3967265ffed276bb25a55
+ /etc/profile 73a6177caf76a76d178111e57eb6ee95c3ba06ce2fc6864c7fb89cacf433c66d
+ /etc/protocols 7d551355d5540b07b9d86e623cbbc4abecbb94d2a662b3afcc917940eb0e3d52
+ /etc/rc.local 515018aa94eb4937dade12dc0d69890b352af35a5ab5fb8203f9ed10990ac06f
+ /etc/services 754ccc71ca347bc79ac4c45139d416b7cf1e65a919dad1db15613a216cd6b9cc
+ /etc/shadow 9000a74fcbf027301e784909e74e2cfff1b879707432090fadedc8527858873e
+ /etc/shells 8b35ce73c18161a7d7ed16fa244410993bd031515260e3e0c11749047df48d0a
+ /etc/shinit f633939cdda16a3116225a578f457295b2a0da824c47d5f0e90a58806c059321
+ /etc/sysctl.conf c02fe88dc055a1eaee9e7cb631760a3a5a9cea55610b42aa45196838c6f1a55e
+ /etc/sysupgrade.conf 9e87b05fe2f12c84d1c465b396322748479f64bc40e5bab061887f0bd95020a6
+Installed-Time: 1727094886
+
+Package: kmod-nf-nat
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-nf-conntrack
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: ttyd
+Version: 1.7.3-1
+Depends: libc, libcap, libopenssl3, libjson-c5, libuv1, zlib, libwebsockets-full
+Status: install ok installed
+Architecture: aarch64_generic
+Conffiles:
+ /etc/config/ttyd 1963ea01a8ce7c94fd6353855fb43cca94e9d9e7894531207cf123a6608fe832
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-crypto-crc32c
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-crypto-hash
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: ucode-mod-uci
+Version: 2024-07-11-1a8a0bcf-3
+Depends: libc, ucode, libuci20130104
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: ucode-mod-lua
+Version: 1
+Depends: libc, libucode20230711, liblua5.1.5
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: luci-app-ttyd
+Version: git-24.087.03754-4f0cc23
+Depends: libc, ttyd
+Status: install user installed
+Architecture: all
+Installed-Time: 1727094886
+
+Package: partx-utils
+Version: 2.39-2
+Depends: libc, libblkid1, libsmartcols1
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: perlbase-class
+Version: 5.28.1-9
+Depends: libc, perl, perlbase-essential
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: zoneinfo-asia
+Version: 2023c-2
+Depends: libc, zoneinfo-core
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: libustream-mbedtls20201210
+ABIVersion: 20201210
+Version: 2023-02-25-498f6e26-1
+Depends: libc, libubox20230523, libmbedtls12
+Provides: libustream-mbedtls
+Conflicts: libustream-openssl, libustream-wolfssl
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-crypto-blake2b
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-crypto-hash
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: netifd
+Version: 2024-01-04-c18cc79d-2
+Depends: libc, libuci20130104, libnl-tiny1, libubus20230605, ubus, ubusd, jshn, libubox20230523
+Status: install user installed
+Architecture: aarch64_generic
+Conffiles:
+ /etc/udhcpc.user 4dabffbc2110a29e01babc63d9b8db94da49efd3ed784d35b49a559ac8ce7035
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: coreutils
+Version: 9.3-1
+Depends: libc
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: libf2fs6
+ABIVersion: 6
+Version: 1.16.0-1
+Depends: libc, libuuid1
+Provides: libf2fs
+Conflicts: libf2fs-selinux
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: libsmartcols1
+ABIVersion: 1
+Version: 2.39-2
+Depends: libc, librt
+Provides: libsmartcols
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: coreutils-stat
+Version: 9.3-1
+Depends: libc, coreutils
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Alternatives: 300:/bin/stat:/usr/libexec/stat-coreutils
+
+Package: kmod-mvneta
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-marvell-mdio, kmod-phylink
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: bzip2
+Version: 1.0.8-1
+Depends: libc, libbz2-1.0
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: firewall4
+Version: 2023-09-01-598d9fbb-1
+Depends: ucode (>= 2022-03-22), libc, kmod-nft-core, kmod-nft-fib, kmod-nft-offload, kmod-nft-nat, nftables-json, ucode, ucode-mod-fs, ucode-mod-ubus, ucode-mod-uci
+Provides: uci-firewall
+Status: install user installed
+Architecture: aarch64_generic
+Conffiles:
+ /etc/config/firewall 68e73e236b55846f84f668a53f1a1b1802d16adca3f325953051d977a05d383c
+ /etc/nftables.d/10-custom-filter-chains.nft af5cbfeb3e3b61d32ce134ae33d15330ee27da838e6f4fb9c717f034923b8b16
+ /etc/nftables.d/README 0656d83221c1d000f6b9655757c412f328e332b5bdf25efbfa88611d8104490d
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-lib-xor
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f)
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-mii
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f)
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: perlbase-list
+Version: 5.28.1-9
+Depends: libc, perl, perlbase-essential, perlbase-xsloader
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: procd
+Version: 2023-06-25-2db83655-2
+Depends: libc, ubusd, ubus, libjson-script20230523, ubox, libubox20230523, libubus20230605, libblobmsg-json20230523, libjson-c5, jshn
+Conflicts: procd-selinux
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: libudev-zero
+Version: 1.0.1-1
+Depends: libc, libevdev
+Provides: libudev
+Conflicts: libudev, eudev, udev
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: usbutils
+Version: 014-1
+Depends: libc, libusb-1.0-0, libudev, librt, libpthread
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: libmount1
+ABIVersion: 1
+Version: 2.39-2
+Depends: libc, libblkid1
+Provides: libmount
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-crypto-hmac
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-crypto-hash, kmod-crypto-manager
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-of-mdio
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-libphy, kmod-fixed-phy
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: ubusd
+Version: 2023-06-05-f787c97b-1
+Depends: libc, libubox20230523, libblobmsg-json20230523
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: libnetfilter-conntrack3
+ABIVersion: 3
+Version: 1.0.9-2
+Depends: libc, libnfnetlink0, kmod-nf-conntrack-netlink, libmnl0
+Provides: libnetfilter-conntrack
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-fsl-xgmac-mdio
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-libphy, kmod-of-mdio, kmod-acpi-mdio
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: hostapd-utils
+Version: 2023-09-08-e5ccbfc6-8
+Depends: libc
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: kmod-crypto-acompress
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f)
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: rpcd-mod-ucode
+Version: 2023-07-01-c07ab2f9-1
+Depends: libc, libubus20230605, libubox20230523, rpcd, libucode20230711
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: ucode-mod-math
+Version: 2024-07-11-1a8a0bcf-3
+Depends: libc, ucode
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-lib-crc32c
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-crypto-crc32c
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: tar
+Version: 1.34-2
+Depends: xz, libc, bzip2
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Alternatives: 300:/bin/tar:/usr/libexec/tar-gnu
+
+Package: kmod-usb-ehci
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-usb-core
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: luci-mod-status
+Version: git-24.212.61237-b6da3f2
+Depends: libc, luci-base, libiwinfo20230701, rpcd-mod-iwinfo
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-i2c-core
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f)
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: perlbase-unicore
+Version: 5.28.1-9
+Depends: libc, perl
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-octeontx2-net
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-phylink, kmod-of-mdio, kmod-macsec, kmod-ptp
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: perlbase-re
+Version: 5.28.1-9
+Depends: libc, perl, perlbase-essential
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-wdt-sp805
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f)
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: kmod-crypto-sha512
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-crypto-hash
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: libzip-openssl
+Version: 1.9.2-1
+Depends: libc, zlib, libopenssl3
+Provides: libzip
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: php8-cgi
+Version: 8.2.24-1
+Depends: libc, php8, libstdcpp6
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: perlbase-utf8
+Version: 5.28.1-9
+Depends: libc, perl, perlbase-essential, perlbase-re, perlbase-unicore
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-usb-net-rndis
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-usb-net, kmod-usb-net-cdc-ether
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: libmbedtls12
+ABIVersion: 12
+Version: 2.28.9-1
+Depends: libc
+Provides: libmbedtls
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-fsl-enetc-net
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-phylink, kmod-fsl-pcs-lynx
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: kmod-mvpp2
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-marvell-mdio, kmod-phylink
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: kmod-crypto-seqiv
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-crypto-aead, kmod-crypto-rng
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-nft-nat
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-nft-core, kmod-nf-nat
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-usb2
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-usb-ehci, kmod-usb-core
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: libxml2
+Version: 2.12.5-1
+Depends: libc, libpthread, zlib
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: luci-app-firewall
+Version: git-24.067.01746-69867db
+Depends: libc, uci-firewall
+Status: install user installed
+Architecture: all
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-phy-realtek
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-libphy
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: kmod-dwmac-imx
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-stmmac-core
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: perlbase-filehandle
+Version: 5.28.1-9
+Depends: libc, perl, perlbase-essential, perlbase-io
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: libubus20230605
+ABIVersion: 20230605
+Version: 2023-06-05-f787c97b-1
+Depends: libc, libubox20230523
+Provides: libubus
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-mdio-bcm-unimac
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-of-mdio
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: libblkid1
+ABIVersion: 1
+Version: 2.39-2
+Depends: libc, libuuid1
+Provides: libblkid
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: libmnl0
+ABIVersion: 0
+Version: 1.0.5-1
+Depends: libc
+Provides: libmnl
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: jansson4
+ABIVersion: 4
+Version: 2.14-3
+Depends: libc
+Provides: jansson
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: perlbase-scalar
+Version: 5.28.1-9
+Depends: libc, perl, perlbase-essential, perlbase-list
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-fsl-mc-dpio
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f)
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: perlbase-tie
+Version: 5.28.1-9
+Depends: libc, perl, perlbase-essential, perlbase-fcntl, perlbase-xsloader
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: odhcp6c
+Version: 2023-05-12-bcd28363-20
+Depends: libc, libubox20230523
+Status: install user installed
+Architecture: aarch64_generic
+Conffiles:
+ /etc/odhcp6c.user 6d2b77cbb3ff311ea6e7237fe150bf272bf0b3a6c0b4e9e00c6423fd6b637557
+Installed-Time: 1727094886
+
+Package: kmod-mdio-thunder
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-of-mdio
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: fstools
+Version: 2023-02-28-bfe882d5-1
+Depends: libc, ubox
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: uclient-fetch
+Version: 2023-04-13-007d9454-1
+Depends: libc, libuclient20201210
+Provides: wget
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+Alternatives: 200:/usr/bin/wget:/bin/uclient-fetch
+
+Package: kmod-crypto-ghash
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-crypto-gf128, kmod-crypto-hash
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: unzip
+Version: 6.0-8
+Depends: libc
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: kmod-ath9k
+Version: 5.15.167+6.1.110-1-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-ath9k-common
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: kmod-lib-zlib-inflate
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f)
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-gpio-pca953x
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-i2c-core, kmod-regmap-i2c
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: uci
+Version: 2023-08-10-5781664d-1
+Depends: libc, libuci20130104
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: lua
+Version: 5.1.5-11
+Depends: libc, liblua5.1.5
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: ucode-mod-fs
+Version: 2024-07-11-1a8a0bcf-3
+Depends: libc, ucode
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: luci-ssl
+Version: git-23.035.26083-7550ad6
+Depends: libc, luci-light, libustream-mbedtls20201210, px5g-mbedtls
+Status: install user installed
+Architecture: all
+Installed-Time: 1727094886
+
+Package: dropbear
+Version: 2022.82-6
+Depends: libc
+Status: install user installed
+Architecture: aarch64_generic
+Conffiles:
+ /etc/config/dropbear 0198dbc97b5a9aac76a5c6233684571ccdcc91fcb735e91c36d2b06a98158589
+ /etc/dropbear/dropbear_ed25519_host_key e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+ /etc/dropbear/dropbear_rsa_host_key e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+Installed-Time: 1727094886
+Alternatives: 100:/usr/bin/scp:/usr/sbin/dropbear, 100:/usr/bin/ssh:/usr/sbin/dropbear
+
+Package: libpcre2
+Version: 10.42-1
+Depends: libc
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-hwmon-core
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f)
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-usb-serial-wwan
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-usb-serial
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: perlbase-file
+Version: 5.28.1-9
+Depends: libc, perl, perlbase-class, perlbase-config, perlbase-cwd, perlbase-errno, perlbase-essential, perlbase-fcntl, perlbase-filehandle, perlbase-io, perlbase-locale, perlbase-params, perlbase-scalar, perlbase-symbol, perlbase-xsloader
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: libnftnl11
+ABIVersion: 11
+Version: 1.2.6-1
+Depends: libc, libmnl0
+Provides: libnftnl
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: libgmp10
+ABIVersion: 10
+Version: 6.2.1-1
+Depends: libc
+Provides: libgmp
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: perlbase-xsloader
+Version: 5.28.1-9
+Depends: libc, perl
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: luci-compat
+Version: git-24.086.45108-51aee90
+Depends: libc, luci-lua-runtime, luci-lua-runtime
+Status: install user installed
+Architecture: all
+Installed-Time: 1727094886
+
+Package: zoneinfo-core
+Version: 2023c-2
+Depends: libc
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: perlbase-dynaloader
+Version: 5.28.1-9
+Depends: libc, perl, perlbase-config
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: rpcd-mod-file
+Version: 2023-07-01-c07ab2f9-1
+Depends: libc, libubus20230605, libubox20230523, rpcd
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: perlbase-essential
+Version: 5.28.1-9
+Depends: libc, perl, perlbase-config
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: mtd
+Version: 26
+Depends: libc, libubox20230523
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: odhcpd-ipv6only
+Version: 2023-10-24-d8118f6e-1
+Depends: libc, libubox20230523, libuci20130104, libubus20230605, libnl-tiny1
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: coreutils-timeout
+Version: 9.3-1
+Depends: libc, coreutils, librt
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Alternatives: 300:/usr/bin/timeout:/usr/libexec/timeout-coreutils
+
+Package: procd-seccomp
+Version: 2023-06-25-2db83655-2
+Depends: libc, libubox20230523, libblobmsg-json20230523
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: perlbase-config
+Version: 5.28.1-9
+Depends: libc, perl
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: wpa-supplicant
+Version: 2023-09-08-e5ccbfc6-8
+Depends: hostapd-common (= 2023-09-08-e5ccbfc6-8), libc, libnl-tiny1, hostapd-common, ucode, libubus20230605, libucode20230711, ucode-mod-fs, ucode-mod-nl80211, ucode-mod-rtnl, ucode-mod-ubus, ucode-mod-uloop, libblobmsg-json20230523
+Conflicts: wpad, wpad-mesh-openssl, wpad-mesh-wolfssl, wpad-mesh-mbedtls, wpad-basic, wpad-basic-openssl, wpad-basic-wolfssl, wpad-basic-mbedtls, wpad-mini, wpad-openssl, wpad-wolfssl, wpad-mbedtls
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: kmod-fsl-fec
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-libphy, kmod-of-mdio, kmod-ptp, kmod-net-selftests
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: ucode-mod-nl80211
+Version: 2024-07-11-1a8a0bcf-3
+Depends: libc, ucode, libnl-tiny1, libubox20230523
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: libjson-script20230523
+ABIVersion: 20230523
+Version: 2023-05-23-75a3b870-1
+Depends: libc, libubox20230523
+Provides: libjson-script
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-fsl-dpaa1-net
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-fsl-xgmac-mdio, kmod-libphy, kmod-crypto-crc32
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: libiwinfo-data
+Version: 2023-07-01-ca79f641-1
+Depends: libc
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: usb-modeswitch
+Version: 2022-02-24-3c8595a4-1
+Depends: libc, libubox20230523, libblobmsg-json20230523, libusb-1.0-0
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: rpcd-mod-luci
+Version: 20240305-1
+Depends: libc, rpcd, libubox20230523, libubus20230605, libnl-tiny1
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: ucode
+Version: 2024-07-11-1a8a0bcf-3
+Depends: libc, libucode20230711
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-lib-raid6
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f)
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-i2c-mux-pca954x
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-i2c-mux
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: kmod-crypto-ccm
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-crypto-ctr, kmod-crypto-aead
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-nf-log
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f)
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: perlbase-i18n
+Version: 5.28.1-9
+Depends: libc, perl, perlbase-essential, perlbase-posix, perlbase-xsloader
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-fs-btrfs
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-lib-crc32c, kmod-lib-lzo, kmod-lib-zlib-inflate, kmod-lib-zlib-deflate, kmod-lib-raid6, kmod-lib-xor, kmod-lib-zstd, kmod-crypto-blake2b, kmod-crypto-xxhash
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: php8-mod-ctype
+Version: 8.2.24-1
+Depends: libc, php8
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: urandom-seed
+Version: 3
+Depends: libc, getrandom
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: luci-proto-ppp
+Version: git-24.135.44542-f1ec9c2
+Depends: libc
+Status: install user installed
+Architecture: all
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: libcomerr0
+ABIVersion: 0
+Version: 1.47.0-2
+Depends: libc, libuuid1
+Provides: libcomerr
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: luci-mod-admin-full
+Version: git-19.253.48496-3f93650
+Depends: libc, luci-base, luci-mod-status, luci-mod-system, luci-mod-network
+Status: install user installed
+Architecture: all
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: ppp
+Version: 2.4.9.git-2021-01-04-4
+Depends: libc, kmod-ppp
+Status: install user installed
+Architecture: aarch64_generic
+Conffiles:
+ /etc/ppp/chap-secrets 6981fa176a79f8c12be5826c421b16253a616747018ba7e76752a9d36d1d51d4
+ /etc/ppp/filter 579583b318e0cff706ffc134620b42d3fbce8fc31aeb0ad7eea1cc859868e902
+ /etc/ppp/options 01f7358a5528be037dde329a2ecfb7a63382aababf21d4f5bc085f5acef95133
+Installed-Time: 1727094886
+
+Package: xz
+Version: 5.4.6-1
+Depends: libc, xz-utils, liblzma
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+Alternatives: 300:/usr/bin/xz:/usr/libexec/xz-lzmautils, 300:/usr/bin/lzcat:/usr/libexec/xz-lzmautils, 300:/usr/bin/lzma:/usr/libexec/xz-lzmautils, 300:/usr/bin/unlzma:/usr/libexec/xz-lzmautils, 300:/usr/bin/unxz:/usr/libexec/xz-lzmautils, 300:/usr/bin/xzcat:/usr/libexec/xz-lzmautils
+
+Package: luci-base
+Version: git-24.264.56413-c7a3562
+Depends: libc, rpcd, rpcd-mod-file, rpcd-mod-luci, rpcd-mod-ucode, cgi-io, ucode, ucode-mod-fs, ucode-mod-uci, ucode-mod-ubus, ucode-mod-math, ucode-mod-html, liblucihttp-ucode
+Status: install user installed
+Architecture: aarch64_generic
+Conffiles:
+ /etc/config/luci 60078f7c02ed91d23092c9b75cb9ea5c8ee39f7727def813c8201f8e48a296f4
+ /etc/config/ucitrack f51366117a6456038cfa0d753ff7fe8a9fb5636f561b7bef8718939c6f9a3566
+ /etc/luci-uploads/.placeholder e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: libnettle8
+ABIVersion: 8
+Version: 3.9.1-1
+Depends: libc, libgmp10
+Provides: libnettle
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-sfp
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-i2c-core, kmod-hwmon-core, kmod-phylink
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: logd
+Version: 2022-08-13-4c7b720b-2
+Depends: libc, libubox20230523, libubus20230605, libblobmsg-json20230523
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: kmod-nf-log6
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-nf-log
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: libreadline8
+ABIVersion: 8
+Version: 8.2-1
+Depends: libc, libncursesw6
+Provides: libreadline
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-usb-net
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-mii, kmod-usb-core
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: btrfs-progs
+Version: 6.5.1-1
+Depends: libc, libattr, libuuid1, libmount1, zlib, libblkid1, liblzo2, libpthread, kmod-fs-btrfs
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: librt
+Version: 1.2.4-4
+Depends: libpthread
+Status: install hold installed
+Essential: yes
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-mac80211
+Version: 5.15.167+6.1.110-1-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-cfg80211, kmod-crypto-cmac, kmod-crypto-ccm, kmod-crypto-gcm, hostapd-common
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-fsl-pcs-lynx
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-libphy, kmod-of-mdio, kmod-phylink
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-vmxnet3
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f)
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: kmod-usb-serial
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-usb-core
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: perlbase-fcntl
+Version: 5.28.1-9
+Depends: libc, perl, perlbase-essential, perlbase-xsloader
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-usb-net-cdc-ncm
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-usb-net, kmod-usb-net-cdc-ether
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-bcmgenet
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-mdio-bcm-unimac
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: luci-proto-ipv6
+Version: git-24.086.45108-51aee90
+Depends: libc
+Status: install user installed
+Architecture: all
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-fsl-dpaa2-net
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-fsl-xgmac-mdio, kmod-phylink, kmod-fsl-pcs-lynx, kmod-fsl-mc-dpio
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: perlbase-locale
+Version: 5.28.1-9
+Depends: libc, perl, perlbase-essential, perlbase-i18n, perlbase-integer, perlbase-utf8
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: openwrt-keyring
+Version: 2022-03-25-62471e69-2
+Depends: libc
+Provides: lede-keyring
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: ath9k-htc-firmware
+Version: 20230804-1
+Depends: libc
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: kmod-brcmutil
+Version: 5.15.167+6.1.110-1-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f)
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: kmod-nf-conntrack-netlink
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-nfnetlink, kmod-nf-conntrack
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-libphy
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f)
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: libext2fs2
+ABIVersion: 2
+Version: 1.47.0-2
+Depends: libc, libuuid1, libblkid1, libss2, libcomerr0
+Provides: libext2fs
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: jshn
+Version: 2023-05-23-75a3b870-1
+Depends: libc, libjson-c5, libubox20230523, libblobmsg-json20230523
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: perl
+Version: 5.28.1-9
+Depends: libc, libpthread
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: nftables-json
+Version: 1.0.8-1
+Depends: libc, kmod-nft-core, libnftnl11, jansson4
+Provides: nftables
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: e2fsprogs
+Version: 1.47.0-2
+Depends: libc, libuuid1, libext2fs2
+Status: install user installed
+Architecture: aarch64_generic
+Conffiles:
+ /etc/e2fsck.conf dece11e2b15f487d7d2bf9f96abe2eaaf9cd33f02d7b9725b9116023d7786cac
+Installed-Time: 1727094886
+
+Package: kmod-i2c-mux
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-i2c-core
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-lib-zstd
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-crypto-acompress, kmod-lib-xxhash
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-nft-offload
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-nf-flow, kmod-nft-nat
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-ppp
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-lib-crc-ccitt, kmod-slhc
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-pps
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f)
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: libncurses6
+ABIVersion: 6
+Version: 6.4-2
+Depends: libc, terminfo
+Provides: libncursesw, libncurses, libncursesw6
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: httping
+Version: 2.5-1
+Depends: libc, libopenssl3
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: kmod-crypto-null
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-crypto-hash
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: perlbase-integer
+Version: 5.28.1-9
+Depends: libc, perl
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: wpa-cli
+Version: 2023-09-08-e5ccbfc6-8
+Depends: libc
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: kmod-random-core
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f)
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: libss2
+ABIVersion: 2
+Version: 1.47.0-2
+Depends: libc, libcomerr0
+Provides: libss
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: hostapd
+Version: 2023-09-08-e5ccbfc6-8
+Depends: hostapd-common (= 2023-09-08-e5ccbfc6-8), libc, libnl-tiny1, hostapd-common, ucode, libubus20230605, libucode20230711, ucode-mod-fs, ucode-mod-nl80211, ucode-mod-rtnl, ucode-mod-ubus, ucode-mod-uloop, libblobmsg-json20230523
+Status: install user installed
+Architecture: aarch64_generic
+Conffiles:
+ /etc/config/radius bef62a785544c390592e7626153135a5b7af0ce863e63c57c098cef75991d201
+ /etc/radius/clients fbb33c7cae037be801aa89912ec835397c6f7f8c2ac1c6526857d17da865e2ab
+ /etc/radius/users 0a9b818ca14c9a87f23a1455530a6941eb63878724386d820b6ecacd0eeeb935
+Installed-Time: 1727094886
+
+Package: libjson-c5
+ABIVersion: 5
+Version: 0.16-3
+Depends: libc
+Provides: libjson-c
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-phylink
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f)
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: uhttpd
+Version: 2023-06-25-34a8a74d-2
+Depends: libc, libubox20230523, libblobmsg-json20230523, libjson-script20230523, libjson-c5
+Status: install user installed
+Architecture: aarch64_generic
+Conffiles:
+ /etc/config/uhttpd bcf5f1c5e714cdc46e7855da53ba4c427c37735267ea17eebf958f24efd7d247
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-nf-conntrack
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f)
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-mdio-bus-mux
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f)
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: php8
+Version: 8.2.24-1
+Depends: libc, libpcre2, zlib, libxml2, zoneinfo-core
+Conflicts: php7
+Status: install user installed
+Architecture: aarch64_generic
+Conffiles:
+ /etc/php.ini 22e6e8c3d153a54dc997138c1d30feaff1fbf36856a071f027eab0ce30405c4b
+Installed-Time: 1727094886
+
+Package: kmod-renesas-net-avb
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-phylink, kmod-mii, kmod-ptp, kmod-libphy, kmod-mdio-gpio
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: usign
+Version: 2020-05-23-f1f65026-1
+Depends: libc, libubox20230523
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: liblua5.1.5
+ABIVersion: 5.1.5
+Version: 5.1.5-11
+Depends: libc
+Provides: liblua
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: zlib
+Version: 1.2.13-1
+Depends: libc
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: libblobmsg-json20230523
+ABIVersion: 20230523
+Version: 2023-05-23-75a3b870-1
+Depends: libc, libjson-c5, libubox20230523
+Provides: libblobmsg-json
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: perlbase-cwd
+Version: 5.28.1-9
+Depends: libc, perl, perlbase-essential
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-crypto-xxhash
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-crypto-hash, kmod-lib-xxhash
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: htop
+Version: 3.3.0-1
+Depends: libc, libncurses6
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: kmod-crypto-gcm
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-crypto-ctr, kmod-crypto-ghash, kmod-crypto-null
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: luci-lib-nixio
+Version: git-24.034.54875-21210dc
+Depends: libc, liblua5.1.5
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-rtc-rx8025
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-i2c-core
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: ucode-mod-rtnl
+Version: 2024-07-11-1a8a0bcf-3
+Depends: libc, ucode, libnl-tiny1, libubox20230523
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: ca-bundle
+Version: 20230311-1
+Depends: libc
+Provides: ca-certs
+Status: install user installed
+Architecture: all
+Installed-Time: 1727094886
+
+Package: liblucihttp-lua
+Version: 2023-03-15-9b5b683f-1
+Depends: libc, liblucihttp0, liblua5.1.5
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: libuclient20201210
+ABIVersion: 20201210
+Version: 2023-04-13-007d9454-1
+Depends: libc, libubox20230523
+Provides: libuclient
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: perlbase-base
+Version: 5.28.1-9
+Depends: libc, perl, perlbase-essential
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-crypto-cmac
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-crypto-hash
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: luci-lib-jsonc
+Version: git-23.298.74571-62eb535
+Depends: libc, liblua5.1.5, libjson-c5
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-phy-broadcom
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-libphy, kmod-phylib-broadcom
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: ucode-mod-html
+Version: 1
+Depends: libc, libucode20230711
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: php8-mod-mbstring
+Version: 8.2.24-1
+Depends: libc, php8, oniguruma5
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: php8-mod-fileinfo
+Version: 8.2.24-1
+Depends: libc, php8
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: perlbase-time
+Version: 5.28.1-9
+Depends: libc, perl, perlbase-class, perlbase-config, perlbase-dynaloader, perlbase-essential
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: kmod-ptp
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-pps
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: luci
+Version: git-23.051.66410-a505bb1
+Depends: libc, luci-light, luci-app-opkg
+Status: install user installed
+Architecture: all
+Installed-Time: 1727094886
+
+Package: kmod-crypto-rng
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-crypto-hash, kmod-crypto-hmac, kmod-crypto-sha512
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-nf-conntrack6
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-nf-conntrack
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: luci-light
+Version: git-23.024.33244-34dee82
+Depends: libc, luci-proto-ipv6, luci-app-firewall, luci-mod-admin-full, luci-proto-ppp, luci-theme-bootstrap, rpcd-mod-rrdns, uhttpd, uhttpd-mod-ubus
+Status: install ok installed
+Architecture: all
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: libgcc1
+ABIVersion: 1
+Version: 12.3.0-4
+Provides: libgcc
+Status: install hold,user installed
+Essential: yes
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: libstdcpp6
+ABIVersion: 6
+Version: 12.3.0-4
+Provides: libstdcpp
+Status: install hold installed
+Essential: yes
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: perlbase-selectsaver
+Version: 5.28.1-9
+Depends: libc, perl, perlbase-essential, perlbase-symbol
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-acpi-mdio
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-libphy, kmod-mdio-devres
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-lib-xxhash
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f)
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-lib-lzo
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-crypto-acompress
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-ath
+Version: 5.15.167+6.1.110-1-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-mac80211
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: ubox
+Version: 2022-08-13-4c7b720b-2
+Depends: libc, libubox20230523, ubusd, ubus, libubus20230605, libuci20130104
+Status: install ok installed
+Architecture: aarch64_generic
+Conffiles:
+ /etc/modules.conf 83dab538976e37112de89ad9569f77410553bd0a8393d19ed656353218ccf6ae
+Installed-Time: 1727094886
+Auto-Installed: yes
+Alternatives: 100:/sbin/rmmod:/sbin/kmodloader, 100:/sbin/insmod:/sbin/kmodloader, 100:/sbin/lsmod:/sbin/kmodloader, 100:/sbin/modinfo:/sbin/kmodloader, 100:/sbin/modprobe:/sbin/kmodloader
+
+Package: kmod-amazon-ena
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f)
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: kernel
+Version: 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f
+Depends: libc
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: kmod-e1000e
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-ptp
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: kmod-crypto-crc32
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-crypto-hash
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-ath9k-htc
+Version: 5.15.167+6.1.110-1-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-ath9k-common, kmod-usb-core, ath9k-htc-firmware
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: blkid
+Version: 2.39-2
+Depends: libc, libblkid1, libuuid1
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: rpcd-mod-iwinfo
+Version: 2023-07-01-c07ab2f9-1
+Depends: libiwinfo (>= 2023-01-21), libc, libubus20230605, libubox20230523, rpcd, libiwinfo20230701
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: luci-mod-network
+Version: git-24.281.58052-a6c2279
+Depends: libc, luci-base, rpcd-mod-iwinfo
+Status: install user installed
+Architecture: all
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-nft-core
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-nfnetlink, kmod-nf-reject, kmod-nf-reject6, kmod-nf-conntrack6, kmod-nf-nat, kmod-nf-log, kmod-nf-log6, kmod-lib-crc32c
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: libucode20230711
+ABIVersion: 20230711
+Version: 2024-07-11-1a8a0bcf-3
+Depends: libc, libjson-c5
+Provides: libucode
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-mdio-gpio
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-libphy, kmod-of-mdio
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: php8-mod-session
+Version: 8.2.24-1
+Depends: libc, php8
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: kmod-thunderx-net
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-phylink, kmod-mdio-thunder
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: kmod-regmap-i2c
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-regmap-core, kmod-i2c-core
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: libatomic1
+ABIVersion: 1
+Version: 12.3.0-4
+Depends: libgcc1
+Provides: libatomic
+Status: install hold installed
+Essential: yes
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-fixed-phy
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-libphy
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-dwmac-sun8i
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-stmmac-core, kmod-mdio-bus-mux
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: kmod-regmap-core
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f)
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-phy-smsc
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-libphy
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: kmod-nls-base
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f)
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: libnfnetlink0
+ABIVersion: 0
+Version: 1.0.2-1
+Depends: libc
+Provides: libnfnetlink
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: xz-utils
+Version: 5.4.6-1
+Depends: libc
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: uhttpd-mod-ubus
+Version: 2023-06-25-34a8a74d-2
+Depends: libc, uhttpd, libubus20230605, libblobmsg-json20230523
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-stmmac-core
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-phylink, kmod-pcs-xpcs, kmod-ptp
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-phylib-broadcom
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-libphy
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: wget-ssl
+Version: 1.21.4-1
+Depends: libc, libpcre2, zlib, libopenssl3, librt
+Provides: gnu-wget, wget
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Alternatives: 300:/usr/bin/wget:/usr/libexec/wget-ssl
+
+Package: fwtool
+Version: 2019-11-12-8f7fe925-1
+Depends: libc
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-phy-marvell-10g
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-libphy
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: jsonfilter
+Version: 2024-01-23-594cfa86-1
+Depends: libc, libubox20230523, libjson-c5
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: liblucihttp-ucode
+Version: 2023-03-15-9b5b683f-1
+Depends: libc, liblucihttp0, libucode20230711
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: libubox20230523
+ABIVersion: 20230523
+Version: 2023-05-23-75a3b870-1
+Depends: libc
+Provides: libubox
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: iperf3
+Version: 3.17.1-2
+Depends: libc, libiperf3
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: kmod-net-selftests
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-libphy
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: hostapd-common
+Version: 2023-09-08-e5ccbfc6-8
+Depends: libc
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: wireless-tools
+Version: 29-6
+Depends: libc
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: kmod-ath9k-common
+Version: 5.15.167+6.1.110-1-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-ath, kmod-random-core
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-usb-net-cdc-ether
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-usb-net
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: libattr
+Version: 2.5.1-1
+Depends: libc
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: libuv1
+ABIVersion: 1
+Version: 1.48.0-1
+Depends: libc, libpthread, librt
+Provides: libuv
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-mdio-devres
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-libphy, kmod-of-mdio
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: wireless-regdb
+Version: 2024.07.04-1
+Depends: libc
+Status: install ok installed
+Architecture: all
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: perlbase-params
+Version: 5.28.1-9
+Depends: libc, perl, perlbase-essential, perlbase-locale
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: urngd
+Version: 2023-11-01-44365eb1-1
+Depends: libc, libubox20230523
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: perlbase-errno
+Version: 5.28.1-9
+Depends: libc, perl, perlbase-config, perlbase-essential
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-slhc
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-lib-crc-ccitt
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-cfg80211
+Version: 5.15.167+6.1.110-1-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), iw, iwinfo, wireless-regdb
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: kmod-macsec
+Version: 5.15.167-1
+Depends: kernel (= 5.15.167-1-d93c06fec09a43c065e8a5f8151bb87f), kmod-crypto-gcm
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: rpcd-mod-rrdns
+Version: 20170710
+Depends: libc, rpcd, libubox20230523, libubus20230605
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: php8-mod-zip
+Version: 8.2.24-1
+Depends: libc, php8, libzip
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: ppp-mod-pppoe
+Version: 2.4.9.git-2021-01-04-4
+Depends: libc, kmod-pppoe
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+
+Package: perlbase-posix
+Version: 5.28.1-9
+Depends: libc, perl, perlbase-essential, perlbase-fcntl, perlbase-tie, perlbase-xsloader
+Status: install ok installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+Auto-Installed: yes
+
+Package: dnsmasq-full
+Version: 2.90-2
+Depends: libc, libubus20230605, libnettle8, libnetfilter-conntrack3, nftables-json
+Provides: dnsmasq
+Status: install user installed
+Architecture: aarch64_generic
+Conffiles:
+ /etc/config/dhcp a3ab720d8cd674dced9d6c22963a900e700480d9e666285c52c0cf0a418ba5bb
+ /etc/dnsmasq.conf 1e6ab19c1ae5e70d609ac7b6246541d52042e4dee1892f825266507ef52d7dfd
+Installed-Time: 1727094886
+
+Package: php8-mod-iconv
+Version: 8.2.24-1
+Depends: libc, php8
+Status: install user installed
+Architecture: aarch64_generic
+Installed-Time: 1727094886
+

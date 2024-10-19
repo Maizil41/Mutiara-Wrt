@@ -1,0 +1,5 @@
+/etc/bash.bashrc
+/lib/upgrade/keep.d/bash
+/bin/bash
+/bin/rbash
+/etc/profile.d/sys_bashrc.sh

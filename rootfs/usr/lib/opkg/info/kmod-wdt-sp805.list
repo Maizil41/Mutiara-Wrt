@@ -1,0 +1,2 @@
+/etc/modules.d/50-wdt-sp805
+/lib/modules/5.15.167/sp805_wdt.ko

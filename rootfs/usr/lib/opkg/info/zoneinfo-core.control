@@ -1,0 +1,12 @@
+Package: zoneinfo-core
+Version: 2023c-2
+Depends: libc
+Source: feeds/packages/utils/zoneinfo
+SourceName: zoneinfo-core
+License: Public-Domain
+Section: utils
+SourceDateEpoch: 1720286899
+Maintainer: Vladimir Ulrich <admin@evl.su>
+Architecture: aarch64_generic
+Installed-Size: 20180
+Description:  Zone Information (core)
