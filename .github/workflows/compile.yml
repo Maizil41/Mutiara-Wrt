@@ -123,9 +123,9 @@ jobs:
           draft: false
           prerelease: false
           files: |
+                ${{ env.ROOTFS_PATH }}
                 ${{ env.HG680_PATH }}
                 ${{ env.B860H_PATH }}
-                ${{ env.ROOTFS_PATH }}
           body: |
             ### OpenWrt Image information
             - Default IP: 192.168.1.1
