@@ -77,7 +77,7 @@ jobs:
 
     - name: Find IMG File
       run: |
-        IMG_PATH=$(find -name "openwrt*.img")
+        IMG_PATH=$(find -name "openwrt*.img.gz")
         echo "IMG_PATH=$IMG_PATH" >> $GITHUB_ENV
         echo -e "\033[34m\t Image path:\033[37m $IMG_PATH \033[0m"
 
