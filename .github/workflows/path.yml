@@ -9,6 +9,12 @@ jobs:
       contents: write
 
     steps:
+      - name: Set Timezone
+        run: |
+          echo "Setting timezone to Asia/Jakarta"
+          sudo ln -sf /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
+          sudo dpkg-reconfigure -f noninteractive tzdata
+    
       - name: Checkout repository
         uses: actions/checkout@v3
 
