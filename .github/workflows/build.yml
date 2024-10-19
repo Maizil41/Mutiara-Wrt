@@ -43,7 +43,7 @@ jobs:
         kmod-usb-net-huawei-cdc-ncm kmod-usb-serial-wwan \
         perlbase-file kmod-brcmutil perlbase-essential perlbase-utf8 \
         perlbase-file  perlbase-time perlbase-xsloader coreutils-stat luci-app-ttyd \
-        " FILES="files"
+        " FILES="files" || true
 
     - name: Upload Firmware
       uses: actions/upload-artifact@v3
