@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  make_rootfs:
     runs-on: ubuntu-22.04
 
     steps:
@@ -50,3 +50,46 @@ jobs:
       with:
         name: openwrt-firmware
         path: openwrt-imagebuilder-23.05.5-armsr-armv8.Linux-x86_64/bin/targets/armsr/armv8/openwrt-23.05.5-armsr-armv8-generic-rootfs.tar.gz
+
+  build_firmware:
+    runs-on: ubuntu-22.04
+    needs: make_rootfs
+    steps:
+    - name: Download Firmware Artifact
+      uses: actions/download-artifact@v3
+      with:
+        name: openwrt-firmware
+
+    - name: Clone Amlogic Repository
+      run: |
+        git clone --depth 1 https://github.com/ophub/amlogic-s9xxx-openwrt.git
+        cd amlogic-s9xxx-openwrt
+        mkdir -p openwrt-armvirt
+
+    - name: Move Firmware
+      run: |
+        mv openwrt-23.05.5-armsr-armv8-generic-rootfs.tar.gz amlogic-s9xxx-openwrt/openwrt-armvirt/
+
+    - name: Build Amlogic Firmware
+      run: |
+        cd amlogic-s9xxx-openwrt
+        sudo ./make -b s905x -k 5.15 -s 1024
+
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      with:
+        tag_name: v1.0.0
+        release_name: Amlogic Firmware Release
+        draft: false
+        prerelease: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Upload Amlogic Firmware to Release
+      uses: actions/upload-release-asset@v1
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: amlogic-s9xxx-openwrt/out/*
+        asset_name: ${{ github.run_id }}-firmware.tar.gz
+        asset_content_type: application/gzip
