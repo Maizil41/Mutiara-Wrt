@@ -32,11 +32,10 @@ jobs:
           tar -xf openwrt-imagebuilder-23.05.5-armsr-armv8.Linux-x86_64.tar.xz -C tmp --strip-components=1 > /dev/null 2>&1
           rm -rf openwrt-imagebuilder-23.05.5-armsr-armv8.Linux-x86_64.tar.xz > /dev/null 2>&1
 
-      - name: Copy files and Ipk
+      - name: Copy Files
         run: |
           echo -e "Copy Files"; cp -rf files/files/* tmp/files/;
           echo -e "Copy IPK"; cp -rf files/ipk/* tmp/packages/;
-          echo -e "Copy Feeds"; cp -rf files/repositories.conf tmp/;
 
       - name: Make Rootfs
         run: |
@@ -58,7 +57,7 @@ jobs:
           kmod-usb-net-huawei-cdc-ncm kmod-usb-serial-wwan luci-app-3ginfo-lite \
           perlbase-file kmod-brcmutil perlbase-essential perlbase-utf8 \
           perlbase-file  perlbase-time perlbase-xsloader coreutils-stat \
-          luci-app-amlogic luci-app-ttyd luci-app-diskman luci-app-openclash luci-app-tinyfm \
+          luci-app-amlogic luci-app-ttyd luci-app-diskman luci-app-openclash \
           " FILES="files" > /dev/null 2>&1 || true
 
       - name: Move Rootfs
