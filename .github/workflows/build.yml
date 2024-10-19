@@ -76,7 +76,6 @@ jobs:
         sudo ./remake -b s905x -k 5.15 -s 1024
 
     - name: Find IMG File
-      if: env.skip_build == 'false'
       run: |
         IMG_PATH=$(find -name "openwrt*.img")
         echo "IMG_PATH=$IMG_PATH" >> $GITHUB_ENV
