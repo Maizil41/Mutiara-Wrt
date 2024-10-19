@@ -32,8 +32,4 @@ jobs:
         
     - name: Extract Rootfs
       run:
-        echo -e "Current Path"
-        pwd
-        sleep 5
-        echo -e "List Files"
-        ls -la
+        echo -e "Current Path"; pwd;
