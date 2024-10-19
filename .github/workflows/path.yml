@@ -91,7 +91,7 @@ jobs:
         run: |
           mv openwrt-23.05.5-armsr-armv8-generic-rootfs.tar.gz amlogic-s9xxx-openwrt/openwrt-armvirt/
 
-      - name: Build Firmware HG680P
+      - name: Build Firmware HG680
         run: |
           cd amlogic-s9xxx-openwrt
           sudo ./remake -b s905x -k 5.15 -s 1024
@@ -103,9 +103,12 @@ jobs:
 
       - name: Find Firmware
         run: |
-          IMG_PATH=$(find -name "openwrt*.img.gz")
-          echo "IMG_PATH=$IMG_PATH" >> $GITHUB_ENV
-          echo -e "Image path: $IMG_PATH"
+          HG680_PATH=$(find -name "openwrt_amlogic_s905x_*.img.gz")
+          B860H_PATH=$(find -name "openwrt_amlogic_s905x-b860h_*.img.gz")
+          echo "HG680_PATH=$HG680_PATH" >> $GITHUB_ENV
+          echo "B860H_PATH=$B860H_PATH" >> $GITHUB_ENV
+          echo -e "HG680 path: $HG680_PATH"
+          echo -e "B860H path: $B860H_PATH"
 
       - name: Create Release
         uses: softprops/action-gh-release@v2
@@ -117,7 +120,8 @@ jobs:
           draft: false
           prerelease: false
           files: |
-                ${{ env.IMG_PATH }}
+                ${{ env.HG680_PATH }}
+                ${{ env.B860H_PATH }}
           body: |
             ### OpenWrt Image information
             - Default IP: 192.168.1.1
