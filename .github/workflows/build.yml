@@ -79,6 +79,7 @@ jobs:
       run: |
         IMG_PATH=$(find -name "openwrt*.img")
         echo "IMG_PATH=$IMG_PATH" >> $GITHUB_ENV
+        echo -e "\033[34m\t Image path:\033[37m $IMG_PATH \033[0m"
 
     - name: Create Release
       uses: softprops/action-gh-release@v2
