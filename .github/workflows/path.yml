@@ -1,14 +1,15 @@
-name: Download Image Builder
-
+name: Download Builder
 on:
   workflow_dispatch:
 
 jobs:
-  make_rootfs:
+  update:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
-      - name: Checkout Repository
+      - name: Checkout repository
         uses: actions/checkout@v3
         
       - name: Download Image Builder
@@ -20,5 +21,7 @@ jobs:
           git config --global user.name "Maizil41"
           git config --global user.email "maizilpc7@gmail.com"
           git add .
-          git commit -m "Add OpenWRT Image Builder"
-          git push https://x-access-token:${{ secrets.TOKEN_GITHUB }}@github.com/Maizil41/Mutiara-Wrt.git HEAD:main
+          git commit -m "Image Builder"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
