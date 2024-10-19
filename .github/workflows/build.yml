@@ -74,6 +74,8 @@ jobs:
       run: |
         ls -l
         cd amlogic-s9xxx-openwrt
+        ls -l
+        sudo chmod +x ./make
         sudo ./make -b s905x -k 5.15 -s 1024
 
     - name: Create Release
