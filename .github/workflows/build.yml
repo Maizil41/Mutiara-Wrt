@@ -1,9 +1,6 @@
 name: Build OpenWRT Image
 
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
 
 jobs:
@@ -16,19 +13,19 @@ jobs:
 
     - name: Install Dependencies
       run: |
-        sudo apt update -y
-        sudo apt install net-tools make gawk git curl unzip bzip2 -y
-        sudo apt install -y $(curl -fsSL https://is.gd/depend_ubuntu2204_openwrt)
+        sudo apt update -y > /dev/null 2>&1
+        sudo apt install net-tools make gawk git curl unzip bzip2 -y > /dev/null 2>&1
+        sudo apt install -y $(curl -fsSL https://is.gd/depend_ubuntu2204_openwrt) > /dev/null 2>&1
 
     - name: Download OpenWRT Image Builder
       run: |
-        wget https://downloads.openwrt.org/releases/23.05.5/targets/armsr/armv8/openwrt-imagebuilder-23.05.5-armsr-armv8.Linux-x86_64.tar.xz
-        tar -J -x -f openwrt-imagebuilder-23.05.5-armsr-armv8.Linux-x86_64.tar.xz
+        wget https://downloads.openwrt.org/releases/23.05.5/targets/armsr/armv8/openwrt-imagebuilder-23.05.5-armsr-armv8.Linux-x86_64.tar.xz > /dev/null 2>&1
+        tar -J -x -f openwrt-imagebuilder-23.05.5-armsr-armv8.Linux-x86_64.tar.xz > /dev/null 2>&1
 
     - name: Build OpenWRT Image
       run: |
-        cd openwrt-imagebuilder-23.05.5-armsr-armv8.Linux-x86_64
-        make image PROFILE="generic" PACKAGES=" \
+        cd openwrt-imagebuilder-23.05.5-armsr-armv8.Linux-x86_64 > /dev/null 2>&1
+        make V=s image PROFILE="generic" PACKAGES=" \
         -dnsmasq -luci-theme-bootstrap \
         dnsmasq-full cgi-io libiwinfo libiwinfo-data libiwinfo-lua liblua liblucihttp liblucihttp-lua \
         libubus-lua lua luci luci-app-firewall luci-app-opkg luci-base luci-lib-base \
