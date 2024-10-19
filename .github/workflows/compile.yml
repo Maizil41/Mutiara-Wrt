@@ -1,4 +1,4 @@
-name: Download Builder
+name: Compile OpenWrt
 on:
   workflow_dispatch:
 
@@ -59,7 +59,7 @@ jobs:
           perlbase-file kmod-brcmutil perlbase-essential perlbase-utf8 \
           perlbase-file  perlbase-time perlbase-xsloader coreutils-stat \
           luci-app-amlogic luci-app-ttyd luci-app-diskman luci-app-openclash luci-app-tinyfm \
-          " FILES="files" || true
+          " FILES="files" > /dev/null 2>&1 || true
 
       - name: Move Rootfs
         run:
@@ -105,10 +105,13 @@ jobs:
         run: |
           HG680_PATH=$(find -name "openwrt_amlogic_s905x_*.img.gz")
           B860H_PATH=$(find -name "openwrt_amlogic_s905x-b860h_*.img.gz")
+          ROOTFS_PATH=$(find -name "openwrt-*rootfs.tar.gz")
           echo "HG680_PATH=$HG680_PATH" >> $GITHUB_ENV
           echo "B860H_PATH=$B860H_PATH" >> $GITHUB_ENV
+          echo "ROOTFS_PATH=$ROOTFS_PATH" >> $GITHUB_ENV
           echo -e "HG680 path: $HG680_PATH"
           echo -e "B860H path: $B860H_PATH"
+          echo -e "ROOTFS_PATH path: $ROOTFS_PATH"
 
       - name: Create Release
         uses: softprops/action-gh-release@v2
@@ -122,6 +125,7 @@ jobs:
           files: |
                 ${{ env.HG680_PATH }}
                 ${{ env.B860H_PATH }}
+                ${{ env.ROOTFS_PATH }}
           body: |
             ### OpenWrt Image information
             - Default IP: 192.168.1.1
