@@ -12,7 +12,7 @@ jobs:
       
     - name: check_path
       run: |
-        - echo "Current working directory is: $(pwd)"
-    
-        - echo "Files and directories in the current path:"
-        - ls -la
+        echo -e "Current working directory is"
+        pwd
+        echo -e "Files and directories in the current path:"
+        ls -la
