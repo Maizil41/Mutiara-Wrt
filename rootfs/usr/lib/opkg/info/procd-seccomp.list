@@ -1,4 +1,0 @@
-/sbin/seccomp-trace
-/sbin/utrace
-/lib/libpreload-trace.so
-/lib/libpreload-seccomp.so

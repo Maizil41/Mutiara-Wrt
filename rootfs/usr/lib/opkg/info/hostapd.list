@@ -1,8 +1,0 @@
-/usr/sbin/hostapd
-/etc/init.d/radius
-/usr/sbin/hostapd-radius
-/etc/radius/clients
-/lib/upgrade/keep.d/hostapd
-/etc/config/radius
-/usr/share/hostap/hostapd.uc
-/etc/radius/users

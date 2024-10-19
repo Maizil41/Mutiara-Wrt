@@ -1,3 +1,0 @@
-/etc/modules.d/30-mdio-thunder
-/lib/modules/5.15.167/mdio-cavium.ko
-/lib/modules/5.15.167/mdio-thunder.ko

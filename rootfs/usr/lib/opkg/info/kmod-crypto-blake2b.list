@@ -1,2 +1,0 @@
-/etc/modules.d/09-crypto-blake2b
-/lib/modules/5.15.167/blake2b_generic.ko

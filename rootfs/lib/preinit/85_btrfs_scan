@@ -1,9 +1,0 @@
-#!/bin/sh
-
-preinit_btrfs_scan() {
-	if grep -q btrfs /proc/filesystems; then
-		 btrfs device scan
-	fi
-}
-
-boot_hook_add preinit_main preinit_btrfs_scan

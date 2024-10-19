@@ -1,2 +1,0 @@
-/etc/modules.d/51-i2c-mux
-/lib/modules/5.15.167/i2c-mux.ko

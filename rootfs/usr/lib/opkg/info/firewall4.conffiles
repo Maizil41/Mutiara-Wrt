@@ -1,3 +1,0 @@
-/etc/config/firewall
-/etc/nftables.d/10-custom-filter-chains.nft
-/etc/nftables.d/README
