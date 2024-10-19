@@ -55,12 +55,6 @@ jobs:
     runs-on: ubuntu-22.04
     needs: make_rootfs
     steps:
-    - name: Install Dependencies
-      run: |
-        sudo apt update -y > /dev/null 2>&1
-        sudo apt install net-tools make gawk git curl unzip bzip2 -y > /dev/null 2>&1
-        sudo apt install -y $(curl -fsSL https://is.gd/depend_ubuntu2204_openwrt) > /dev/null 2>&1
-    
     - name: Download Firmware Artifact
       uses: actions/download-artifact@v3
       with:
@@ -81,21 +75,22 @@ jobs:
         cd amlogic-s9xxx-openwrt
         sudo ./remake -b s905x -k 5.15 -s 1024
 
+    - name: Find IMG File
+      if: env.skip_build == 'false'
+      run: |
+        IMG_PATH=$(find -name "openwrt*.img")
+        echo "IMG_PATH=$IMG_PATH" >> $GITHUB_ENV
+
     - name: Create Release
-      id: create_release
-      uses: actions/create-release@v1
-      with:
-        tag_name: v1.0.0
-        release_name: Amlogic Firmware Release
-        draft: false
-        prerelease: false
+      uses: softprops/action-gh-release@v2
       env:
         GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
-
-    - name: Upload Amlogic Firmware to Release
-      uses: actions/upload-release-asset@v1
       with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: amlogic-s9xxx-openwrt/openwrt/out/*
-        asset_name: ${{ github.run_id }}-firmware.tar.gz
-        asset_content_type: application/gzip
+        name: Amlogic Firmware Release
+        tag_name: v1.0.0
+        draft: false
+        prerelease: false
+        files: |
+              ${{ env.IMG_PATH }}
+        body: |
+              Build Complete
