@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/Maizil41/Mutiara-Wrt/main/images/brands.png" alt="Clash" width="200">
+  <img src="https://raw.githubusercontent.com/Maizil41/Mutiara-Wrt/main/images/logo.svg" alt="Clash" width="200">
   <h1>Mutiara-Wrt</h1>
 </div>
 
