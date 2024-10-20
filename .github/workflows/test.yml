@@ -36,7 +36,6 @@ jobs:
           cd amlogic-s9xxx-openwrt
           mkdir -p openwrt-armvirt
 
-
       - name: Move Rootfs
         run: |
           cp -rf Mutiara-Wrt_23.05.5_rootfs.tar.gz amlogic-s9xxx-openwrt/openwrt-armvirt/
