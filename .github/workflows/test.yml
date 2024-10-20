@@ -83,9 +83,14 @@ jobs:
                 ./artifacts/*.img.gz
           body: |
             ### Mutiara-Wrt Information
-            - Default IP: 192.168.1.1
-            - Default username: root
-            - Default password: mutiara
-            - Default WIFI name: Mutiara-Wrt
-            - Default WIFI password: 12345678
-            - Release date: ${{ env.date_time }}
+            * Default IP: 192.168.1.1
+            * Default username: root
+            * Default password: mutiara
+            * Default WIFI name: Mutiara-Wrt
+            * Default WIFI password: 12345678
+            * Release date: ${{ env.date_time }}
+            ### Tools Installed
+            * Radius Monitor
+            * OpenClash v0.46.046-beta
+            * WhatsApp Bot
+            * and others
