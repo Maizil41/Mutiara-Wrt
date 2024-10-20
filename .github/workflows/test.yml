@@ -20,12 +20,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Download Depedency
-        run: |
-          sudo -E apt-get update > /dev/null 2>&1
-          sudo -E apt install net-tools make gawk git curl unzip bzip2 > /dev/null 2>&1
-          sudo -E apt install -y $(curl -fsSL https://is.gd/depend_ubuntu2204_openwrt) > /dev/null 2>&1
-
       - name: Clone Amlogic Builder
         run: |
           if [ -d "amlogic-s9xxx-openwrt" ]; then
@@ -47,7 +41,7 @@ jobs:
 
       - name: Find Firmware
         run: |
-          FILE_PATH=$(find ./amlogic-s9xxx-openwrt -name "openwrt_amlogic_${{ matrix.board_version }}_*.img.gz")
+          FILE_PATH=$(find ./amlogic-s9xxx-openwrt -name "{{ matrix.board_version }}*.img.gz")
           echo "FILE_PATH=$FILE_PATH" >> $GITHUB_ENV
           echo -e "FILE_PATH path: $FILE_PATH"
           
