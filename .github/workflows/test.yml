@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-22.04
     strategy:
       matrix:
-        board_version: [s905x, s905x-b860h]
+        board_version: [s905x, s905x-b860h, h96-max-m2, nanopi-r5c, nanopi-r5s, orangepi-5-plus, rk3318-box, s905d, s905w, s905w-x96-mini, s905x-nexbox-a95x, s905x2, s905x3, s912, tanix-tx6]
 
     steps:
       - name: Set Timezone
@@ -20,12 +20,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Download Depedency
-        run: |
-          sudo -E apt-get update > /dev/null 2>&1
-          sudo -E apt install net-tools make gawk git curl unzip bzip2 > /dev/null 2>&1
-          sudo -E apt install -y $(curl -fsSL https://is.gd/depend_ubuntu2204_openwrt) > /dev/null 2>&1
-
       - name: Clone Amlogic Builder
         run: |
           if [ -d "amlogic-s9xxx-openwrt" ]; then
@@ -35,6 +29,15 @@ jobs:
           git clone --depth 1 https://github.com/ophub/amlogic-s9xxx-openwrt.git
           cd amlogic-s9xxx-openwrt
           mkdir -p openwrt-armvirt
+
+      - name: Cache OpenWrt Build Data
+        uses: actions/cache@v3
+        with:
+          path: |
+            ./amlogic-s9xxx-openwrt/openwrt-armvirt
+          key: ${{ runner.os }}-openwrt-${{ matrix.board_version }}
+          restore-keys: |
+            ${{ runner.os }}-openwrt-
 
       - name: Download Rootfs
         run: |
