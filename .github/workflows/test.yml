@@ -42,7 +42,7 @@ jobs:
       - name: Download Rootfs
         run: |
           pip install gdown
-          gdown https://drive.google.com/uc?id=1ceuwLfkoLYe9vsrPr4Drkm6NnRda7rNK
+          gdown https://drive.google.com/uc?id=1Z40E9qmwWZ4wX_a1m0cKxl6JIY-EhWLf
           mv Mutiara-Wrt_23.05.5_rootfs.tar.gz amlogic-s9xxx-openwrt/openwrt-armvirt/
 
       - name: Build Firmware ${{ matrix.board_version }}
