@@ -32,9 +32,6 @@ jobs:
 
       - name: Download Rootfs
         run: |
-          if [ -d "amlogic-s9xxx-openwrt/openwrt-armvirt/Mutiara-Wrt_23.05.5_rootfs.tar.gz" ]; then
-            rm -rf amlogic-s9xxx-openwrt/openwrt-armvirt/Mutiara-Wrt_23.05.5_rootfs.tar.gz
-          fi
           wget "https://drive.usercontent.google.com/download?id=1ceuwLfkoLYe9vsrPr4Drkm6NnRda7rNK&export=download&authuser=0&confirm=t&uuid=871ff001-b8a2-4e57-a907-4d0c7863b0a5&at=AN_67v29Ax98UGn2IR61HVxBPtUA%3A1729447274347" -O amlogic-s9xxx-openwrt/openwrt-armvirt/Mutiara-Wrt_23.05.5_rootfs.tar.gz 
 
       - name: Build Firmware ${{ matrix.board_version }}
