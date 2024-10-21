@@ -3,22 +3,37 @@ on:
   workflow_dispatch:
 
 jobs:
+  download:
+    name: Download Rootfs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Rootfs
+        run: |
+          pip install gdown
+          gdown https://drive.google.com/uc?id=1d7P8k01rde0v9uP_KQBXiqhRBmwxXEwM
+          ROOTFS_PATH=$(find ./ -name "*rootfs.tar.gz")
+          echo "ROOTFS_PATH=$ROOTFS_PATH" >> $GITHUB_ENV
+          
+      - name: Upload Rootfs
+        uses: actions/upload-artifact@v3
+        with:
+          name: amlogic-rootfs
+          path: |
+            ${{ env.ROOTFS_PATH }}
+
   build:
     name: Build Packages
     runs-on: ubuntu-22.04
+    needs: [download]
     strategy:
       matrix:
         board_version: [s905x, s905x-b860h, h96-max-m2, nanopi-r5c, nanopi-r5s, orangepi-5-plus, rk3318-box, s905d, s905w, s905w-x96-mini, s905x-nexbox-a95x, s905x2, s905x3, s912, tanix-tx6]
-
     steps:
-      - name: Set Timezone
-        run: |
-          echo "Setting timezone to Asia/Jakarta"
-          sudo ln -sf /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
-          sudo dpkg-reconfigure -f noninteractive tzdata
-    
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - name: Download Rootfs
+        uses: actions/download-artifact@v3
+        with:
+          name: amlogic-rootfs
+          path: ./artifacts/
 
       - name: Clone Amlogic Builder
         run: |
@@ -29,21 +44,7 @@ jobs:
           git clone --depth 1 https://github.com/ophub/amlogic-s9xxx-openwrt.git
           cd amlogic-s9xxx-openwrt
           mkdir -p openwrt-armvirt
-
-      - name: Cache OpenWrt Build Data
-        uses: actions/cache@v3
-        with:
-          path: |
-            ./amlogic-s9xxx-openwrt/openwrt-armvirt
-          key: ${{ runner.os }}-openwrt-${{ matrix.board_version }}
-          restore-keys: |
-            ${{ runner.os }}-openwrt-
-
-      - name: Download Rootfs
-        run: |
-          pip install gdown
-          gdown https://drive.google.com/uc?id=1Z40E9qmwWZ4wX_a1m0cKxl6JIY-EhWLf
-          mv Mutiara-Wrt_23.05.5_rootfs.tar.gz amlogic-s9xxx-openwrt/openwrt-armvirt/
+          mv ./artifacts/*rootfs.tar.gz ./amlogic-s9xxx-openwrt/openwrt-armvirt/
 
       - name: Build Firmware ${{ matrix.board_version }}
         run: |
@@ -67,7 +68,6 @@ jobs:
     name: Create Release
     runs-on: ubuntu-latest
     needs: [build]
-    
     steps:
       - name: Set up date
         id: set_date
