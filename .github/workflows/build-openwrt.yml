@@ -45,7 +45,7 @@ jobs:
           cd amlogic-s9xxx-openwrt
           mkdir -p openwrt-armvirt
           ROOTFS_PATH=$(find ./ -name "*rootfs.tar.gz")
-          mv $ROOTFS_PATH amlogic-s9xxx-openwrt/openwrt-armvirt/
+          cp -R $ROOTFS_PATH amlogic-s9xxx-openwrt/openwrt-armvirt/
 
       - name: Build Firmware ${{ matrix.board_version }}
         run: |
