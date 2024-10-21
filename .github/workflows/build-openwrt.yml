@@ -27,7 +27,7 @@ jobs:
     needs: [download]
     strategy:
       matrix:
-        board_version: [s905x, s905x-b860h, h96-max-m2, nanopi-r5c, nanopi-r5s, orangepi-5-plus, rk3318-box, s905d, s905w, s905w-x96-mini, s905x-nexbox-a95x, s905x2, s905x3, s912, tanix-tx6]
+        board_version: [s905d, s905w, s905w-x96-mini, s905x, s905x-b860h, s905x-nexbox-a95x, s905x2, s905x3, s912, nanopi-r5c, nanopi-r5s, orangepi-5-plus, rk3318-box, tanix-tx6]
     steps:
       - name: Clone Amlogic Builder
         run: |
