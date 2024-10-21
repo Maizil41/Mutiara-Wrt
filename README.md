@@ -22,9 +22,9 @@
 * adminer : ```radmon``` > ```radmon```
 * Wifi : ```Mutiara-Wrt``` > ```12345678```
 
-**Note:<br>
-Booting pertama memang agak sedikit lama, mungkin juga harus cabut colok beberapa kali,<br>
-Jika sudah bisa masuk kehalaman LuCi tapi wifi masih off coba direstart**
+**Note:**
+* Booting pertama memang agak sedikit lama, mungkin juga harus cabut colok beberapa kali
+* Jika sudah bisa masuk kehalaman LuCi tapi wifi masih off coba direstart
 
 <hr/>
 
