@@ -44,7 +44,8 @@ jobs:
           git clone --depth 1 https://github.com/ophub/amlogic-s9xxx-openwrt.git
           cd amlogic-s9xxx-openwrt
           mkdir -p openwrt-armvirt
-          mv ./artifacts/*rootfs.tar.gz ./amlogic-s9xxx-openwrt/openwrt-armvirt/
+          ROOTFS_PATH=$(find ./ -name "*rootfs.tar.gz")
+          mv $ROOTFS_PATH ./amlogic-s9xxx-openwrt/openwrt-armvirt/
 
       - name: Build Firmware ${{ matrix.board_version }}
         run: |
