@@ -40,7 +40,7 @@
 
 * OpenClash
 <p align="center">
-    <img src="/images/openclash.png">
+    <img src="/images/oc.png">
 </p>
 
 * Radius Monitor
