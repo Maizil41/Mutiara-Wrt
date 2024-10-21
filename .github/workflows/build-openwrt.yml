@@ -10,7 +10,7 @@ jobs:
       - name: Download Rootfs
         run: |
           pip install gdown
-          gdown https://drive.google.com/uc?id=1d7P8k01rde0v9uP_KQBXiqhRBmwxXEwM
+          gdown https://drive.google.com/uc?id=19tQlIYA437ylY1IUaE54s6N8cAqhcgoe
           ROOTFS_PATH=$(find ./ -name "*rootfs.tar.gz")
           echo "ROOTFS_PATH=$ROOTFS_PATH" >> $GITHUB_ENV
           
