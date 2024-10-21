@@ -22,7 +22,7 @@ jobs:
             ${{ env.ROOTFS_PATH }}
 
   build:
-    name: Build Packages
+    name: Compile Image
     runs-on: ubuntu-22.04
     needs: [download]
     strategy:
