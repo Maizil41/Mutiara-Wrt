@@ -29,12 +29,6 @@ jobs:
       matrix:
         board_version: [s905x, s905x-b860h, h96-max-m2, nanopi-r5c, nanopi-r5s, orangepi-5-plus, rk3318-box, s905d, s905w, s905w-x96-mini, s905x-nexbox-a95x, s905x2, s905x3, s912, tanix-tx6]
     steps:
-      - name: Download Rootfs
-        uses: actions/download-artifact@v3
-        with:
-          name: amlogic-rootfs
-          path: ./artifacts/
-
       - name: Clone Amlogic Builder
         run: |
           if [ -d "amlogic-s9xxx-openwrt" ]; then
@@ -44,10 +38,13 @@ jobs:
           git clone --depth 1 https://github.com/ophub/amlogic-s9xxx-openwrt.git
           cd amlogic-s9xxx-openwrt
           mkdir -p openwrt-armvirt
-          ROOTFS_PATH=$(find ./ -name "*rootfs.tar.gz")
-          echo "ROOTFS_PATH=$ROOTFS_PATH"
-          cp -R $ROOTFS_PATH ./amlogic-s9xxx-openwrt/openwrt-armvirt/
-
+    
+      - name: Download Rootfs
+        uses: actions/download-artifact@v3
+        with:
+          name: amlogic-rootfs
+          path: ./amlogic-s9xxx-openwrt/openwrt-armvirt/
+          
       - name: Build Firmware ${{ matrix.board_version }}
         run: |
           cd amlogic-s9xxx-openwrt
