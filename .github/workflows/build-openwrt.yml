@@ -33,6 +33,7 @@ jobs:
     strategy:
       matrix:
         board_version: [s905d, s905w, s905w-x96-mini, s905x, s905x-b860h, s905x-nexbox-a95x, s905x2, s905x3, s912, nanopi-r5c, nanopi-r5s, orangepi-5-plus, rk3318-box, tanix-tx6]
+        kernel_version: [5.4, 5.15, 6.1]
     steps:
       - name: Clone Amlogic Builder
         run: |
@@ -53,7 +54,7 @@ jobs:
       - name: Build Firmware ${{ matrix.board_version }}
         run: |
           cd amlogic-s9xxx-openwrt
-          sudo ./remake -b ${{ matrix.board_version }} -k 5.15 -s 1024
+          sudo ./remake -b ${{ matrix.board_version }} -k ${{ matrix.kernel_version }} -s 1024
 
       - name: Find Firmware
         run: |
