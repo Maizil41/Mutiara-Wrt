@@ -58,15 +58,8 @@ jobs:
       - name: Find Firmware
         run: |
           FILE_PATH=$(find ./amlogic-s9xxx-openwrt/openwrt/out/ -name "*.img.gz")
-
-          for FILE in $FILE_PATH; do
-            NEW_PATH=$(echo "$FILE" | sed 's/openwrt_/mutiara-wrt_/')
-            echo "Renaming \"$FILE\" to \"$NEW_PATH\""
-            sudo mv "$FILE" "$NEW_PATH"
-          done
-
-          echo "IMG_PATH=$NEW_PATH" >> $GITHUB_ENV
-          echo -e "IMG_PATH path: $NEW_PATH"
+          echo "FILE_PATH=$FILE_PATH" >> $GITHUB_ENV
+          echo -e "FILE_PATH path: $FILE_PATH"
           
       - name: Upload Firmware
         uses: actions/upload-artifact@v3
