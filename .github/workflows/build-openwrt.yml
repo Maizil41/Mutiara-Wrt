@@ -62,7 +62,7 @@ jobs:
           for FILE in $FILE_PATH; do
             NEW_PATH=$(echo "$FILE" | sed 's/openwrt_/mutiara-wrt_/')
             echo "Renaming \"$FILE\" to \"$NEW_PATH\""
-            mv "$FILE" "$NEW_PATH"
+            sudo mv "$FILE" "$NEW_PATH"
           done
 
           echo "IMG_PATH=$NEW_PATH" >> $GITHUB_ENV
