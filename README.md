@@ -36,7 +36,7 @@
 
 * Home Page
 <p align="center">
-    <img src="/images/home.png">
+    <img src="/images/homepage.png">
 </p>
 
 * OpenClash
