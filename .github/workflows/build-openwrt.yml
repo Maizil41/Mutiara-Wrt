@@ -32,7 +32,7 @@ jobs:
     needs: [download]
     strategy:
       matrix:
-        board_version: [s905d, s905w, s905w-x96-mini, s905x, s905x-b860h, s905x-nexbox-a95x, s905x2, s905x3, s912, nanopi-r5c, nanopi-r5s, orangepi-5-plus, rk3318-box, tanix-tx6]
+        board_version: [s905d, s905w, s905w-x96-mini, s905x, s905x-b860h, s905x-nexbox-a95x, s905x2, s905x3, s912]
     steps:
       - name: Clone Amlogic Builder
         run: |
@@ -91,7 +91,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
         with:
           name: Mutiara-Wrt_23.05.5
-          tag_name: v23.05.5
+          tag_name: v23.05.5_k5.15.169
           draft: false
           prerelease: false
           files: |
