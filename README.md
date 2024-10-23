@@ -23,8 +23,8 @@
 * Wifi : ```Mutiara-Wrt``` > ```12345678```
 
 **Note:**
-* Booting pertama memang agak sedikit lama, mungkin juga harus cabut colok beberapa kali
-* Jika sudah bisa masuk kehalaman LuCi tapi wifi masih off coba direstart
+* Saat pertama kali booting tunggu sekitar 2-5 menit, lalu cabut/colok ulang adaptor
+* Jika sudah bisa masuk kehalaman LuCi tapi wifi masih off coba direstart WiFi nya
 
 <hr/>
 
