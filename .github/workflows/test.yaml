@@ -39,7 +39,7 @@ jobs:
         zoneinfo-core zoneinfo-asia nano htop unzip wget wget-ssl libmbedtls tar bash luci-app-mwan3 luci-theme-material \
         netdata httping coreutils-timeout kmod-usb-net-rndis iperf3 \
         usbutils kmod-usb-net-cdc-ether usb-modeswitch \
-        kmod-pcengines-apuv2 beep kmod-leds-gpio kmod-crypto-hw-ccp kmod-usb-core kmod-usb-ohci kmod-usb2 kmod-usb3 kmod-sound-core kmod-pcspkr amd64-microcode flashrom irqbalance fstrim curl \
+        kmod-pcengines-apuv2 beep kmod-leds-gpio kmod-crypto-hw-ccp kmod-usb-core kmod-usb-ohci kmod-usb2 kmod-usb3 kmod-sound-core kmod-pcspkr amd64-microcode irqbalance fstrim curl \
         ath10k-firmware-qca988x kmod-ath10k \
         qmi-utils kmod-usb-net-qmi-wwan libqmi luci-proto-qmi uqmi \
         " FILES="files" > /dev/null 2>&1 || true
