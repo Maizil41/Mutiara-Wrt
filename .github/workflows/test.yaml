@@ -1,0 +1,119 @@
+#
+# Copyright (C) 2024 Maizil41 https://github.com/maizil41
+# https://github.com/ophub/amlogic-s9xxx-openwrt
+# 
+
+name: Compile OpenWrt
+on:
+  workflow_dispatch:
+
+jobs:
+  download:
+    name: Download Rootfs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Rootfs
+        run: |
+          pip install gdown
+          gdown https://drive.google.com/uc?id=19tQlIYA437ylY1IUaE54s6N8cAqhcgoe
+          ROOTFS_PATH=$(find ./ -name "*rootfs.tar.gz")
+          echo "ROOTFS_PATH=$ROOTFS_PATH" >> $GITHUB_ENV
+          
+      - name: Upload Rootfs
+        uses: actions/upload-artifact@v3
+        with:
+          name: amlogic-rootfs
+          path: |
+            ${{ env.ROOTFS_PATH }}
+
+  build:
+    name: Compile Image
+    runs-on: ubuntu-22.04
+    needs: [download]
+    strategy:
+      matrix:
+        board_version: [s905x, s905x-b860h]
+    steps:
+      - name: Clone Amlogic Builder
+        run: |
+          if [ -d "amlogic-s9xxx-openwrt" ]; then
+            rm -rf amlogic-s9xxx-openwrt
+          fi
+
+          git clone --depth 1 https://github.com/maizil41/amlogic-s9xxx-openwrt.git
+          cd amlogic-s9xxx-openwrt
+          mkdir -p openwrt-armvirt
+    
+      - name: Download Rootfs
+        uses: actions/download-artifact@v3
+        with:
+          name: amlogic-rootfs
+          path: ./amlogic-s9xxx-openwrt/openwrt-armvirt/
+          
+      - name: Build Firmware ${{ matrix.board_version }}
+        run: |
+          cd amlogic-s9xxx-openwrt
+          sudo ./remake -b ${{ matrix.board_version }} -k 5.15 -s 1024
+
+      - name: Find Firmware
+        run: |
+          FILE_PATH=$(find ./amlogic-s9xxx-openwrt/openwrt/out/ -name "*.img.gz")
+
+          for FILE in $FILE_PATH; do
+            NEW_PATH=$(echo "$FILE" | sed 's/openwrt_/mutiara-wrt_/')
+            echo "Renaming \"$FILE\" to \"$NEW_PATH\""
+            sudo mv "$FILE" "$NEW_PATH"
+          done
+
+          echo "IMG_PATH=$NEW_PATH" >> $GITHUB_ENV
+          echo -e "IMG_PATH path: $NEW_PATH"
+          
+      - name: Upload Firmware
+        uses: actions/upload-artifact@v3
+        with:
+          name: amlogic-firmware
+          path: |
+            ${{ env.IMG_PATH }}
+            
+  release:
+    name: Create Release
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+      - name: Set up date
+        id: set_date
+        run: |
+          export TZ='Asia/Jakarta'
+          echo "date_time=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
+          
+      - name: Download Firmware
+        uses: actions/download-artifact@v3
+        with:
+          name: amlogic-firmware
+          path: ./artifacts/
+          
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
+        with:
+          name: Mutiara-Wrt_23.05.5
+          tag_name: v23.05.5-Test
+          draft: false
+          prerelease: false
+          files: |
+                ./artifacts/*.img.gz
+          body: |
+            ### Mutiara-Wrt Information
+            * Default IP: 192.168.1.1
+            * Default username: root
+            * Default password: mutiara
+            * Default WIFI name: Mutiara-Wrt
+            * Default WIFI password: 12345678
+            * Release date: ${{ env.date_time }}
+            
+            ### Tools Installed
+            * Radius Monitor
+            * OpenClash v0.46.046-beta
+            * WhatsApp Bot
+            * and others
