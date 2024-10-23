@@ -1,3 +1,8 @@
+#
+# Copyright (C) 2024 Maizil41 https://github.com/maizil41
+# https://github.com/ophub/amlogic-s9xxx-openwrt
+# 
+
 name: Compile OpenWrt
 on:
   workflow_dispatch:
@@ -53,15 +58,22 @@ jobs:
       - name: Find Firmware
         run: |
           FILE_PATH=$(find ./amlogic-s9xxx-openwrt/openwrt/out/ -name "*.img.gz")
-          echo "FILE_PATH=$FILE_PATH" >> $GITHUB_ENV
-          echo -e "FILE_PATH path: $FILE_PATH"
+
+          for FILE in $FILE_PATH; do
+            NEW_PATH=$(echo "$FILE" | sed 's/openwrt_/mutiara-wrt_/')
+            echo "Renaming \"$FILE\" to \"$NEW_PATH\""
+            mv "$FILE" "$NEW_PATH"
+          done
+
+          echo "IMG_PATH=$NEW_PATH" >> $GITHUB_ENV
+          echo -e "IMG_PATH path: $NEW_PATH"
           
       - name: Upload Firmware
         uses: actions/upload-artifact@v3
         with:
           name: amlogic-firmware
           path: |
-            ${{ env.FILE_PATH }}
+            ${{ env.IMG_PATH }}
             
   release:
     name: Create Release
