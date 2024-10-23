@@ -46,7 +46,7 @@ jobs:
 
     - name: Find Firmware
       run: |
-        FILE_PATH=$(find ./openwrt-imagebuilder-23.05.5-x86-64.Linux-x86_64/ -name "*.tar.xz")
+        FILE_PATH=$(find -name "*.tar.xz")
         echo "FILE_PATH=$FILE_PATH" >> $GITHUB_ENV
         echo -e "FILE_PATH path: $FILE_PATH"
 
