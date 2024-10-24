@@ -61,9 +61,9 @@ jobs:
         id: set_board_versions
         run: |
           if [ "${{ github.event.inputs.board_version }}" == "all" ]; then
-            echo "::set-output name=board_versions::s905d,s905w,s905w-x96-mini,s905x,s905x-b860h,s905x-nexbox-a95x,s905x2,s905x3,s912,nanopi-r5c,nanopi-r5s,orangepi-5-plus"
+            echo "board_versions=s905d,s905w,s905w-x96-mini,s905x,s905x-b860h,s905x-nexbox-a95x,s905x2,s905x3,s912,nanopi-r5c,nanopi-r5s,orangepi-5-plus" >> $GITHUB_ENV
           else
-            echo "::set-output name=board_versions::${{ github.event.inputs.board_version }}"
+            echo "board_versions=${{ github.event.inputs.board_version }}" >> $GITHUB_ENV
           fi
 
   build:
@@ -72,7 +72,7 @@ jobs:
     needs: [set_matrix, download]
     strategy:
       matrix:
-        board_version: ${{ fromJson(needs.set_matrix.outputs.board_versions) }}
+        board_version: ${{ env.board_versions }}
     steps:
       - name: Clone Amlogic Builder
         run: |
