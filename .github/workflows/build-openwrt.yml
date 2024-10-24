@@ -65,7 +65,7 @@ jobs:
             ${{ env.ROOTFS_PATH }}
 
   build_specific:
-    name: Compile Specific Image
+    name: Compile Firmware
     runs-on: ubuntu-22.04
     needs: [download]
     if: github.event.inputs.board_version != 'all'
@@ -107,7 +107,7 @@ jobs:
             ${{ env.FILE_PATH }}
 
   build_all:
-    name: Compile All Images
+    name: Compile All Firmware
     runs-on: ubuntu-22.04
     needs: [download]
     if: github.event.inputs.board_version == 'all'
@@ -151,7 +151,7 @@ jobs:
     name: Create Release
     runs-on: ubuntu-latest
     needs: [build_specific, build_all]
-    if: success() 
+    if: success()
     steps:
       - name: Set up date
         id: set_date
