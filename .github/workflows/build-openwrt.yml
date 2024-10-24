@@ -6,9 +6,10 @@ on:
   workflow_dispatch:
     inputs:
       board_version:
-        description: 'Select board version to compile'
+        description: 'Select board version'
         required: true
         default: 'all'
+        type: choice
         options:
           - all
           - s905d
