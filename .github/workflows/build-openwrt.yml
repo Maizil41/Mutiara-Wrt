@@ -160,7 +160,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
         with:
           name: Mutiara-Wrt_23.05.5
-          tag_name: v23.05.5_k5.15.169
+          tag_name: v23.05.5_k5.15.169-test
           draft: false
           prerelease: false
           files: |
