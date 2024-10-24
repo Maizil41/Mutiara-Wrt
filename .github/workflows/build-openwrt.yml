@@ -50,7 +50,8 @@ jobs:
     steps:
       - name: Download Rootfs
         run: |
-          wget https://github.com/Maizil41/Rootfs/releases/download/v23.05.5/mutiara-wrt_23.05.5_amlogic_rootfs.tar.gz
+          LATEST_URL=$(curl -s https://api.github.com/repos/Maizil41/Rootfs/releases/latest | jq -r '.assets[] | select(.name | contains("amlogic_rootfs.tar.gz")) | .browser_download_url')
+          wget "$LATEST_URL"
           ROOTFS_PATH=$(find ./ -name "*rootfs.tar.gz")
           echo "ROOTFS_PATH=$ROOTFS_PATH" >> $GITHUB_ENV
           
@@ -62,7 +63,7 @@ jobs:
             ${{ env.ROOTFS_PATH }}
 
   build_specific:
-    name: Compile Firmware ${{ github.event.inputs.board_version }}
+    name: Build ${{ github.event.inputs.board_version }}
     runs-on: ubuntu-22.04
     needs: download
     if: github.event.inputs.board_version != 'all'
@@ -101,7 +102,7 @@ jobs:
             ${{ env.FILE_PATH }}
 
   build_all:
-    name: Compile Firmware
+    name: Build All
     runs-on: ubuntu-22.04
     needs: download
     if: github.event.inputs.board_version == 'all'
@@ -163,7 +164,7 @@ jobs:
             ${{ env.FILE_PATH }}
 
   release_specific:
-    name: Create Release (Specific)
+    name: Release Single
     runs-on: ubuntu-latest
     needs: build_specific
     if: needs.build_specific.result == 'success'
@@ -207,7 +208,7 @@ jobs:
             * and others
 
   release_all:
-    name: Create Release (All)
+    name: Release All
     runs-on: ubuntu-latest
     needs: build_all
     if: needs.build_all.result == 'success'
