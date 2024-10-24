@@ -52,8 +52,7 @@ jobs:
     steps:
       - name: Download Rootfs
         run: |
-          pip install gdown
-          gdown https://drive.google.com/uc?id=19tQlIYA437ylY1IUaE54s6N8cAqhcgoe
+          wget https://github.com/Maizil41/Rootfs/releases/download/v23.05.5/mutiara-wrt_23.05.5_amlogic_rootfs.tar.gz
           ROOTFS_PATH=$(find ./ -name "*rootfs.tar.gz")
           echo "ROOTFS_PATH=$ROOTFS_PATH" >> $GITHUB_ENV
           
