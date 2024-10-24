@@ -35,14 +35,14 @@ on:
       kernel_version:
         description: 'Select kernel version'
         required: true
-        default: '5.015.000'
+        default: '5.15y'
         type: choice
         options:
-          - 5.010.000
-          - 5.015.000
-          - 6.001.000
-          - 6.006.000
-
+          - 5.10y
+          - 5.15y
+          - 6.1y
+          - 6.6y
+          
 jobs:
   download:
     name: Download Rootfs
