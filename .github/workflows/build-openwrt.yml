@@ -35,13 +35,13 @@ on:
       kernel_version:
         description: 'Select kernel version'
         required: true
-        default: '5.15'
+        default: '5.015.000'
         type: choice
         options:
-          - 5.010
-          - 5.15
-          - 6.1
-          - 6.6
+          - 5.010.000
+          - 5.015.000
+          - 6.001.000
+          - 6.006.000
 
 jobs:
   download:
