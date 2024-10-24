@@ -64,9 +64,9 @@ jobs:
             ${{ env.ROOTFS_PATH }}
 
   build_specific:
-    name: Compile Firmware
+    name: Compile Firmware (Specific)
     runs-on: ubuntu-22.04
-    needs: [download]
+    needs: download
     if: github.event.inputs.board_version != 'all'
     strategy:
       matrix:
@@ -108,7 +108,7 @@ jobs:
   build_all:
     name: Compile All Firmware
     runs-on: ubuntu-22.04
-    needs: [download]
+    needs: download
     if: github.event.inputs.board_version == 'all'
     steps:
       - name: Clone Amlogic Builder
@@ -145,6 +145,7 @@ jobs:
           name: amlogic-firmware
           path: |
             ${{ env.FILE_PATH }}
+
   release_specific:
     name: Create Release (Specific)
     runs-on: ubuntu-latest
