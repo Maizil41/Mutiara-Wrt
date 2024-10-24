@@ -153,6 +153,12 @@ jobs:
     needs: [build_specific, build_all]
     if: ${{ needs.build_specific.result == 'success' || needs.build_all.result == 'success' }}
     steps:
+      - name: Check Build Specific Result
+        run: echo "Build Specific Result: ${{ needs.build_specific.result }}"
+        
+      - name: Check Build All Result
+        run: echo "Build All Result: ${{ needs.build_all.result }}"
+
       - name: Set up date
         id: set_date
         run: |
