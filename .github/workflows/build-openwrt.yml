@@ -62,13 +62,10 @@ jobs:
             ${{ env.ROOTFS_PATH }}
 
   build_specific:
-    name: Compile Firmware (Specific)
+    name: Compile Firmware ${{ github.event.inputs.board_version }}
     runs-on: ubuntu-22.04
     needs: download
     if: github.event.inputs.board_version != 'all'
-    strategy:
-      matrix:
-        board_version: [ "${{ github.event.inputs.board_version }}" ]
     steps:
       - name: Clone Amlogic Builder
         run: |
@@ -85,10 +82,10 @@ jobs:
           name: amlogic-rootfs
           path: ./amlogic-s9xxx-openwrt/openwrt-armvirt/
           
-      - name: Build Firmware ${{ matrix.board_version }} with Kernel ${{ github.event.inputs.kernel_version }}
+      - name: Build Firmware ${{ github.event.inputs.board_version }} with Kernel ${{ github.event.inputs.kernel_version }}
         run: |
           cd amlogic-s9xxx-openwrt
-          sudo ./remake -b ${{ matrix.board_version }} -k ${{ github.event.inputs.kernel_version }} -s 1024
+          sudo ./remake -b ${{ github.event.inputs.board_version }} -k ${{ github.event.inputs.kernel_version }} -s 1024
       
       - name: Find Firmware
         run: |
@@ -104,7 +101,7 @@ jobs:
             ${{ env.FILE_PATH }}
 
   build_all:
-    name: Compile All Firmware
+    name: Compile Firmware
     runs-on: ubuntu-22.04
     needs: download
     if: github.event.inputs.board_version == 'all'
