@@ -33,31 +33,10 @@ on:
           - 6.1
 
 jobs:
-  download:
-    name: Download Rootfs
+  set_matrix:
     runs-on: ubuntu-latest
-    steps:
-      - name: Download Rootfs
-        run: |
-          pip install gdown
-          gdown https://drive.google.com/uc?id=19tQlIYA437ylY1IUaE54s6N8cAqhcgoe
-          ROOTFS_PATH=$(find ./ -name "*rootfs.tar.gz")
-          echo "ROOTFS_PATH=$ROOTFS_PATH" >> $GITHUB_ENV
-          
-      - name: Upload Rootfs
-        uses: actions/upload-artifact@v3
-        with:
-          name: amlogic-rootfs
-          path: |
-            ${{ env.ROOTFS_PATH }}
-
-  build:
-    name: Compile Image
-    runs-on: ubuntu-22.04
-    needs: [download]
-    strategy:
-      matrix:
-        board_version: ${{ fromJson(steps.set_board_versions.outputs.board_versions) }}
+    outputs:
+      board_versions: ${{ steps.set_board_versions.outputs.board_versions }}
     steps:
       - name: Set board versions
         id: set_board_versions
@@ -67,6 +46,14 @@ jobs:
           else
             echo "::set-output name=board_versions::$(echo '[\"${{ github.event.inputs.board_version }}\"]')"
 
+  build:
+    name: Compile Image
+    runs-on: ubuntu-22.04
+    needs: [set_matrix, download]
+    strategy:
+      matrix:
+        board_version: ${{ fromJson(needs.set_matrix.outputs.board_versions) }}
+    steps:
       - name: Clone Amlogic Builder
         run: |
           if [ -d "amlogic-s9xxx-openwrt" ]; then
