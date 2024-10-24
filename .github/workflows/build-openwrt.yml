@@ -54,6 +54,7 @@ jobs:
   set_matrix:
     name: Set Board Versions
     runs-on: ubuntu-latest
+    needs: [download]
     outputs:
       board_versions: ${{ steps.set_board_versions.outputs.board_versions }}
     steps:
@@ -68,7 +69,7 @@ jobs:
   build:
     name: Compile Image
     runs-on: ubuntu-22.04
-    needs: [set_matrix, download]
+    needs: [set_matrix]
     strategy:
       matrix:
         board_version: ${{ fromJson(needs.set_matrix.outputs.board_versions) }}
