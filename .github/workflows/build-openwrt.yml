@@ -69,7 +69,7 @@ jobs:
   build:
     name: Compile Image
     runs-on: ubuntu-22.04
-    needs: [set_matrix]
+    needs: [set_matrix, download]
     strategy:
       matrix:
         board_version: ${{ fromJson(needs.set_matrix.outputs.board_versions) }}
