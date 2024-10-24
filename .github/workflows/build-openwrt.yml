@@ -12,15 +12,28 @@ on:
         type: choice
         options:
           - all
+          - s905-beelink-mini
+          - s905-mxqpro-plus
           - s905d
           - s905w
+          - s905w-w95
           - s905w-x96-mini
+          - s905w-x96w
           - s905x
           - s905x-b860h
           - s905x-nexbox-a95x
+          - s905x-t95
+          - s905x-tbee
+          - s905x-tx9
+          - s905-beelink-mini
+          - s905-mxqpro-plus
           - s905x2
           - s905x3
           - s912
+          - nanopi-r5c
+          - nanopi-r5s
+          - orangepi-5-plus
+          - rk3318-box
 
 jobs:
   download:
