@@ -35,13 +35,13 @@ on:
       kernel_version:
         description: 'Select kernel version'
         required: true
-        default: '5.15y'
+        default: '5.15.y'
         type: choice
         options:
-          - 5.10y
-          - 5.15y
-          - 6.1y
-          - 6.6y
+          - 5.10.y
+          - 5.15.y
+          - 6.1.y
+          - 6.6.y
           
 jobs:
   download:
