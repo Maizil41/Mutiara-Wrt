@@ -6,6 +6,26 @@
 name: Build OpenWrt AMLogic
 on:
   workflow_dispatch:
+    inputs:
+      board_version:
+        description: "Choose board version"
+        required: true
+        default: "all"
+        type: choice
+        options:
+          - all
+          - s905d
+          - s905w
+          - s905w-x96-mini
+          - s905x
+          - s905x-b860h
+          - s905x-nexbox-a95x
+          - s905x2
+          - s905x3
+          - s912
+          - nanopi-r5c
+          - nanopi-r5s
+          - orangepi-5-plus
 
 jobs:
   download:
@@ -32,14 +52,22 @@ jobs:
     needs: [download]
     strategy:
       matrix:
-        board_version: [s905d, s905w, s905w-x96-mini, s905x, s905x-b860h, s905x-nexbox-a95x, s905x2, s905x3, s912]
+        board_version: ${{ fromJson(needs.download.outputs.board_versions) }}
     steps:
+      - name: Set board versions
+        id: set_board_versions
+        run: |
+          if [ "${{ github.event.inputs.board_version }}" == "all" ]; then
+            echo "::set-output name=board_versions::$(echo '[\"s905d\", \"s905w\", \"s905w-x96-mini\", \"s905x\", \"s905x-b860h\", \"s905x-nexbox-a95x\", \"s905x2\", \"s905x3\", \"s912\"]' \"nanopi-r5c\", \"nanopi-r5s\", \"orangepi-5-plus\"]')"
+          else
+            echo "::set-output name=board_versions::$(echo '[\"${{ github.event.inputs.board_version }}\"]')"
+
       - name: Clone Amlogic Builder
         run: |
           if [ -d "amlogic-s9xxx-openwrt" ]; then
             rm -rf amlogic-s9xxx-openwrt
           fi
-
+          
           git clone --depth 1 https://github.com/maizil41/amlogic-s9xxx-openwrt.git
           cd amlogic-s9xxx-openwrt
           mkdir -p openwrt-armvirt
