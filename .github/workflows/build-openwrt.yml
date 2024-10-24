@@ -12,28 +12,25 @@ on:
         type: choice
         options:
           - all
-          - s905-beelink-mini
-          - s905-mxqpro-plus
           - s905d
           - s905w
-          - s905w-w95
           - s905w-x96-mini
-          - s905w-x96w
           - s905x
           - s905x-b860h
           - s905x-nexbox-a95x
-          - s905x-t95
-          - s905x-tbee
-          - s905x-tx9
-          - s905-beelink-mini
-          - s905-mxqpro-plus
           - s905x2
           - s905x3
           - s912
-          - nanopi-r5c
-          - nanopi-r5s
-          - orangepi-5-plus
-          - rk3318-box
+      kernel_version:
+        description: 'Select kernel version'
+        required: true
+        default: '5.15'
+        type: choice
+        options:
+          - 5.10
+          - 5.15
+          - 5.18
+          - 6.0
 
 jobs:
   download:
@@ -78,10 +75,10 @@ jobs:
           name: amlogic-rootfs
           path: ./amlogic-s9xxx-openwrt/openwrt-armvirt/
           
-      - name: Build Firmware ${{ matrix.board_version }}
+      - name: Build Firmware ${{ matrix.board_version }} with Kernel ${{ github.event.inputs.kernel_version }}
         run: |
           cd amlogic-s9xxx-openwrt
-          sudo ./remake -b ${{ matrix.board_version }} -k 5.15 -s 1024
+          sudo ./remake -b ${{ matrix.board_version }} -k ${{ github.event.inputs.kernel_version }} -s 1024
       
       - name: Find Firmware
         run: |
@@ -117,11 +114,11 @@ jobs:
           name: amlogic-rootfs
           path: ./amlogic-s9xxx-openwrt/openwrt-armvirt/
           
-      - name: Build All Firmwares
+      - name: Build All Firmwares with Kernel ${{ github.event.inputs.kernel_version }}
         run: |
           cd amlogic-s9xxx-openwrt
           for board in s905d s905w s905w-x96-mini s905x s905x-b860h s905x-nexbox-a95x s905x2 s905x3 s912; do
-            sudo ./remake -b $board -k 5.15 -s 1024
+            sudo ./remake -b $board -k ${{ github.event.inputs.kernel_version }} -s 1024
           done
       
       - name: Find Firmware
@@ -160,7 +157,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
         with:
           name: Mutiara-Wrt_23.05.5
-          tag_name: v23.05.5_k5.15.169-test
+          tag_name: v23.05.5_k${{ github.event.inputs.kernel_version }}
           draft: false
           prerelease: false
           files: |
