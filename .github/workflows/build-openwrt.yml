@@ -1,11 +1,25 @@
-#
 # Copyright (C) 2024 Maizil41 https://github.com/maizil41
 # https://github.com/ophub/amlogic-s9xxx-openwrt
-# 
 
 name: Compile OpenWrt
 on:
   workflow_dispatch:
+    inputs:
+      board_version:
+        description: 'Select board version to compile'
+        required: true
+        default: 'all'
+        options:
+          - all
+          - s905d
+          - s905w
+          - s905w-x96-mini
+          - s905x
+          - s905x-b860h
+          - s905x-nexbox-a95x
+          - s905x2
+          - s905x3
+          - s912
 
 jobs:
   download:
@@ -25,13 +39,16 @@ jobs:
           name: amlogic-rootfs
           path: |
             ${{ env.ROOTFS_PATH }}
+
   build:
     name: Compile Image
     runs-on: ubuntu-22.04
     needs: [download]
     strategy:
       matrix:
-        board_version: [s905d, s905w, s905w-x96-mini, s905x, s905x-b860h, s905x-nexbox-a95x, s905x2, s905x3, s912]
+        board_version: ${{ fromJson('["s905d", "s905w", "s905w-x96-mini", "s905x", "s905x-b860h", "s905x-nexbox-a95x", "s905x2", "s905x3", "s912"]') }}
+      include:
+        - board_version: all
     steps:
       - name: Clone Amlogic Builder
         run: |
@@ -51,7 +68,14 @@ jobs:
       - name: Build Firmware ${{ matrix.board_version }}
         run: |
           cd amlogic-s9xxx-openwrt
-          sudo ./remake -b ${{ matrix.board_version }} -k 5.15 -s 1024
+          if [ "${{ matrix.board_version }}" == "all" ]; then
+            for board in s905d s905w s905w-x96-mini s905x s905x-b860h s905x-nexbox-a95x s905x2 s905x3 s912; do
+              sudo ./remake -b $board -k 5.15 -s 1024
+            done
+          else
+            sudo ./remake -b ${{ matrix.board_version }} -k 5.15 -s 1024
+          fi
+      
       - name: Find Firmware
         run: |
           FILE_PATH=$(find ./amlogic-s9xxx-openwrt/openwrt/out/ -name "*.img.gz")
@@ -64,7 +88,7 @@ jobs:
           name: amlogic-firmware
           path: |
             ${{ env.FILE_PATH }}
-            
+
   release:
     name: Create Release
     runs-on: ubuntu-latest
