@@ -33,7 +33,26 @@ on:
           - 6.1
 
 jobs:
+  download:
+    name: Download Rootfs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Rootfs
+        run: |
+          pip install gdown
+          gdown https://drive.google.com/uc?id=19tQlIYA437ylY1IUaE54s6N8cAqhcgoe
+          ROOTFS_PATH=$(find ./ -name "*rootfs.tar.gz")
+          echo "ROOTFS_PATH=$ROOTFS_PATH" >> $GITHUB_ENV
+          
+      - name: Upload Rootfs
+        uses: actions/upload-artifact@v3
+        with:
+          name: amlogic-rootfs
+          path: |
+            ${{ env.ROOTFS_PATH }}
+
   set_matrix:
+    name: Set Board Versions
     runs-on: ubuntu-latest
     outputs:
       board_versions: ${{ steps.set_board_versions.outputs.board_versions }}
