@@ -151,7 +151,7 @@ jobs:
     name: Create Release
     runs-on: ubuntu-latest
     needs: [build_specific, build_all]
-    if: success()
+    if: ${{ needs.build_specific.result == 'success' || needs.build_all.result == 'success' }}
     steps:
       - name: Set up date
         id: set_date
