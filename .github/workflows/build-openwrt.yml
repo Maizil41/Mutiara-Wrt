@@ -57,7 +57,7 @@ jobs:
     needs: [download]
     strategy:
       matrix:
-        board_version: ${{ fromJson(needs.download.outputs.board_versions) }}
+        board_version: ${{ fromJson(steps.set_board_versions.outputs.board_versions) }}
     steps:
       - name: Set board versions
         id: set_board_versions
