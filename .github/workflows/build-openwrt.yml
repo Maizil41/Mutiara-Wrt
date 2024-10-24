@@ -25,24 +25,23 @@ jobs:
           name: amlogic-rootfs
           path: |
             ${{ env.ROOTFS_PATH }}
-            
+
   build:
     name: Compile Image
     runs-on: ubuntu-22.04
     needs: [download]
     strategy:
       matrix:
-        board_version: [${{ github.event.inputs.board_version }}]
-        include:
-          - board_version: s905d
-          - board_version: s905w
-          - board_version: s905w-x96-mini
-          - board_version: s905x
-          - board_version: s905x-b860h
-          - board_version: s905x-nexbox-a95x
-          - board_version: s905x2
-          - board_version: s905x3
-          - board_version: s912
+        board_version: 
+          - s905d
+          - s905w
+          - s905w-x96-mini
+          - s905x
+          - s905x-b860h
+          - s905x-nexbox-a95x
+          - s905x2
+          - s905x3
+          - s912
     steps:
       - name: Clone Amlogic Builder
         run: |
@@ -62,12 +61,12 @@ jobs:
       - name: Build Firmware
         run: |
           cd amlogic-s9xxx-openwrt
-          if [[ "${{ matrix.board_version }}" == "all" ]]; then
+          if [[ "${{ github.event.inputs.board_version }}" == "all" ]]; then
             for board in s905d s905w s905w-x96-mini s905x s905x-b860h s905x-nexbox-a95x s905x2 s905x3 s912; do
               sudo ./remake -b $board -k 5.15 -s 1024
             done
           else
-            sudo ./remake -b ${{ matrix.board_version }} -k 5.15 -s 1024
+            sudo ./remake -b ${{ github.event.inputs.board_version }} -k 5.15 -s 1024
           fi
           
       - name: Find Firmware
