@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       board_version:
-        description: 'Select board version'
+        description: 'Select board version to compile'
         required: true
         default: 'all'
         type: choice
@@ -41,15 +41,14 @@ jobs:
           path: |
             ${{ env.ROOTFS_PATH }}
 
-  build:
-    name: Compile Image
+  build_specific:
+    name: Compile Specific Image
     runs-on: ubuntu-22.04
     needs: [download]
+    if: github.event.inputs.board_version != 'all'
     strategy:
       matrix:
-        board_version: ${{ fromJson('["s905d", "s905w", "s905w-x96-mini", "s905x", "s905x-b860h", "s905x-nexbox-a95x", "s905x2", "s905x3", "s912"]') }}
-      include:
-        - board_version: all
+        board_version: [ "${{ github.event.inputs.board_version }}" ]
     steps:
       - name: Clone Amlogic Builder
         run: |
@@ -69,13 +68,48 @@ jobs:
       - name: Build Firmware ${{ matrix.board_version }}
         run: |
           cd amlogic-s9xxx-openwrt
-          if [ "${{ matrix.board_version }}" == "all" ]; then
-            for board in s905d s905w s905w-x96-mini s905x s905x-b860h s905x-nexbox-a95x s905x2 s905x3 s912; do
-              sudo ./remake -b $board -k 5.15 -s 1024
-            done
-          else
-            sudo ./remake -b ${{ matrix.board_version }} -k 5.15 -s 1024
+          sudo ./remake -b ${{ matrix.board_version }} -k 5.15 -s 1024
+      
+      - name: Find Firmware
+        run: |
+          FILE_PATH=$(find ./amlogic-s9xxx-openwrt/openwrt/out/ -name "*.img.gz")
+          echo "FILE_PATH=$FILE_PATH" >> $GITHUB_ENV
+          echo -e "FILE_PATH path: $FILE_PATH"
+          
+      - name: Upload Firmware
+        uses: actions/upload-artifact@v3
+        with:
+          name: amlogic-firmware
+          path: |
+            ${{ env.FILE_PATH }}
+
+  build_all:
+    name: Compile All Images
+    runs-on: ubuntu-22.04
+    needs: [download]
+    if: github.event.inputs.board_version == 'all'
+    steps:
+      - name: Clone Amlogic Builder
+        run: |
+          if [ -d "amlogic-s9xxx-openwrt" ]; then
+            rm -rf amlogic-s9xxx-openwrt
           fi
+          git clone --depth 1 https://github.com/maizil41/amlogic-s9xxx-openwrt.git
+          cd amlogic-s9xxx-openwrt
+          mkdir -p openwrt-armvirt
+    
+      - name: Download Rootfs
+        uses: actions/download-artifact@v3
+        with:
+          name: amlogic-rootfs
+          path: ./amlogic-s9xxx-openwrt/openwrt-armvirt/
+          
+      - name: Build All Firmwares
+        run: |
+          cd amlogic-s9xxx-openwrt
+          for board in s905d s905w s905w-x96-mini s905x s905x-b860h s905x-nexbox-a95x s905x2 s905x3 s912; do
+            sudo ./remake -b $board -k 5.15 -s 1024
+          done
       
       - name: Find Firmware
         run: |
@@ -93,7 +127,7 @@ jobs:
   release:
     name: Create Release
     runs-on: ubuntu-latest
-    needs: [build]
+    needs: [build_specific, build_all]
     steps:
       - name: Set up date
         id: set_date
