@@ -35,7 +35,7 @@ on:
       kernel_version:
         description: 'Select kernel version'
         required: true
-        default: '5.15'
+        default: '5.10'
         type: choice
         options:
           - 5.10
