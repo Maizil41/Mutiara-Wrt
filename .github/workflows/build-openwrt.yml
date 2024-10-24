@@ -65,6 +65,7 @@ jobs:
             echo "::set-output name=board_versions::$(echo '[\"s905d\", \"s905w\", \"s905w-x96-mini\", \"s905x\", \"s905x-b860h\", \"s905x-nexbox-a95x\", \"s905x2\", \"s905x3\", \"s912\", \"nanopi-r5c\", \"nanopi-r5s\", \"orangepi-5-plus\"]')"
           else
             echo "::set-output name=board_versions::$(echo '[\"${{ github.event.inputs.board_version }}\"]')"
+          fi
 
   build:
     name: Compile Image
