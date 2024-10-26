@@ -4,6 +4,7 @@
 </div>
 
 <div align="center">
+  <p align="center"><img src="https://profile-counter.glitch.me/{mutiara-wrt}/count.svg" alt="SuhailTechInfo :: Visitor's Count" /></p>
   <img alt="License" src="https://img.shields.io/github/license/Maizil41/Mutiara-Wrt?style=for-the-badge&logo=github">
   <a target="_blank" href="https://github.com/Maizil41/Mutiara-Wrt/releases"><img src="https://img.shields.io/github/release/Maizil41/Mutiara-Wrt?style=for-the-badge&logo=Openwrt"></a>
   <a target="_blank" href="https://github.com/Maizil41/Mutiara-Wrt/releases"><img src="https://img.shields.io/github/downloads/Maizil41/Mutiara-Wrt/total?style=for-the-badge&logo=Openwrt"></a>
