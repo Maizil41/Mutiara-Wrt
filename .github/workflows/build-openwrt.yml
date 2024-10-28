@@ -213,9 +213,6 @@ jobs:
     needs: build_all
     if: needs.build_all.result == 'success'
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@main
-      
       - name: Set up date
         id: set_date
         run: |
