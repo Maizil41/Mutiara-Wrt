@@ -50,7 +50,7 @@ jobs:
     steps:
       - name: Download Rootfs
         run: |
-          LATEST_URL=$(curl -s https://api.github.com/repos/Maizil41/Rootfs/releases/latest | jq -r '.assets[] | select(.name | contains("rootfs.tar.gz")) | .browser_download_url')
+          LATEST_URL=$(curl -s https://api.github.com/repos/Maizil41/Rootfs/releases/latest | jq -r '.assets[] | select(.name | contains("rootfs.tar.gz")) | .browser_download_url' | tail -n 1)
           wget "$LATEST_URL"
           ROOTFS_PATH=$(find ./ -name "*rootfs.tar.gz")
           echo "ROOTFS_PATH=$ROOTFS_PATH" >> $GITHUB_ENV
