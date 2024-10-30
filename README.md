@@ -18,16 +18,18 @@
 <hr/>
 
 **All Username & Password:**
-* LuCi : ```root``` > ```mutiara```
-* Radmon : ```root``` > ```mutiara```
-* adminer : ```radmon``` > ```radmon```
-* Wifi : ```Mutiara-Wrt``` > ```12345678```
-
+```
+  - LuCi : root > mutiara
+  - Radmon : root > mutiara
+  - adminer : radmon > radmon
+  - Wifi : Mutiara-Wrt > 12345678
+```
 **Note:**
-* Saat pertama kali booting tunggu sekitar 2-5 menit, lalu cabut/colok ulang adaptor
-* Jika sudah bisa masuk kehalaman LuCi tapi wifi masih off coba direstart WiFi nya
-* FW ini tested di STB B860H V1, Aman tanpa kendala
-
+```
+  - Saat pertama kali booting tunggu sekitar 2-5 menit, lalu cabut/colok ulang adaptor
+  - Jika sudah bisa masuk kehalaman LuCi tapi wifi masih off coba direstart WiFi nya
+  - FW ini tested di STB B860H V1, Aman tanpa kendala
+```
 <hr/>
 
 * Login Page
