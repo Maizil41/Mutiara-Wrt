@@ -29,6 +29,7 @@
   - Saat pertama kali booting tunggu sekitar 2-5 menit, lalu cabut/colok ulang adaptor
   - Jika sudah bisa masuk kehalaman LuCi tapi wifi masih off coba direstart WiFi nya
   - FW ini tested di STB B860H V1 dan HG680-P, Aman tanpa kendala
+  - Out voucher via lan (eth0)
 ```
 <hr/>
 
