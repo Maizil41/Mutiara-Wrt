@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="images/logo.svg" alt="logo" width="150">
+  <img src="screenshot/logo.svg" alt="logo" width="150">
   <h1>Mutiara-Wrt</h1>
 </div>
 
@@ -34,20 +34,30 @@
 
 * Login Page
 <p align="center">
-    <img src="/images/login.png">
+    <img src="/screenshot/login.png">
 </p>
 
 * Home Page
 <p align="center">
-    <img src="/images/homepage.png">
+    <img src="/screenshot/hg_home.png">
+</p>
+
+* Terminal
+<p align="center">
+    <img src="/screenshot/terminal.png">
 </p>
 
 * OpenClash
 <p align="center">
-    <img src="/images/oc.png">
+    <img src="/screenshot/openclash.png">
 </p>
 
 * Radius Monitor
 <p align="center">
-    <img src="/images/radmon.png">
+    <img src="/screenshot/radmon.png">
+</p>
+
+* Network
+<p align="center">
+    <img src="/screenshot/network.png">
 </p>
