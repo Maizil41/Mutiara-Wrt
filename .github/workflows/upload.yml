@@ -1,0 +1,70 @@
+name: Upload Firmware
+
+on:
+  repository_dispatch:
+  workflow_dispatch:
+    inputs:
+      wget_link:
+        description: "Insert Wget Link"
+        required: true
+        default: ""
+      gdrive_id:
+        description: "Insert GDrive ID"
+        required: true
+        default: ""
+
+jobs:
+  downloads:
+    runs-on: ubuntu-22.04
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Set Up Environment
+      run: |
+        sudo apt update > /dev/null 2>&1
+        sudo apt install -y python3 python3-pip > /dev/null 2>&1
+        pip3 install gdown > /dev/null 2>&1
+        mkdir -p downloads
+
+    - name: Download From GDrive
+      run: |
+        gdown https://drive.google.com/uc?id=${{ github.event.inputs.gdrive_id }} -O downloads/ > /dev/null
+
+    - name: Download From Wget
+      run: |
+        wget ${{ github.event.inputs.wget_link }} -O downloads/ > /dev/null
+
+    - name: Set up date
+      id: set_date
+      run: |
+        export TZ='Asia/Jakarta'
+        echo "date_time=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
+          
+    - name: Create Release
+      uses: softprops/action-gh-release@v2
+      env:
+        GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
+      with:
+        name: Mutiara-Wrt_23.05.5
+        tag_name: v23.05.5_k5.15.170
+        draft: false
+        prerelease: false
+        files: |
+              downloads/*
+        body: |
+          ### Mutiara-Wrt Information
+          * Default IP: 192.168.1.1
+          * Default username: root
+          * Default password: mutiara
+          * Default WIFI name: Mutiara-Wrt
+          * Default WIFI password: 12345678
+          * Release date: ${{ env.date_time }}
+            
+          ### Tools Installed
+          * Radius Monitor
+          * OpenClash v0.46.050-beta
+          * WhatsApp Bot
+          * Tailscale
+          * and others
