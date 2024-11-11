@@ -34,7 +34,7 @@ jobs:
 
     - name: Download From Wget
       run: |
-        wget ${{ github.event.inputs.wget_link }} -O downloads/ > /dev/null
+        wget ${{ github.event.inputs.wget_link }} -O downloads/$(echo "${{ github.event.inputs.wget_link }}" | awk -F/ '{print $NF}') > /dev/null
 
     - name: Set up date
       id: set_date
