@@ -58,7 +58,7 @@
     <img src="/screenshot/radmon.png">
 </p>
 
-* Network
+* Interface
 <p align="center">
     <img src="/screenshot/network.png">
 </p>
