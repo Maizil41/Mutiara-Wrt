@@ -6,11 +6,11 @@ on:
     inputs:
       wget_link:
         description: "Insert Wget Link"
-        required: true
+        required: false
         default: ""
       gdrive_id:
         description: "Insert GDrive ID"
-        required: true
+        required: false
         default: ""
 
 jobs:
