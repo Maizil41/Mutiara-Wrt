@@ -29,10 +29,12 @@ jobs:
         mkdir -p downloads
 
     - name: Download From GDrive
+      if: ${{ github.event.inputs.gdrive_id != '' }}
       run: |
         gdown https://drive.google.com/uc?id=${{ github.event.inputs.gdrive_id }} -O downloads/ > /dev/null
 
     - name: Download From Wget
+      if: ${{ github.event.inputs.wget_link != '' }}
       run: |
         wget ${{ github.event.inputs.wget_link }} -O downloads/$(echo "${{ github.event.inputs.wget_link }}" | awk -F/ '{print $NF}') > /dev/null
 
