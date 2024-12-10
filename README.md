@@ -11,6 +11,9 @@
 </div>
 <hr/>
 <p align="center">
+<a href="https://sociabuzz.com/maizil41/tribe"><img src="https://img.shields.io/badge/SOCIALBUZZ-6FBB18?style=for-the-badge&logo=ko-fi&logoColor=white"></a>
+<a href="https://saweria.co/mutiarawrt"><img src="https://img.shields.io/badge/SAWERIA-FFAE00?style=for-the-badge&logo=ko-fi&logoColor=white"></a>
+<br><br/>
 <a href="https://t.me/mutiarawrt"><img src="https://img.shields.io/badge/Telegram--Channel-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white"></a>
 <a href="https://www.youtube.com/@mutiara-wrt"><img src="https://img.shields.io/badge/Youtube--Channel-e02c2c?style=for-the-badge&logo=youtube&logoColor=white"></a>
 <a href="https://t.me/+X1zD3nY9Fz1lNDU1"><img src="https://img.shields.io/badge/Telegram--Groups-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white"></a>
