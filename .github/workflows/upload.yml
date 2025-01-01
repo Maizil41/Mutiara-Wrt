@@ -49,8 +49,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
       with:
-        name: Mutiara-Wrt_24.10.0-rc2
-        tag_name: v24.10.0-rc2_k5.15.173
+        name: Mutiara-Wrt_23.05.5
+        tag_name: v23.05.5_k5.15.175
         draft: false
         prerelease: false
         files: |
@@ -65,14 +65,15 @@ jobs:
           * Release date: ${{ env.date_time }}
             
           ### Tools Installed
-          * OpenClash
-          * Mihomo Proxy
-          * Tailscale
+          * OpenClash v0.46.064
+          * Radius Monitor V2
+          * WhatsApp Bot
           * Modeminfo
           * 3G/4G Connection
           * and others
 
           ### Notes : 
-          * Tested Di B860H v1 dan Hg680-P Pant*t Hitam
-          * Download sesuai tipe STB
+          * B860H-V1 dan HG680-P Wifi On
+          * X86-64 Wifi On tergantung device
           * Modem Hp akan terdeteksi eth bukan usb
+          * Info lebih lanjut join grup [Mutiara-Wrt](https://t.me/+X1zD3nY9Fz1lNDU1)
