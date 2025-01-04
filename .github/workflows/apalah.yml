@@ -1,0 +1,185 @@
+# Copyright (C) 2024 Maizil41 https://github.com/maizil41
+# https://github.com/ophub/amlogic-s9xxx-openwrt
+
+name: Build OpenWrt AMLogic
+on:
+  workflow_dispatch:
+    inputs:
+      board_version:
+        description: 'Select board version to compile'
+        required: true
+        default: 'all'
+        type: choice
+        options:
+          - all
+          - s905-beelink-mini
+          - s905-mxqpro-plus
+          - s905d
+          - s905w
+          - s905w-w95
+          - s905w-x96-mini
+          - s905w-x96w
+          - s905x
+          - s905x-b860h
+          - s905x-nexbox-a95x
+          - s905x-t95
+          - s905x-tbee
+          - s905x-tx9
+          - s905x2
+          - s905x3
+          - s912
+          - nanopi-r5c
+          - nanopi-r5s
+          - orangepi-5-plus
+          - rk3318-box
+      kernel_version:
+        description: 'Select kernel version'
+        required: true
+        default: '5.15.y'
+        type: choice
+        options:
+          - 5.10.y
+          - 5.15.y
+          - 5.4.y
+          - 6.1.y
+          - 6.6.y
+      rootfs_type:
+        description: 'Select Rootfs Type'
+        required: true
+        default: 'Mutiara-Wrt'
+        type: choice
+        options:
+          - Mutiara-Wrt
+          - Custom-Rootfs
+      custom_rootfs_url:
+        description: 'Input Custom Rootfs URL (if rootfs_type is Custom-Rootfs)'
+        required: false
+        default: ''
+
+jobs:
+  download:
+    name: Download Rootfs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Rootfs
+        run: |
+          if [ "${{ github.event.inputs.rootfs_type }}" == "Mutiara-Wrt" ]; then
+            LATEST_URL=$(curl -s https://api.github.com/repos/Maizil41/Rootfs/releases/latest | jq -r '.assets[] | select(.name | contains("rootfs.tar.gz")) | .browser_download_url' | tail -n 1)
+            wget "$LATEST_URL"
+          elif [ "${{ github.event.inputs.rootfs_type }}" == "Custom-Rootfs" ]; then
+            wget "${{ github.event.inputs.custom_rootfs_url }}"
+          else
+            echo "Error: Unsupported rootfs_type selected."
+            exit 1
+          fi
+          ROOTFS_PATH=$(find ./ -name "*rootfs.tar.gz")
+          echo "ROOTFS_PATH=$ROOTFS_PATH" >> $GITHUB_ENV
+          
+      - name: Upload Rootfs
+        uses: actions/upload-artifact@v3
+        with:
+          name: amlogic-rootfs
+          path: |
+            ${{ env.ROOTFS_PATH }}
+
+  build_specific:
+    name: Build ${{ github.event.inputs.board_version }}
+    runs-on: ubuntu-22.04
+    needs: download
+    if: github.event.inputs.board_version != 'all'
+    steps:
+      - name: Clone Amlogic Builder
+        run: |
+          if [ -d "amlogic-s9xxx-openwrt" ]; then
+            rm -rf amlogic-s9xxx-openwrt
+          fi
+          git clone --depth 1 https://github.com/maizil41/amlogic-s9xxx-openwrt.git
+          cd amlogic-s9xxx-openwrt
+          mkdir -p openwrt-armvirt
+    
+      - name: Download Rootfs
+        uses: actions/download-artifact@v3
+        with:
+          name: amlogic-rootfs
+          path: ./amlogic-s9xxx-openwrt/openwrt-armvirt/
+          
+      - name: Build Firmware ${{ github.event.inputs.board_version }} with Kernel ${{ github.event.inputs.kernel_version }}
+        run: |
+          cd amlogic-s9xxx-openwrt
+          sudo ./remake -b ${{ github.event.inputs.board_version }} -k ${{ github.event.inputs.kernel_version }} -s 1024
+      
+      - name: Find Firmware
+        run: |
+          FILE_PATH=$(find ./amlogic-s9xxx-openwrt/openwrt/out/ -name "*.img.gz")
+          echo "FILE_PATH=$FILE_PATH" >> $GITHUB_ENV
+          echo -e "FILE_PATH path: $FILE_PATH"
+          
+      - name: Upload Firmware
+        uses: actions/upload-artifact@v3
+        with:
+          name: amlogic-firmware
+          path: |
+            ${{ env.FILE_PATH }}
+
+  build_all:
+    name: Build All
+    runs-on: ubuntu-22.04
+    needs: download
+    if: github.event.inputs.board_version == 'all'
+    strategy:
+      matrix:
+        board_version: 
+          - s905-beelink-mini
+          - s905-mxqpro-plus
+          - s905d
+          - s905w
+          - s905w-w95
+          - s905w-x96-mini
+          - s905w-x96w
+          - s905x
+          - s905x-b860h
+          - s905x-nexbox-a95x
+          - s905x-t95
+          - s905x-tbee
+          - s905x-tx9
+          - s905x2
+          - s905x3
+          - s912
+          - nanopi-r5c
+          - nanopi-r5s
+          - orangepi-5-plus
+          - rk3318-box
+    steps:
+      - name: Clone Amlogic Builder
+        run: |
+          if [ -d "amlogic-s9xxx-openwrt" ]; then
+            rm -rf amlogic-s9xxx-openwrt
+          fi
+          git clone --depth 1 https://github.com/maizil41/amlogic-s9xxx-openwrt.git
+          cd amlogic-s9xxx-openwrt
+          mkdir -p openwrt-armvirt
+    
+      - name: Download Rootfs
+        uses: actions/download-artifact@v3
+        with:
+          name: amlogic-rootfs
+          path: ./amlogic-s9xxx-openwrt/openwrt-armvirt/
+          
+      - name: Build Firmware ${{ matrix.board_version }} with Kernel ${{ github.event.inputs.kernel_version }}
+        run: |
+          cd amlogic-s9xxx-openwrt
+          sudo ./remake -b ${{ matrix.board_version }} -k ${{ github.event.inputs.kernel_version }} -s 1024
+      
+      - name: Find Firmware
+        run: |
+          FILE_PATH=$(find ./amlogic-s9xxx-openwrt/openwrt/out/ -name "*.img.gz")
+          echo "FILE_PATH=$FILE_PATH" >> $GITHUB_ENV
+          echo -e "FILE_PATH path: $FILE_PATH"
+          
+      - name: Upload Firmware
+        uses: actions/upload-artifact@v3
+        with:
+          name: amlogic-firmware
+          path: |
+            ${{ env.FILE_PATH }}
+          
