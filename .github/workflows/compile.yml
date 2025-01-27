@@ -206,26 +206,19 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
         with:
-          name: Mutiara-Wrt_23.05.5
-          tag_name: v23.05.5_k${{ github.event.inputs.kernel_version }}
+          name: Rizz-Wrt_
+          tag_name: Rizzwrt_k${{ github.event.inputs.kernel_version }}
           draft: false
           prerelease: false
           files: |
                 ./artifacts/*.img.gz
           body: |
-            ### Mutiara-Wrt Information
+            ### Rizz-Wrt Information
             * Default IP: 192.168.1.1
-            * Default username: root
-            * Default password: mutiara
-            * Default WIFI name: Mutiara-Wrt
-            * Default WIFI password: 12345678
             * Release date: ${{ env.date_time }}
             
             ### Tools Installed
-            * Radius Monitor
             * OpenClash v0.46.046-beta
-            * WhatsApp Bot
-            * and others
 
   release_all:
     name: Release All
@@ -250,23 +243,16 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
         with:
-          name: Mutiara-Wrt_23.05.5
-          tag_name: v23.05.5_k${{ github.event.inputs.kernel_version }}
+          name: Rizz-Wrt_
+          tag_name: Rizzwrt_k${{ github.event.inputs.kernel_version }}
           draft: false
           prerelease: false
           files: |
                 ./artifacts/*.img.gz
           body: |
-            ### Mutiara-Wrt Information
+            ### Rizz-Wrt Information
             * Default IP: 192.168.1.1
-            * Default username: root
-            * Default password: mutiara
-            * Default WIFI name: Mutiara-Wrt
-            * Default WIFI password: 12345678
             * Release date: ${{ env.date_time }}
             
             ### Tools Installed
-            * Radius Monitor
             * OpenClash v0.46.046-beta
-            * WhatsApp Bot
-            * and others
