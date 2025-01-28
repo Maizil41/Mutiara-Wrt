@@ -43,6 +43,16 @@ on:
           - 5.4.y
           - 6.1.y
           - 6.6.y
+      rootfs_size:
+        description: 'Select Rootfs Size'
+        required: true
+        default: '1024'
+        type: choice
+        options:
+          - 256
+          - 512
+          - 1024
+          - 1536
       rootfs_url:
         description: 'Input Rootfs URL (Wget Only)'
         required: false
@@ -90,7 +100,7 @@ jobs:
       - name: Build Firmware ${{ github.event.inputs.board_version }} with Kernel ${{ github.event.inputs.kernel_version }}
         run: |
           cd amlogic-s9xxx-openwrt
-          sudo ./remake -b ${{ github.event.inputs.board_version }} -k ${{ github.event.inputs.kernel_version }} -s 1024
+          sudo ./remake -b ${{ github.event.inputs.board_version }} -k ${{ github.event.inputs.kernel_version }} -s ${{ github.event.inputs.rootfs_size }}
       
       - name: Find Firmware
         run: |
@@ -152,7 +162,7 @@ jobs:
       - name: Build Firmware ${{ matrix.board_version }} with Kernel ${{ github.event.inputs.kernel_version }}
         run: |
           cd amlogic-s9xxx-openwrt
-          sudo ./remake -b ${{ matrix.board_version }} -k ${{ github.event.inputs.kernel_version }} -s 1024
+          sudo ./remake -b ${{ matrix.board_version }} -k ${{ github.event.inputs.kernel_version }} -s ${{ github.event.inputs.rootfs_size }}
       
       - name: Find Firmware
         run: |
