@@ -55,7 +55,7 @@ on:
           - 1536
       rootfs_url:
         description: 'Input Rootfs URL (Wget Only)'
-        required: false
+        required: true
         default: ''
 
 jobs:
