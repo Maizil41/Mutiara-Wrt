@@ -224,7 +224,7 @@ jobs:
           mkdir -p openwrt-armvirt
     
       - name: Download Rootfs
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: amlogic-rootfs
           path: ./amlogic-s9xxx-openwrt/openwrt-armvirt/
@@ -438,7 +438,7 @@ jobs:
           mkdir -p openwrt-armvirt
     
       - name: Download Rootfs
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: amlogic-rootfs
           path: ./amlogic-s9xxx-openwrt/openwrt-armvirt/
