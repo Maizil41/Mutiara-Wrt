@@ -105,15 +105,43 @@ jobs:
       - name: Find Firmware
         run: |
           FILE_PATH=$(find ./amlogic-s9xxx-openwrt/openwrt/out/ -name "*.img.gz")
+          if [[ -z "$FILE_PATH" ]]; then
+            echo "Error: Tidak ada file firmware ditemukan!"
+            exit 1
+          fi
           echo "FILE_PATH=$FILE_PATH" >> $GITHUB_ENV
-          echo -e "FILE_PATH path: $FILE_PATH"
+
+      - name: Set up date
+        id: set_date
+        run: |
+          export TZ='Asia/Jakarta'
+          echo "date_time=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
           
-      - name: Upload Firmware
-        uses: actions/upload-artifact@v3
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
         with:
-          name: amlogic-firmware
-          path: |
-            ${{ env.FILE_PATH }}
+          name: Mutiara-Wrt_23.05.5
+          tag_name: v23.05.5_k${{ github.event.inputs.kernel_version }}
+          draft: false
+          prerelease: false
+          files: |
+                ${{ env.FILE_PATH }}
+          body: |
+            ### Mutiara-Wrt Information
+            * Default IP: 192.168.1.1
+            * Default username: root
+            * Default password: mutiara
+            * Default WIFI name: Mutiara-Wrt
+            * Default WIFI password: 12345678
+            * Release date: ${{ env.date_time }}
+            
+            ### Tools Installed
+            * Radius Monitor
+            * OpenClash v0.46.046-beta
+            * WhatsApp Bot
+            * and others
 
   build_all:
     name: Build All
@@ -167,33 +195,17 @@ jobs:
       - name: Find Firmware
         run: |
           FILE_PATH=$(find ./amlogic-s9xxx-openwrt/openwrt/out/ -name "*.img.gz")
+          if [[ -z "$FILE_PATH" ]]; then
+            echo "Error: Tidak ada file firmware ditemukan!"
+            exit 1
+          fi
           echo "FILE_PATH=$FILE_PATH" >> $GITHUB_ENV
-          echo -e "FILE_PATH path: $FILE_PATH"
-          
-      - name: Upload Firmware
-        uses: actions/upload-artifact@v3
-        with:
-          name: amlogic-firmware
-          path: |
-            ${{ env.FILE_PATH }}
 
-  release_specific:
-    name: Release Single
-    runs-on: ubuntu-latest
-    needs: build_specific
-    if: needs.build_specific.result == 'success'
-    steps:
       - name: Set up date
         id: set_date
         run: |
           export TZ='Asia/Jakarta'
           echo "date_time=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
-          
-      - name: Download Firmware
-        uses: actions/download-artifact@v3
-        with:
-          name: amlogic-firmware
-          path: ./artifacts/
           
       - name: Create Release
         uses: softprops/action-gh-release@v2
@@ -205,51 +217,7 @@ jobs:
           draft: false
           prerelease: false
           files: |
-                ./artifacts/*.img.gz
-          body: |
-            ### Mutiara-Wrt Information
-            * Default IP: 192.168.1.1
-            * Default username: root
-            * Default password: mutiara
-            * Default WIFI name: Mutiara-Wrt
-            * Default WIFI password: 12345678
-            * Release date: ${{ env.date_time }}
-            
-            ### Tools Installed
-            * Radius Monitor
-            * OpenClash v0.46.046-beta
-            * WhatsApp Bot
-            * and others
-
-  release_all:
-    name: Release All
-    runs-on: ubuntu-latest
-    needs: build_all
-    if: needs.build_all.result == 'success'
-    steps:
-      - name: Set up date
-        id: set_date
-        run: |
-          export TZ='Asia/Jakarta'
-          echo "date_time=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
-          
-      - name: Download Firmware
-        uses: actions/download-artifact@v3
-        with:
-          name: amlogic-firmware
-          path: ./artifacts/
-          
-      - name: Create Release
-        uses: softprops/action-gh-release@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
-        with:
-          name: Mutiara-Wrt_23.05.5
-          tag_name: v23.05.5_k${{ github.event.inputs.kernel_version }}
-          draft: false
-          prerelease: false
-          files: |
-                ./artifacts/*.img.gz
+                ${{ env.FILE_PATH }}
           body: |
             ### Mutiara-Wrt Information
             * Default IP: 192.168.1.1
