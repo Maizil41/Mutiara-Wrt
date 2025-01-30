@@ -101,4 +101,3 @@ jobs:
           name: amlogic-firmware
           path: |
             ${{ env.FILE_PATH }}
-          
