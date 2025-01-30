@@ -193,7 +193,7 @@ on:
 jobs:
   download:
     name: Download Rootfs
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
       - name: Download Rootfs
         run: |
@@ -202,7 +202,7 @@ jobs:
           echo "ROOTFS_PATH=$ROOTFS_PATH" >> $GITHUB_ENV
           
       - name: Upload Rootfs
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v6
         with:
           name: amlogic-rootfs
           path: |
