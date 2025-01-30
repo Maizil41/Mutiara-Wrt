@@ -53,6 +53,14 @@ on:
           - 512
           - 1024
           - 1536
+      openwrt_ver:
+        description: 'Select OpenWrt Version'
+        required: true
+        default: '23.05.x'
+        type: choice
+        options:
+          - 23.05.x
+          - 24.10.x
       rootfs_url:
         description: 'Input Rootfs URL (Wget Only)'
         required: true
@@ -122,8 +130,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
         with:
-          name: Mutiara-Wrt_23.05.5
-          tag_name: v23.05.5_k${{ github.event.inputs.kernel_version }}
+          name: Mutiara-Wrt ${{ github.event.inputs.openwrt_ver }}
+          tag_name: v${{ github.event.inputs.openwrt_ver }}_k${{ github.event.inputs.kernel_version }}
           draft: false
           prerelease: false
           files: |
@@ -212,8 +220,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
         with:
-          name: Mutiara-Wrt_23.05.5
-          tag_name: v23.05.5_k${{ github.event.inputs.kernel_version }}
+          name: Mutiara-Wrt ${{ github.event.inputs.openwrt_ver }}
+          tag_name: v${{ github.event.inputs.openwrt_ver }}_k${{ github.event.inputs.kernel_version }}
           draft: false
           prerelease: false
           files: |
