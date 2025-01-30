@@ -24,15 +24,7 @@ on:
           - 5.4.y
           - 6.1.y
           - 6.6.y
-      rootfs_type:
-        description: 'Select Rootfs Type'
-        required: true
-        default: 'Mutiara-Wrt'
-        type: choice
-        options:
-          - Mutiara-Wrt
-          - Custom-Rootfs
-      custom_rootfs_url:
+      rootfs_url:
         description: 'Input Custom Rootfs URL (if rootfs_type is Custom-Rootfs)'
         required: false
         default: ''
@@ -40,34 +32,7 @@ on:
 jobs:
   download:
     name: Download Rootfs
-    runs-on: ubuntu-latest
-    steps:
-      - name: Download Rootfs
-        run: |
-          if [ "${{ github.event.inputs.rootfs_type }}" == "Mutiara-Wrt" ]; then
-            LATEST_URL=$(curl -s https://api.github.com/repos/Maizil41/Rootfs/releases/latest | jq -r '.assets[] | select(.name | contains("rootfs.tar.gz")) | .browser_download_url' | tail -n 1)
-            wget "$LATEST_URL"
-          elif [ "${{ github.event.inputs.rootfs_type }}" == "Custom-Rootfs" ]; then
-            wget "${{ github.event.inputs.custom_rootfs_url }}"
-          else
-            echo "Error: Unsupported rootfs_type selected."
-            exit 1
-          fi
-          ROOTFS_PATH=$(find ./ -name "*rootfs.tar.gz")
-          echo "ROOTFS_PATH=$ROOTFS_PATH" >> $GITHUB_ENV
-          
-      - name: Upload Rootfs
-        uses: actions/upload-artifact@v3
-        with:
-          name: amlogic-rootfs
-          path: |
-            ${{ env.ROOTFS_PATH }}
-
-  build_specific:
-    name: Build ${{ github.event.inputs.board_version }}
     runs-on: ubuntu-22.04
-    needs: download
-    if: github.event.inputs.board_version != 'all'
     steps:
       - name: Clone Amlogic Builder
         run: |
@@ -78,11 +43,10 @@ jobs:
           cd amlogic-s9xxx-openwrt
           mkdir -p openwrt-armvirt
     
-      - name: Download Rootfs
-        uses: actions/download-artifact@v3
-        with:
-          name: amlogic-rootfs
-          path: ./amlogic-s9xxx-openwrt/openwrt-armvirt/
+      - name: Move Rootfs
+        run: |
+          wget "${{ github.event.inputs.rootfs_url }}"
+          mv *rootfs.tar.* amlogic-s9xxx-openwrt/openwrt-armvirt/
           
       - name: Build Firmware ${{ github.event.inputs.board_version }} with Kernel ${{ github.event.inputs.kernel_version }}
         run: |
