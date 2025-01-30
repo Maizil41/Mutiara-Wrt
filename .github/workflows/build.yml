@@ -193,7 +193,7 @@ on:
 jobs:
   download:
     name: Download Rootfs
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: Download Rootfs
         run: |
