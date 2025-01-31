@@ -61,7 +61,7 @@ jobs:
           echo -e "FILE_PATH path: $FILE_PATH"
           
       - name: Upload Firmware
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: amlogic-firmware
           path: |
