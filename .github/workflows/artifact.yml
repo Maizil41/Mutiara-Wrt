@@ -39,7 +39,8 @@ jobs:
           if [ -d "amlogic-s9xxx-openwrt" ]; then
             rm -rf amlogic-s9xxx-openwrt
           fi
-          git clone --depth 1 https://github.com/maizil41/amlogic-s9xxx-openwrt.git
+          #git clone --depth 1 https://github.com/maizil41/amlogic-s9xxx-openwrt.git
+          git clone --depth 1 https://github.com/maizil41/amlogic-s9xxx-old.git
           cd amlogic-s9xxx-openwrt
           mkdir -p openwrt-armvirt
     
