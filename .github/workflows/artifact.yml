@@ -36,27 +36,26 @@ jobs:
     steps:
       - name: Clone Amlogic Builder
         run: |
-          if [ -d "amlogic-s9xxx-old" ]; then
-            rm -rf amlogic-s9xxx-old
+          if [ -d "amlogic-s9xxx-openwrt" ]; then
+            rm -rf amlogic-s9xxx-openwrt
           fi
-          #git clone --depth 1 https://github.com/maizil41/amlogic-s9xxx-openwrt.git
-          git clone --depth 1 https://github.com/maizil41/amlogic-s9xxx-old.git
-          cd amlogic-s9xxx-old
+          git clone --depth 1 https://github.com/maizil41/amlogic-s9xxx-openwrt.git
+          cd amlogic-s9xxx-openwrt
           mkdir -p openwrt-armvirt
     
       - name: Move Rootfs
         run: |
           wget "${{ github.event.inputs.rootfs_url }}"
-          mv *rootfs.tar.* amlogic-s9xxx-old/openwrt-armvirt/
+          mv *rootfs.tar.* amlogic-s9xxx-openwrt/openwrt-armvirt/
           
       - name: Build Firmware ${{ github.event.inputs.board_version }} with Kernel ${{ github.event.inputs.kernel_version }}
         run: |
-          cd amlogic-s9xxx-old
+          cd amlogic-s9xxx-openwrt
           sudo ./remake -b ${{ github.event.inputs.board_version }} -k ${{ github.event.inputs.kernel_version }} -s 1024
       
       - name: Find Firmware
         run: |
-          FILE_PATH=$(find ./amlogic-s9xxx-old/openwrt/out/ -name "*.img.gz")
+          FILE_PATH=$(find ./amlogic-s9xxx-openwrt/openwrt/out/ -name "*.img.gz")
           echo "FILE_PATH=$FILE_PATH" >> $GITHUB_ENV
           echo -e "FILE_PATH path: $FILE_PATH"
           
