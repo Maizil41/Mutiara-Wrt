@@ -50,6 +50,7 @@ jobs:
       - name: Build Firmware ${{ github.event.inputs.board_version }} with Kernel ${{ github.event.inputs.kernel_version }}
         run: |
           cd amlogic-s9xxx-old
+          chmod +x remake
           sudo ./remake -b ${{ github.event.inputs.board_version }} -k ${{ github.event.inputs.kernel_version }} -s 1024
       
       - name: Find Firmware
