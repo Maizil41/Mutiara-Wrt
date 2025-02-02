@@ -1,0 +1,66 @@
+# Copyright (C) 2024 Maizil41 https://github.com/maizil41
+# https://github.com/ophub/amlogic-s9xxx-old
+
+name: Old Artifact Only
+on:
+  workflow_dispatch:
+    inputs:
+      board_version:
+        description: 'Select board version to compile'
+        required: true
+        default: 's905x'
+        type: choice
+        options:
+          - s905x
+          - s905x-b860h
+      kernel_version:
+        description: 'Select kernel version'
+        required: true
+        default: '5.15.y'
+        type: choice
+        options:
+          - 5.10.y
+          - 5.15.y
+          - 5.4.y
+          - 6.1.y
+          - 6.6.y
+      rootfs_url:
+        description: 'Input Custom Rootfs URL (if rootfs_type is Custom-Rootfs)'
+        required: false
+        default: ''
+
+jobs:
+  download:
+    name: Download Rootfs
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Clone Amlogic Builder
+        run: |
+          if [ -d "amlogic-s9xxx-old" ]; then
+            rm -rf amlogic-s9xxx-old
+          fi
+          git clone --depth 1 https://github.com/maizil41/amlogic-s9xxx-old.git
+          mkdir -p amlogic-s9xxx-old/openwrt-armvirt
+    
+      - name: Move Rootfs
+        run: |
+          wget "${{ github.event.inputs.rootfs_url }}"
+          mv *rootfs.tar.* amlogic-s9xxx-old/openwrt-armvirt/
+          
+      - name: Build Firmware ${{ github.event.inputs.board_version }} with Kernel ${{ github.event.inputs.kernel_version }}
+        run: |
+          cd amlogic-s9xxx-old
+          sudo ./remake -b ${{ github.event.inputs.board_version }} -k ${{ github.event.inputs.kernel_version }} -s 1024
+      
+      - name: Find Firmware
+        run: |
+          FILE_PATH=$(find ./amlogic-s9xxx-old/openwrt/out/ -name "*.img.gz")
+          echo "FILE_PATH=$FILE_PATH" >> $GITHUB_ENV
+          echo -e "FILE_PATH path: $FILE_PATH"
+          
+      - name: Upload Firmware
+        uses: actions/upload-artifact@v4
+        with:
+          name: amlogic-firmware
+          path: |
+            ${{ env.FILE_PATH }}
