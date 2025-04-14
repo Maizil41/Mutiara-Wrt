@@ -25,7 +25,7 @@ on:
           - 6.1.y
           - 6.6.y
       rootfs_url:
-        description: 'Input Custom Rootfs URL (if rootfs_type is Custom-Rootfs)'
+        description: 'Input Rootfs URL'
         required: false
         default: ''
 
