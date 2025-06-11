@@ -6,9 +6,9 @@ unzip /tmp/Bahan.zip -d /tmp/
 
 mv /tmp/Bahan/whatsapp /usr/lib/lua/luci/view/
 
-rm -f /www/luci-static/resources/view/whatsapp/whatsapp.js
+rm -f /www/luci-static/resources/view/whatsapp/setting.js
 
-mv /tmp/Bahan/whatsapp.js /www/luci-static/resources/view/whatsapp/
+mv /tmp/Bahan/setting.js /www/luci-static/resources/view/whatsapp/
 
 rm -f /usr/share/luci/menu.d/luci-app-whatsapp-bot.json
 
