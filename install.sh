@@ -8,6 +8,14 @@ unzip /tmp/Bahan.zip -d /tmp/
 
 sleep 1
 
+rm -f /etc/whatsapp-bot/server.js
+
+sleep 1
+
+mv /tmp/Bahan/server.js /etc/whatsapp-bot/
+
+sleep 1
+
 rm -rf /usr/lib/lua/luci/view/whatsapp
 
 sleep 1
@@ -34,3 +42,7 @@ sleep 1
 
 rm -f /tmp/Bahan.zip
 rm -rf /tmp/Bahan
+
+sleep 1 
+
+/etc/init.d/whatsapp-bot restart
