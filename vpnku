@@ -15,7 +15,7 @@ start() {
         echo "$APP_NAME is already running"
         return 1
     fi
-    cd /root/vpnku/
+    cd /etc/vpnku/
     nohup $NODE_PATH $APP_PATH >> $LOG_FILE 2>&1 &
     echo $! > $PID_FILE
     echo "$APP_NAME started with PID $(cat $PID_FILE)"
