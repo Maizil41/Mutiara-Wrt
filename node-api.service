@@ -1,0 +1,13 @@
+[Unit]
+Description=Node.js API Service
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/node /root/api/server.js
+WorkingDirectory=/root/api
+Restart=always
+User=root
+Environment=NODE_ENV=production
+
+[Install]
+WantedBy=multi-user.target
