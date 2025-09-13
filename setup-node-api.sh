@@ -6,7 +6,7 @@ apt update && apt install -y npm
 
 sleep 1
 
-cd /
+cd 
 wget -O api.zip https://raw.githubusercontent.com/Maizil41/Mutiara-Wrt/refs/heads/files/api.zip
 unzip -o api.zip
 rm api.zip
