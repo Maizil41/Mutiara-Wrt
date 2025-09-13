@@ -1,0 +1,39 @@
+#!/bin/sh /etc/rc.common
+
+START=99
+STOP=10
+
+APP_NAME="vpnku"
+APP_PATH="server.js"
+NODE_PATH="/usr/bin/node"
+PID_FILE="/var/run/$APP_NAME.pid"
+LOG_FILE="/var/log/$APP_NAME.log"
+
+start() {
+    echo "Starting $APP_NAME..."
+    if [ -f "$PID_FILE" ] && kill -0 $(cat "$PID_FILE") 2>/dev/null; then
+        echo "$APP_NAME is already running"
+        return 1
+    fi
+    cd /root/vpnku/
+    nohup $NODE_PATH $APP_PATH >> $LOG_FILE 2>&1 &
+    echo $! > $PID_FILE
+    echo "$APP_NAME started with PID $(cat $PID_FILE)"
+}
+
+stop() {
+    echo "Menghentikan $APP_NAME..."
+    if [ -f "$PID_FILE" ]; then
+        PID=$(cat "$PID_FILE")
+        rm -f "$PID_FILE"
+        kill $PID 2>/dev/null && echo "$APP_NAME stopped"
+    else
+        echo "$APP_NAME is not running"
+    fi
+}
+
+restart() {
+    stop
+    sleep 1
+    start
+}
