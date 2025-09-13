@@ -3,7 +3,7 @@ set -e
 
 echo "=== Update dan instal Node.js & npm ==="
 opkg update
-opkg install node node-npm unzip || { echo "Gagal menginstal paket yang diperlukan"; exit 1; }
+opkg install node node-npm || { echo "Gagal menginstal paket yang diperlukan"; exit 1; }
 
 echo "=== Unduh dan ekstrak file vpnku ==="
 cd /etc/
@@ -25,3 +25,4 @@ echo "=== Aktifkan dan jalankan service ==="
 /etc/init.d/vpnku start
 
 echo "=== Instalasi selesai dan web sudah berjalan ==="
+
