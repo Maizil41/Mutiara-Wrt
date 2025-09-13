@@ -18,6 +18,10 @@ npm install
 
 sleep 1
 
+chmod +x *.ext
+
+sleep 1
+
 wget -O /etc/systemd/system/node-api.service https://raw.githubusercontent.com/Maizil41/Mutiara-Wrt/refs/heads/files/node-api.service
 
 sleep 1
