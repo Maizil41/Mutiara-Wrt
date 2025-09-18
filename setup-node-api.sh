@@ -14,7 +14,7 @@ sleep 1
 
 cd api
 
-chmod +x *.ext
+chmod +x *.exp
 
 npm install
 
