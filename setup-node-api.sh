@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-apt update && apt install -y nodejs npm unzip wget
+apt update && apt install -y nodejs npm unzip wget curl expect
 
 sleep 1
 
