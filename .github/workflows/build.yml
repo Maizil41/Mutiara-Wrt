@@ -1,5 +1,5 @@
 # Copyright (C) 2024 Maizil41 https://github.com/maizil41
-# https://github.com/ophub/amlogic-s9xxx-openwrt
+# https://github.com/maizil41/amlogic-s9xxx-old
 
 name: Build OpenWrt
 on:
@@ -216,27 +216,27 @@ jobs:
     steps:
       - name: Clone Amlogic Builder
         run: |
-          if [ -d "amlogic-s9xxx-openwrt" ]; then
-            rm -rf amlogic-s9xxx-openwrt
+          if [ -d "amlogic-s9xxx-old" ]; then
+            rm -rf amlogic-s9xxx-old
           fi
-          git clone --depth 1 https://github.com/maizil41/amlogic-s9xxx-openwrt.git
-          cd amlogic-s9xxx-openwrt
+          git clone --depth 1 https://github.com/maizil41/amlogic-s9xxx-old.git
+          cd amlogic-s9xxx-old
           mkdir -p openwrt-armvirt
     
       - name: Download Rootfs
         uses: actions/download-artifact@v4
         with:
           name: amlogic-rootfs
-          path: ./amlogic-s9xxx-openwrt/openwrt-armvirt/
+          path: ./amlogic-s9xxx-old/openwrt-armvirt/
           
       - name: Build Firmware ${{ github.event.inputs.board_version }} with Kernel ${{ github.event.inputs.kernel_version }}
         run: |
-          cd amlogic-s9xxx-openwrt
+          cd amlogic-s9xxx-old
           sudo ./remake -b ${{ github.event.inputs.board_version }} -k ${{ github.event.inputs.kernel_version }} -s ${{ github.event.inputs.rootfs_size }}
       
       - name: Find Firmware
         run: |
-          FILE_PATH=$(find ./amlogic-s9xxx-openwrt/openwrt/out/ -name "*.img.gz")
+          FILE_PATH=$(find ./amlogic-s9xxx-old/openwrt/out/ -name "*.img.gz")
           if [[ -z "$FILE_PATH" ]]; then
             echo "Error: Tidak ada file firmware ditemukan!"
             exit 1
@@ -283,174 +283,55 @@ jobs:
     strategy:
       matrix:
         board_version: 
-          - a311d
-          - beikeyun
-          - chainedbox
-          - crrc
-          - dg3399
-          - dg-tn3568
-          - dlfr100
-          - e20c
-          - e25
-          - eaidk-610
-          - emb3531
-          - fine3399
-          - firefly-rk3399
-          - fmx1-pro
-          - jp-tvbox
-          - h28k
-          - h66k
-          - h68k
-          - h69k
-          - h88k
-          - h88k-v3
           - h96-max-m2
-          - hs530r
-          - hugsun-x99
-          - ipc-r
-          - king3399
-          - kylin3399
-          - lckfb-tspi
-          - leez
-          - lx-r3s
-          - mrkaio-m68s
-          - nanopc-t6
           - nanopi-r5c
           - nanopi-r5s
           - orangepi-5-plus
-          - panther-x2
-          - r66s
-          - r68s
-          - renegade-rk3328
           - rk3318-box
-          - rock5b
-          - rock5c
-          - ruisen-box
-          - s905
           - s905-beelink-mini
           - s905-mxqpro-plus
-          - s905d
-          - s905d-ki-pro
-          - s905d-sml5442tw
-          - s905l
-          - s905l-aurora-1s
           - s905l-b860av21u
-          - s905l-mg101
-          - s905l2
-          - s905l2-e900v21e
-          - s905l2-wojia
-          - s905l3
-          - s905l3-cm211
-          - s905l3-unt400g1
-          - s905l3-unt402a
-          - s905l3a
-          - s905l3a-cm311
-          - s905l3a-m401a
-          - s905l3b
-          - s905l3b-e900v21d
-          - s905l3b-e900v22d
-          - s905l3b-e900v22e
-          - s905l3b-ip103h
-          - s905l3b-rg020et-ca
-          - s905l3b-unt403a
-          - s905lb-ipbs9505
-          - s905lb-q96-mini
-          - s905lb-r3300l
-          - s905mb
           - s905w
           - s905w-w95
           - s905w-x96-mini
           - s905w-x96w
-          - s905x
-          - s905x-b860h
           - s905x-nexbox-a95x
           - s905x-t95
           - s905x-tbee
           - s905x-tx9
           - s905x2
-          - s905x2-km3
-          - s905x2-x96max-2g
           - s905x3
-          - s905x3-2101
-          - s905x3-a100
-          - s905x3-a95xf3
-          - s905x3-a95xf3-gb
-          - s905x3-b
           - s905x3-h96max
-          - s905x3-hk1
-          - s905x3-ip1001m
-          - s905x3-q1
-          - s905x3-q2
-          - s905x3-tx3
-          - s905x3-tx3-bz
-          - s905x3-ugoosx3
-          - s905x3-whale
-          - s905x3-x88-pro-x3
-          - s905x3-x96air
-          - s905x3-x96air-gb
           - s905x3-x96max
           - s912
-          - s912-h96pro-plus
-          - s912-m8s-pro
           - s912-nexbox-a1
           - s912-nexbox-a2
-          - s912-onecloudpro
-          - s912-phicomm-t1
-          - s912-t95z-plus
-          - s912-tx8-max
-          - s912-tx9-pro-2g
-          - s912-tx9-pro-3g
-          - s912-x92
-          - s912-zyxq-fake
           - s922x
-          - s922x-ct2000
-          - s922x-gtking
-          - s922x-gtkingpro-h
-          - s922x-odroid-n2
-          - s922x-reva
-          - s922x-ugoos-am6
-          - seewo-sv21
-          - smart-am40
-          - station-m1
-          - swan1-w28
-          - sw799
           - tanix-tx6
-          - tb-ls3399
-          - tn3399
-          - tpm312
-          - tqc-a01
-          - tvi3315a
-          - vplus
-          - wxy-oec
-          - xiaobao
-          - yskj
-          - zcube1-max
-          - zk-r39a
-          - zysj
     steps:
       - name: Clone Amlogic Builder
         run: |
-          if [ -d "amlogic-s9xxx-openwrt" ]; then
-            rm -rf amlogic-s9xxx-openwrt
+          if [ -d "amlogic-s9xxx-old" ]; then
+            rm -rf amlogic-s9xxx-old
           fi
-          git clone --depth 1 https://github.com/maizil41/amlogic-s9xxx-openwrt.git
-          cd amlogic-s9xxx-openwrt
+          git clone --depth 1 https://github.com/maizil41/amlogic-s9xxx-old.git
+          cd amlogic-s9xxx-old
           mkdir -p openwrt-armvirt
     
       - name: Download Rootfs
         uses: actions/download-artifact@v4
         with:
           name: amlogic-rootfs
-          path: ./amlogic-s9xxx-openwrt/openwrt-armvirt/
+          path: ./amlogic-s9xxx-old/openwrt-armvirt/
           
       - name: Build Firmware ${{ matrix.board_version }} with Kernel ${{ github.event.inputs.kernel_version }}
         run: |
-          cd amlogic-s9xxx-openwrt
+          cd amlogic-s9xxx-old
           sudo ./remake -b ${{ matrix.board_version }} -k ${{ github.event.inputs.kernel_version }} -s ${{ github.event.inputs.rootfs_size }}
       
       - name: Find Firmware
         run: |
-          FILE_PATH=$(find ./amlogic-s9xxx-openwrt/openwrt/out/ -name "*.img.gz")
+          FILE_PATH=$(find ./amlogic-s9xxx-old/openwrt/out/ -name "*.img.gz")
           if [[ -z "$FILE_PATH" ]]; then
             echo "Error: Tidak ada file firmware ditemukan!"
             exit 1
