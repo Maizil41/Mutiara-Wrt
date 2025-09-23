@@ -1,5 +1,5 @@
 # Copyright (C) 2024 Maizil41 https://github.com/maizil41
-# https://github.com/ophub/amlogic-s9xxx-old
+# https://github.com/ophub/amlogic-s9xxx-openwrt
 
 name: Old Artifact Only
 on:
