@@ -220,9 +220,7 @@ jobs:
             rm -rf amlogic-s9xxx-old
           fi
           git clone --depth 1 https://github.com/maizil41/amlogic-s9xxx-old.git
-          cd amlogic-s9xxx-old
-          sudo chmod +X remake
-          mkdir -p openwrt-armvirt
+          mkdir -p amlogic-s9xxx-old/openwrt-armvirt
     
       - name: Download Rootfs
         uses: actions/download-artifact@v4
@@ -233,6 +231,7 @@ jobs:
       - name: Build Firmware ${{ github.event.inputs.board_version }} with Kernel ${{ github.event.inputs.kernel_version }}
         run: |
           cd amlogic-s9xxx-old
+          chmod +X remake
           sudo ./remake -b ${{ github.event.inputs.board_version }} -k ${{ github.event.inputs.kernel_version }} -s ${{ github.event.inputs.rootfs_size }}
       
       - name: Find Firmware
@@ -316,9 +315,7 @@ jobs:
             rm -rf amlogic-s9xxx-old
           fi
           git clone --depth 1 https://github.com/maizil41/amlogic-s9xxx-old.git
-          cd amlogic-s9xxx-old
-          sudo chmod +X remake
-          mkdir -p openwrt-armvirt
+          mkdir -p amlogic-s9xxx-old/openwrt-armvirt
     
       - name: Download Rootfs
         uses: actions/download-artifact@v4
@@ -328,7 +325,8 @@ jobs:
           
       - name: Build Firmware ${{ matrix.board_version }} with Kernel ${{ github.event.inputs.kernel_version }}
         run: |
-          cd amlogic-s9xxx-old
+          cd amlogic-s9xxx-old/
+          chmod +X remake
           sudo ./remake -b ${{ matrix.board_version }} -k ${{ github.event.inputs.kernel_version }} -s ${{ github.event.inputs.rootfs_size }}
       
       - name: Find Firmware
