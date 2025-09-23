@@ -221,6 +221,7 @@ jobs:
           fi
           git clone --depth 1 https://github.com/maizil41/amlogic-s9xxx-old.git
           cd amlogic-s9xxx-old
+          sudo chmod +X remake
           mkdir -p openwrt-armvirt
     
       - name: Download Rootfs
@@ -316,6 +317,7 @@ jobs:
           fi
           git clone --depth 1 https://github.com/maizil41/amlogic-s9xxx-old.git
           cd amlogic-s9xxx-old
+          sudo chmod +X remake
           mkdir -p openwrt-armvirt
     
       - name: Download Rootfs
