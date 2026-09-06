@@ -2,6 +2,12 @@
 
 USERNAME=$1
 
+# Validate USERNAME to prevent SQL injection
+if [[ ! "$USERNAME" =~ ^[a-zA-Z0-9._@-]+$ ]]; then
+    echo "Invalid username"
+    exit 2
+fi
+
 # Koneksi database
 DB_USER="radius"
 DB_PASS="radius"
