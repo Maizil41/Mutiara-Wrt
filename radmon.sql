@@ -107,8 +107,11 @@ CREATE TABLE `operators` (
   KEY `username` (`username`)
 ) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
+-- SECURITY: Do not ship real credentials in the database seed file.
+-- Set a unique, strong password for the `root` operator immediately after
+-- installation (e.g. via the admin panel) instead of relying on this default.
 INSERT INTO `operators` (`id`, `username`, `password`) VALUES
-(1,	'root',	'mutiara')
+(1,	'root',	'CHANGE_ME_ON_FIRST_LOGIN')
 ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `username` = VALUES(`username`), `password` = VALUES(`password`);
 
 SET NAMES utf8mb4;
