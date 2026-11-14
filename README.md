@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="screenshot/logo.svg" alt="logo" width="150">
+  <img src="screenshot/mutiara.png" alt="logo" width="150">
   <h1>Mutiara-Wrt</h1>
 </div>
 
